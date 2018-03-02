@@ -1,0 +1,11 @@
+name: funkywave
+type: theme
+description: 'Funkywave theme'
+core: 8.x
+base theme: classy
+libraries:
+  - funkywave/global-css
+  - funkywave/global-js
+libraries-override:
+  system/base: false
+  classy/base: false
