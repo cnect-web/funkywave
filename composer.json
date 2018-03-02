@@ -1,0 +1,11 @@
+{
+    "name": "cnect-web/funkywave",
+    "type": "drupal-theme",
+    "authors": [
+        {
+            "name": "Peter Neyens",
+            "email": "peter.neyens@telenet.be"
+        }
+    ],
+    "require": {}
+}
