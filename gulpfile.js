@@ -30,7 +30,7 @@ gulp.task('uglify', function() {
 
 //Compiles sass
 gulp.task('sass', function () {
-  return gulp.src('sass/**/*.scss')
+  return gulp.src('./sass/style.scss')
     .pipe(plumber())
     .pipe(sourcemaps.init())
     .pipe(sass(sass_config).on('error', sass.logError))
@@ -46,9 +46,9 @@ gulp.task('sass', function () {
 //Type "gulp" on the command line to watch file changes
 gulp.task('default', function(){
   livereload.listen();
-    gulp.watch('sass/**/*.scss', ['sass']);
-    gulp.watch('js/*.js', ['uglify']);
-    gulp.watch(['css/style.css', './**/*.twig', './js_min/*.js'], function (files){
+    gulp.watch('./sass/**/*.scss', ['sass']);
+    gulp.watch('./js/*.js', ['uglify']);
+    gulp.watch(['./css/style.css', './**/*.twig', './js_min/*.js'], function (files){
       livereload.changed(files)
     });
 });
