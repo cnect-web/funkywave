@@ -1,7 +1,6 @@
 'use strict';
 var gulp = require('gulp');
 var sass = require('gulp-sass');
-var glob = require("glob");
 var sourcemaps = require('gulp-sourcemaps');
 var autoprefixer = require('gulp-autoprefixer');
 var nodeSassGlobbing = require('node-sass-globbing');
@@ -30,16 +29,19 @@ gulp.task('uglify', function() {
 
 //Compiles sass
 gulp.task('sass', function () {
-  return gulp.src('./sass/style.scss')
+  return gulp.src('sass/style.scss')
     .pipe(plumber())
     .pipe(sourcemaps.init())
     .pipe(sass(sass_config).on('error', sass.logError))
     .pipe(autoprefixer({
-      browsers: ['last 2 version']
+      browsers: ['last 2 versions']
     }))
     .pipe(stripCssComments({preserve: false}))
     .pipe(sourcemaps.write('.'))
-    .pipe(cssbeautify())
+    .pipe(cssbeautify({
+      indent: '  ',
+      autosemicolon: false
+    }))
     .pipe(gulp.dest('./css'));
 });
 
