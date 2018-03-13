@@ -18,6 +18,7 @@ If you see a see a version >=8, you are ok. If not install or update your node. 
 https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-16-04
 
 #### Install gulp globally
+
 ```
 sudo npm install -g gulp
 ```
@@ -31,6 +32,7 @@ $ npm install
 ```
 
 #### Start watching your Sass and JS files:
+
 ```
 $ gulp
 ```
