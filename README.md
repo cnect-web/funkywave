@@ -36,6 +36,3 @@ $ gulp
 ```
 
 Watch your terminal to see what happens if you change sass and js files.
-
-
-
