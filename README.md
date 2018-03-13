@@ -24,8 +24,8 @@ sudo npm install -g gulp
 ```
 
 #### Install the node dependencies:
-All packages in package.json will be installed.
 Make sure you are in the theme folder before you enter the following command
+All packages in package.json will be installed.
 
 ```
 $ npm install
