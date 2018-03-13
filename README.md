@@ -8,21 +8,21 @@ Requirements:
 - [Node.js](https://nodejs.org/en/): `>= 8`
 - Gulp 
 
-### How to install node.js?
+#### How to install node.js?
 
 To find out if node is allready installed, open a terminal window and type:
 ```
 node -v
 ```
-If you see a see a version >=8, you are ok. If not install or update your node.
+If you see a see a version >=8, you are ok. If not install or update your node. The following article is helpfull.
 https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-16-04
 
-### Install gulp globally
+#### Install gulp globally
 ```
 sudo npm install -g gulp
 ```
 
-### Install the node dependencies:
+#### Install the node dependencies:
 All packages in package.json will be installed.
 Make sure you are in the theme folder before you enter the following command
 
@@ -30,7 +30,7 @@ Make sure you are in the theme folder before you enter the following command
 $ npm install
 ```
 
-### Start watching your Sass and JS files:
+#### Start watching your Sass and JS files:
 ```
 $ gulp
 ```
