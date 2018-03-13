@@ -1,6 +1,6 @@
-# funkywave theme
+# Funkywave theme
 
-Drupal 8 theme with Sass and Gulp task runner
+Drupal 8 theme with Sass and Gulp task runner.
 
 ## Development setup
 
@@ -9,14 +9,23 @@ Requirements:
 - Gulp 
 
 ### How to install node.js?
+
+To find out if node is allready installed, open a terminal window and type:
+```
+node -v
+```
+If you see a see a version >=8, you are ok. If not install or update your node.
 https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-16-04
 
-### How to install Gulp?
+### Install gulp globally
 ```
 sudo npm install -g gulp
 ```
 
 ### Install the node dependencies:
+All packages in package.json will be installed.
+Make sure you are in the theme folder before you enter the following command
+
 ```
 $ npm install
 ```
@@ -25,6 +34,8 @@ $ npm install
 ```
 $ gulp
 ```
+
+Watch your terminal to see what happens if you change sass and js files.
 
 
 
