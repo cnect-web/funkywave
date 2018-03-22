@@ -29,7 +29,7 @@ gulp.task('uglify', function() {
 
 //Compiles sass
 gulp.task('sass', function () {
-  return gulp.src('sass/style.scss')
+  return gulp.src('sass/*.scss')
     .pipe(plumber())
     .pipe(sourcemaps.init())
     .pipe(sass(sass_config).on('error', sass.logError))
