@@ -6,9 +6,9 @@ event_date:
       type: date
       label: Event start date
       description: Date d/m/Y
-      preview: 15/11/2018
+      preview: 2001-05-15T19:00
     event_end_date:
       type: date
       label: Event end date
       description: Date d/m/Y
-      preview: 15/11/2018
+      preview: 2001-05-15T19:00
