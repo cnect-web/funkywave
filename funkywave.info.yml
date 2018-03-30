@@ -6,6 +6,12 @@ base theme: classy
 libraries:
   - funkywave/global-css
   - funkywave/global-js
+# components module needs to be installed to use
+# {% include "@myLib/box/box.twig" %}
+component-libraries:
+  patterns:
+    paths:
+      - patterns  
 libraries-override:
   system/base: false
   classy/base: false
