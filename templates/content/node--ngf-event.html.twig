@@ -152,9 +152,22 @@
       {{ content.field_ngf_venue|field_value }}
       {{ content.field_ngf_address|field_value }}
     </div>
-  {% endif %} 
+  {% endif %}
 
-  {{ content.field_ngf_registration_link }}
+  {# How to integrate a component #}   
+
+   {#
+
+  {% include "@patterns/button/pattern-button.html.twig" 
+      with{
+      url: content.field_ngf_venue|field_value,
+      title: content.field_ngf_venue|field_value
+    }
+  %}
+  
+  #} 
+
+  {{ kint(content.field_ngf_registration_link|keys) }}
 
   {{ content.field_ngf_description }}
   
