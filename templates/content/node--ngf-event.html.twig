@@ -146,6 +146,8 @@
   {% endif %}
   </div>
 
+  {# Event Location #}
+
   {% if node.field_ngf_address is not empty %}
     <div class="event-location">
       <h3>{% trans %} Location {% endtrans %}</h3>
@@ -154,24 +156,21 @@
     </div>
   {% endif %}
 
+  {# Integration Button component for registration event #}
 
- 
+  {% set event_registration_url = content.field_ngf_registration_link|field_raw('uri') %}
+  {% set event_registration_title = content.field_ngf_registration_link|field_raw('title') %}
 
-  {# {{ content.field_ngf_registration_link|field_raw('uri') }} #}
-
-
-  {# How to integrate a component #}   
-
-
-
-  {% include "@patterns/button/pattern-button.html.twig" 
+  {% if event_registration_url is not empty %}
+    {% include "@patterns/button/pattern-button.html.twig" 
       with{
-      url: content.field_ngf_registration_link|field_raw('uri'),
-      title: content.field_ngf_registration_link|field_raw('title')
+      url: event_registration_url,
+      title: event_registration_title
     }
   %}
-  
-   
+  {% endif %} 
+
+  {# Event content #}
 
   {{ content.field_ngf_description }}
   
