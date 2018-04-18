@@ -92,11 +92,11 @@
   {{ title_suffix }}
 
   {% if display_submitted %}
-    <footer class="node__meta">
+    <div class="post-info post-info--group clearfix">
       {{ author_picture }}
-      <div{{ author_attributes.addClass('node__submitted') }}>
-        {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
-        {{ metadata }}
+      <div{{ author_attributes.addClass('post-info__details') }}>
+        <h4 class="post-info__author">{% trans %} by {{ author_name }} {% endtrans %}</h4>
+        <p class="post-info__metadata">{{ metadata }}</p>
       </div>
     </footer>
   {% endif %}
@@ -125,23 +125,23 @@
   <div class="event-dates">
   <h3>{% trans %} When {% endtrans %}</h3>
   {% if event_end_date is null %}
-    <time><span class="event-start-date">{{ event_start_date|format_date('event_day_month_year') }}</span></time>
+    <time><span class="event-start-date">{{ event_start_date|format_date('ngf_day_month_year') }}</span></time>
   {% else %}
     {# same month same year #}
     {% if (event_start_date_month == event_end_date_month) and (event_start_date_year == event_end_date_year) %}
-      <time><span class="event-start-date">{{ event_start_date|format_date('event_day') }}</span></time>
+      <time><span class="event-start-date">{{ event_start_date|format_date('ngf_day') }}</span></time>
       <span>-</span> 
-      <time><span class="event-end-date">{{ event_end_date|format_date('event_day_month_year') }}</span></time> 
+      <time><span class="event-end-date">{{ event_end_date|format_date('ngf_day_month_year') }}</span></time> 
     {# different month same year #}
     {% elseif (event_start_date_month != event_end_date_month) and (event_start_date_year == event_end_date_year) %}
-       <time><span class="event-start-date">{{ event_start_date|format_date('event_day_month') }}</span></time>
+       <time><span class="event-start-date">{{ event_start_date|format_date('ngf_day_month') }}</span></time>
        <span>-</span> 
-       <time><span class="event-end-date">{{ event_end_date|format_date('event_day_month_year') }}</span></time> 
+       <time><span class="event-end-date">{{ event_end_date|format_date('ngf_day_month_year') }}</span></time> 
     {# different year for event start date & end date #}
     {% elseif (event_start_date_year != event_end_date_year) %}
-       <time><span class="event-start-date">{{ event_start_date|format_date('event_day_month_year') }}</span></time>
+       <time><span class="event-start-date">{{ event_start_date|format_date('ngf_day_month_year') }}</span></time>
        <span>-</span> 
-       <time><span class="event-end-date">{{ event_end_date|format_date('event_day_month_year') }}</span></time>
+       <time><span class="event-end-date">{{ event_end_date|format_date('ngf_day_month_year') }}</span></time>
     {% endif %}
   {% endif %}
   </div>
