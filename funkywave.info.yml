@@ -3,6 +3,11 @@ type: theme
 description: 'Funkywave theme'
 core: 8.x
 base theme: classy
+regions:
+  logo_area: 'Logo area'
+  header: 'Header'
+  content: 'Content'
+  footer: 'Footer'
 libraries:
   - funkywave/global-css
   - funkywave/global-js

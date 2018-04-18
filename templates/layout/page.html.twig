@@ -42,21 +42,27 @@
  * @see html.html.twig
  */
 #}
-<div class="layout-container">
+<div class="general-container">
 
-  <header role="banner">
-    {{ page.header }}
+  <section class="logo-area">
+    {{ page.logo_area }}
+  </section>
+
+  <header class="general-header clearfix">
+    {{ page.logo_area }} 
+
+    <!--
+    <div class="account-info  account-info--notification account-info--list"> 
+      <a href="#" class="account-info__wrapper">
+        <img src="tmp_resources/accountPicture.jpg" alt="Richard Phillips Feynman" class="">
+        <div class="account-info__username no-display--sm">
+          Richard Phillips Feynman
+       </div>
+      </a>
+    </div>
+    -->
   </header>
-
-  {{ page.primary_menu }}
-  {{ page.secondary_menu }}
-
-  {{ page.breadcrumb }}
-
-  {{ page.highlighted }}
-
-  {{ page.help }}
-
+  
   <main role="main">
 
     <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
@@ -64,18 +70,6 @@
     <div class="layout-content">
       {{ page.content }}
     </div>{# /.layout-content #}
-
-    {% if page.sidebar_first %}
-      <aside class="layout-sidebar-first" role="complementary">
-        {{ page.sidebar_first }}
-      </aside>
-    {% endif %}
-
-    {% if page.sidebar_second %}
-      <aside class="layout-sidebar-second" role="complementary">
-        {{ page.sidebar_second }}
-      </aside>
-    {% endif %}
 
   </main>
 
