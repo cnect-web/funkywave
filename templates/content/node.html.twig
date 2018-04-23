@@ -83,42 +83,40 @@
 %}
 {{ attach_library('classy/node') }}
 <article{{ attributes.addClass(classes) }}>
-
+  <header>
   {{ title_prefix }}
   {% if not page %}
-    <h2{{ title_attributes }}>
+    <h2 class="logo-title">
       <a href="{{ url }}" rel="bookmark">{{ label }}</a>
     </h2>
   {% endif %}
   {{ title_suffix }}
 
+  <h2 class="logo-title">{{ drupal_title() }}</h2>
+
   {# block postinfo #}
 
   {% block postinfo %}
   {% if display_submitted %}
+    {% set profile_pic_uri = node.uid.entity.user_picture.entity.uri.value %}
+    {% set profile_name = node.uid.entity.name.value %}
+    {% set profile_uri = path('entity.user.canonical', {'user': user.id}) %}
+    {% set author_pic = {
+      '#theme': 'image_style',
+      '#style_name': 'thumbnail',
+      '#uri': profile_pic_uri,
+      '#alt': profile_name,
+      '#attributes': { class: 'post-info__picture post-info__picture--account responsive' }, 
+    } %}
 
     <div class="post-info post-info--group clearfix">
       <div class="post-info__ilustration">
-
-        {% set profile_uri = node.uid.entity.user_picture.entity.uri.value %}
-        {% set profile_name = node.uid.entity.name.value %}
-
-        {% set author_pic = {
-          '#theme': 'image_style',
-          '#style_name': 'thumbnail',
-          '#uri': profile_uri,
-          '#alt': profile_name,
-          '#attributes': { class: 'post-info__picture post-info__picture--account responsive' }, 
-        } %}
-
         {# link to the user profile wrapped around the user image #}
-
         {% if logged_in %}
-          <a href="{{ path('entity.user.canonical', {'user': user.id}) }}" class="post-info__link post-info__link--account">{{ author_pic }}</a>
+          <a href="{{ profile_uri }}" class="post-info__link post-info__link--account">{{ author_pic }}</a>
         {% else %}
           {{ author_pic }}
         {% endif %}
-
       </div>
       <div class="post-info__details">
         <h4 class="post-info__author">
@@ -131,10 +129,15 @@
           </h4>
         <p class="post-info__metadata">{{ metadata }}</p>
       </div>
-    </footer>
   {% endif %}
-  {% endblock %}
+  {% endblock postinfo %}
 
   {# end block postinfo #}
+  </header>
+
+  {% block content %}
+    {{ content }}
+  {% endblock content %}
 
 </article>
+

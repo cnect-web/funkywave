@@ -2,10 +2,11 @@
 {% embed 'node.html.twig' %}
   {% block postinfo %}
     {{ parent() }}
-  {% endblock %}
-{% endembed %}
+  {% endblock postinfo %}
+  {# block content overriden (content variable from page--front.html.twig not loaded) #}
+  {% block content %}
 
-  {% block eventdata %}
+    {% block eventdata %}
     {# convert date to an integer stamp #}
     {% set event_start_date = node.field_ngf_event_start_date.value|date('U') %}
     {# Convert event_end_date to an integer stamp if not empty #}  
@@ -26,55 +27,55 @@
     {# Start date & end date the same #}   
 
     <div class="event-dates">
-    <h3>{% trans %} When {% endtrans %}</h3>
-    {% if event_end_date is null %}
-      <time><span class="event-start-date">{{ event_start_date|format_date('ngf_day_month_year') }}</span></time>
-    {% else %}
-      {# same month same year #}
-      {% if (event_start_date_month == event_end_date_month) and (event_start_date_year == event_end_date_year) %}
-        <time><span class="event-start-date">{{ event_start_date|format_date('ngf_day') }}</span></time>
-        <span>-</span> 
-        <time><span class="event-end-date">{{ event_end_date|format_date('ngf_day_month_year') }}</span></time> 
-      {# different month same year #}
-      {% elseif (event_start_date_month != event_end_date_month) and (event_start_date_year == event_end_date_year) %}
-         <time><span class="event-start-date">{{ event_start_date|format_date('ngf_day_month') }}</span></time>
-         <span>-</span> 
-         <time><span class="event-end-date">{{ event_end_date|format_date('ngf_day_month_year') }}</span></time> 
-      {# different year for event start date & end date #}
-      {% elseif (event_start_date_year != event_end_date_year) %}
-         <time><span class="event-start-date">{{ event_start_date|format_date('ngf_day_month_year') }}</span></time>
-         <span>-</span> 
-         <time><span class="event-end-date">{{ event_end_date|format_date('ngf_day_month_year') }}</span></time>
+      <h3>{% trans %} When {% endtrans %}</h3>
+      {% if event_end_date is null %}
+        <time><span class="event-start-date">{{ event_start_date|format_date('ngf_day_month_year') }}</span></time>
+      {% else %}
+        {# same month same year #}
+        {% if (event_start_date_month == event_end_date_month) and (event_start_date_year == event_end_date_year) %}
+          <time><span class="event-start-date">{{ event_start_date|format_date('ngf_day') }}</span></time>
+          <span>-</span> 
+          <time><span class="event-end-date">{{ event_end_date|format_date('ngf_day_month_year') }}</span></time> 
+        {# different month same year #}
+        {% elseif (event_start_date_month != event_end_date_month) and (event_start_date_year == event_end_date_year) %}
+           <time><span class="event-start-date">{{ event_start_date|format_date('ngf_day_month') }}</span></time>
+           <span>-</span> 
+           <time><span class="event-end-date">{{ event_end_date|format_date('ngf_day_month_year') }}</span></time> 
+        {# different year for event start date & end date #}
+        {% elseif (event_start_date_year != event_end_date_year) %}
+           <time><span class="event-start-date">{{ event_start_date|format_date('ngf_day_month_year') }}</span></time>
+           <span>-</span> 
+           <time><span class="event-end-date">{{ event_end_date|format_date('ngf_day_month_year') }}</span></time>
+        {% endif %}
       {% endif %}
-    {% endif %}
     </div>
-  {% endblock %}
 
-  {# Event Location #}
+    {% endblock eventdata %}
 
-  {% block eventlocation %}
-    {% if node.field_ngf_address is not empty %}
-      <div class="event-location">
-        <h3>{% trans %} Location {% endtrans %}</h3>
-        {{ content.field_ngf_venue|field_value }}
-        {{ content.field_ngf_address|field_value }}
-      </div>
-    {% endif %}
-  {% endblock %}
+    {# Event Location #}
+    {% block eventlocation %}
+      {% if node.field_ngf_address is not empty %}
+        <div class="event-location">
+          <h3>{% trans %} Location {% endtrans %}</h3>
+            {{ content.field_ngf_venue|field_value }}
+            {{ content.field_ngf_address|field_value }}
+        </div>
+      {% endif %}
+    {% endblock eventlocation %}
 
+    {# Event register #}
+    {% block eventregister %}
+      {% set event_registration_url = content.field_ngf_registration_link|field_raw('uri') %}
+      {% set event_registration_title = content.field_ngf_registration_link|field_raw('title') %}
+      {% if event_registration_url is not empty %}
+        {% include "@patterns/button/pattern-button.html.twig" 
+          with{
+            url: event_registration_url,
+            title: event_registration_title
+          }
+        %}
+      {% endif %} 
+    {% endblock eventregister %}
 
-  {# registration event #}
-
-  {% block eventregister %}
-    {% set event_registration_url = content.field_ngf_registration_link|field_raw('uri') %}
-    {% set event_registration_title = content.field_ngf_registration_link|field_raw('title') %}
-
-    {% if event_registration_url is not empty %}
-      {% include "@patterns/button/pattern-button.html.twig" 
-        with{
-        url: event_registration_url,
-        title: event_registration_title
-      }
-    %}
-    {% endif %} 
-  {% endblock %}
+  {% endblock content %}
+{% endembed %}
