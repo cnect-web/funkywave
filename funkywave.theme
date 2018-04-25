@@ -1,0 +1,34 @@
+<?php
+
+/**
+ * @file
+ * Functions to support theming in the Bartik theme.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Template\Attribute;
+
+/**
+* Implement template_preprocess_node().
+*/
+function funkywave_preprocess_node(&$variables) {
+  $context = \Drupal::service('context.repository');
+  $groupContext = $context->getRuntimeContexts(['@group.group_route_context:group']);
+  $group = $groupContext['@group.group_route_context:group']->getContextData()->getValue();
+
+  if (isset($group)) {
+  	// ksm($group->field_ngf_logo);
+    $variables['group_name'] = $group->label();
+    $variables['group_url'] = $group->url();
+    $group_logo_uri = $group->field_ngf_logo->entity->getFileUri();
+
+		$render = [
+    	'#theme' => 'image_style',
+   		'#style_name' => 'thumbnail',
+  		'#uri' => $group_logo_uri,
+  		'#attributes' => ['class' => ['post-info__picture post-info__picture--group responsive']]
+		];
+
+		$variables['group_logo'] = drupal_render($render);
+  }
+}
