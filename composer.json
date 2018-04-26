@@ -9,6 +9,6 @@
     ],
     "require": {
     	"drupal/group": "^1.0",
-    	"drupal/components" "^1.0"
+    	"drupal/components": "^1.0"
     }
 }
