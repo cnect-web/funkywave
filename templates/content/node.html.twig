@@ -72,27 +72,28 @@
 #}
 
 {%
-  set classes = [
-    'node',
-    'node--type-' ~ node.bundle|clean_class,
-    node.isPromoted() ? 'node--promoted',
-    node.isSticky() ? 'node--sticky',
-    not node.isPublished() ? 'node--unpublished',
-    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
-  ]
+ set classes = [
+   'newsfeed__item',
+   'newsfeed__item--' ~ node.bundle|clean_class,
+   node.isPromoted() ? 'newsfeed__item--promoted',
+   node.isSticky() ? 'newsfeed__item--sticky',
+   not node.isPublished() ? 'node--unpublished newsfeed__item--unpublished',
+   view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+ ]
 %}
+
 {{ attach_library('classy/node') }}
 <article{{ attributes.addClass(classes) }}>
   <header>
   {{ title_prefix }}
   {% if not page %}
-    <h2 class="logo-title">
+    <h2>
       <a href="{{ url }}" rel="bookmark">{{ label }}</a>
     </h2>
   {% endif %}
   {{ title_suffix }}
 
-  <h2 class="logo-title">{{ drupal_title() }}</h2>
+  <h2>{{ drupal_title() }}</h2>
 
   {# block postinfo #}
   {% block postinfo %}
