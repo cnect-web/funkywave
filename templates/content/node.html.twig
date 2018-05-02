@@ -118,9 +118,9 @@
         {% else %}
           {{ author_pic }}
         {% endif %}
-
+        {% if group_url %}
         <a href="{{ group_url }}" class="post-info__link post-info__link--group">{{ group_logo }}</a>
-
+      {% endif %}
       </div>
       <div class="post-info__details">
         <h4 class="post-info__author">
