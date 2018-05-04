@@ -62,6 +62,13 @@
       {% endif %}
     {% endblock eventlocation %}
 
+    {# Event Description #}
+    {% block eventdescritption %}
+      {#{% if node.field_ngf_address is not empty %}#}
+      {{ content.field_ngf_description }}
+      {#{% endif %}#} 
+    {% endblock eventdescritption %}
+
     {# Event register #}
     {% block eventregister %}
       {% set event_registration_url = content.field_ngf_registration_link|field_raw('uri') %}
