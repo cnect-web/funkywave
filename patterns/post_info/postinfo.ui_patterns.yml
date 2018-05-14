@@ -2,9 +2,9 @@ postinfo:
   label: Post-info
   description: Block with author information and group information.
   fields:
-    author_pic:
-      type: image
-      label: Author picture
+    author_pic_uri:
+      type: url
+      label: Author picture url
       description: Author picture
       preview: http://www.attractivepartners.co.uk/create-perfect-profile-picture/
     profile_name:
@@ -40,5 +40,5 @@ postinfo:
     creation_date:
       type: date
       label: Creation date
-      description: Creattion date 'time ago' 
+      description: Creation date 'time ago' 
       preview: Tue, 05/08/2018 - 13:42

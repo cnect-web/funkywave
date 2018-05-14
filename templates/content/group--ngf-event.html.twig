@@ -40,25 +40,16 @@
  */
 #}
 
-{{ kint(content|keys) }}
-{{ kint(group|keys) }}
-
   {# block postinfo #}
   {% block postinfo %}
-    {% set profile_pic_uri = group.uid.entity.user_picture.entity.uri.value %}
-    {% set profile_name = group.uid.entity.name.value %}
-    {% set profile_uri = path('entity.user.canonical', {'user': user.id}) %}
-    {% set creation_date = group.created.value|time_diff %}  
-    {% set author_pic = {
-      '#theme': 'image_style',
-      '#style_name': 'thumbnail',
-      '#uri': profile_pic_uri,
-      '#alt': profile_name,
-      '#attributes': { class: 'post-info__picture post-info__picture--account responsive' }, 
-    } %}
 
     {% include "@patterns/post_info/pattern-postinfo.html.twig" 
-
+      with {
+        author_pic_uri: file_url(group.uid.entity.user_picture.entity.uri.value|image_style('thumbnail')),
+        profile_name: group.uid.entity.name.value,
+        profile_uri: path('entity.user.canonical', {'user': user.id}),
+        creation_date: group.created.value|time_diff,
+      }
     %}
 
   {% endblock postinfo %}

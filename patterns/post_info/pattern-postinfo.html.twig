@@ -8,7 +8,7 @@
   <div class="post-info__ilustration">
   {# link to the user profile wrapped around the user image #}
     {% if logged_in %} 
-      <a href="{{ profile_uri }}" class="post-info__link post-info__link--account">{{ author_pic }}</a>
+      <a href="{{ profile_uri }}" class="post-info__link post-info__link--account"><img src="{{  author_pic_uri }}" alt="{{ profile_name }}" class="post-info__picture post-info__picture--account responsive" /></a>
     {% else %} 
       {{ author_pic }}
     {% endif %}

@@ -7,6 +7,8 @@
 
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Template\Attribute;
+use Drupal\image\Entity\ImageStyle;
+
 
 /**
 * Implement template_preprocess_node().
@@ -30,5 +32,17 @@ function funkywave_preprocess_node(&$variables) {
 		];
 
 		$variables['group_logo'] = drupal_render($render);
+  }
+}
+
+function funkywave_preprocess_user(&$vars) {
+  $user = $vars['user'];
+  // get user image
+  if (!empty($user->user_picture[0])) {
+    $cover_image = $user->user_picture[0]->entity->getFileUri();
+    $image_url = ImageStyle::load('thumbnail')->buildUrl($cover_image);
+    $vars['user_pic'] = $image_url;
+    // get user name
+    $vars['user_name'] = $user->getUsername();
   }
 }
