@@ -99,17 +99,6 @@
   {% block postinfo %}
   {% if display_submitted %} 
 
-  {#  {% set author_pic = {
-      '#theme': 'image_style',
-      '#style_name': 'thumbnail',
-      '#uri': profile_pic_uri,
-      '#alt': profile_name,
-      '#attributes': { class: 'post-info__picture post-info__picture--account responsive' }, 
-    } %}
-  #}     
-
-   
-
     {% include "@patterns/post_info/pattern-postinfo.html.twig" 
       with {
         author_pic_uri: file_url(node.uid.entity.user_picture.entity.uri.value|image_style('thumbnail')),
@@ -118,11 +107,7 @@
         creation_date: node.created.value|time_diff,
       }
     %}
-
-    {{ author_pic_uri }}
-
  
-
   {% endif %}
   {% endblock postinfo %}
   {# end block postinfo #}
@@ -137,7 +122,6 @@
   </header>
 
   {% block content %}
-    {{ user_pic }}
     {{ content }}
   {% endblock content %}
 
