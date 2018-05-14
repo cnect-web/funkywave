@@ -20,11 +20,16 @@
     <h4 class="post-info__author">
     {% trans %} by {% endtrans %}
     {% if logged_in %}   
-      <a href="{{ profile_uri }}" class="post-info__link post-info__account-link">{{profile_name}}</a>
+      <a href="{{ profile_uri }}" class="post-info__link post-info__account-link">{{ profile_name }}</a>
     {% else %} 
        {{ profile_name }} 
     {% endif %}      
     </h4>
-    <p class="post-info__metadata">{% trans %} Posted {{ creation_date }} in <a href="{{ group_url }}" class="post-info__link post-info__group-link">{{ group_name }}</a> {% endtrans %}</p>
+    <p class="post-info__metadata">
+      {% trans %} Posted {{ creation_date }} {% endtrans %}
+      {% if group_url %}
+        {% trans %} in {% endtrans %} <a href="{{ group_url }}" class="post-info__link post-info__group-link">{{ group_name }}</a>
+      {% endif %}
+    </p>
   </div>
 </div>
