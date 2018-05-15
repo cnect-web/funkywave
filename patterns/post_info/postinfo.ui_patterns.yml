@@ -17,17 +17,17 @@ postinfo:
       label: Profile url
       description: Url to the author profile
       preview: https://en.wikipedia.org/wiki/User_profile
-    group_logo:
+    agroup_logo:
       type: image
       label: Group logo
       description: Url to the author profile
       preview: https://commons.wikimedia.org/wiki/File:Logo_TV_2015.png
-    group_url:
+    agroup_url:
       type: url
       label: Group url
       description: Url to the group
       preview: https://www.google.com
-    group_name:
+    agroup_name:
       type: text
       label: Group name
       description: Group name

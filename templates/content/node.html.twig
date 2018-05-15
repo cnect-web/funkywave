@@ -105,6 +105,9 @@
         profile_name: node.uid.entity.name.value,
         profile_uri: path('entity.user.canonical', {'user': user.id}),
         creation_date: node.created.value|time_diff,
+        group_logo: ngf_group_logo,
+        group_url: ngf_group_url,
+        group_name: ngf_group_name,
       }
     %}
  
