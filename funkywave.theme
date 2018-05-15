@@ -8,6 +8,8 @@
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Template\Attribute;
 use Drupal\image\Entity\ImageStyle;
+use Drupal\media\Entity\Media;
+use Drupal\file\Entity\File;
  
 /**
 * Implement template_preprocess_node().
