@@ -110,6 +110,7 @@
         group_logo: ngf_group_logo,
         group_url: ngf_group_url,
         group_name: ngf_group_name,
+        login_check: logged_in,
       }
     %}
  
@@ -118,7 +119,9 @@
   {# end block postinfo #}
 
   {# block coverimage #}
+
   {% block coverimage %}
+    {{ ngf_group_logo_uri }}
     {% if content.field_ngf_cover_image %}  
       {% set coverimageurl = file_url(content.field_ngf_cover_image|field_target_entity.field_media_image.entity.uri.value|image_style('media_large')) %}
         <img src="{{ coverimageurl }}" class="responsive">

@@ -48,10 +48,11 @@
         author_pic_uri: file_url(group.uid.entity.user_picture.entity.uri.value|image_style('thumbnail')),
         profile_name: group.uid.entity.name.value,
         profile_uri: path('entity.user.canonical', {'user': user.id}),
-        creation_date: group.created.value|time_diff,
-        group_logo: ngf_group_logo,
+        creation_date: group.created.value|time_diff,     
+        group_logo: file_url(ngf_group_logo_uri|image_style('thumbnail')),
         group_url: ngf_group_url,
         group_name: ngf_group_name,
+        login_check: logged_in,
       }
     %}
 
@@ -60,10 +61,12 @@
 
   {# block coverimage #}
   {% block coverimage %}
+
     {% if content.field_ngf_cover_image %}  
       {% set coverimageurl = file_url(content.field_ngf_cover_image|field_target_entity.field_media_image.entity.uri.value|image_style('media_large')) %}
         <img src="{{ coverimageurl }}" class="responsive">
       {% endif %}
+    }
   {% endblock coverimage %}
 
   {% block eventdata %}

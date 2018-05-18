@@ -15,38 +15,36 @@
 {% set mainpic = '' %}
 {% set subpic = '' %}
 
-{% if author_pic_uri %}
-  {% set mainpic_uri = author_pic_uri %}
-  {% set mainpic_alt = profile_name %}
-  {% set mainpic_profile_uri = profile_uri %}
-  {% set mainpic_login_check = login_check %}
-  {% set subpic = group_url %}
+{% if author_pic %}
+  {% set mainpic = author_pic %}
 {% else %}
-  {% set mainpic_uri = group_logo %}
-  {% set mainpic_alt = group_name %}
-  {% set mainpic_profile_uri = group_url %}
-  {% set mainpic_login_check = '1' %}  
+  {% set mainpic = group_logo %}
 {% endif %}  
 
 <div class="post-info {{ groupclass }} clearfix">
   <div class="post-info__ilustration">
   {# link to the user profile wrapped around the user image #}
-    {% if mainpic_login_check %} 
-      <a href="{{ mainpic_profile_uri }}" class="post-info__link post-info__link--account"><img src="{{ mainpic_uri }}" alt="{{ mainpic_alt }}" class="post-info__picture post-info__picture--account responsive" /></a>
+    {% if login_check and author_pic_uri %} 
+      <a href="{{ profile_uri }}" class="post-info__link post-info__link--account"><img src="{{ author_pic_uri }}" alt="{{ profile_name }}" class="post-info__picture post-info__picture--account responsive" /></a>
+
+      
+      
     {% else %} 
-      <img src="{{ mainpic_uri }}" alt="{{ mainpic_alt }}" class="post-info__picture post-info__picture--account responsive" />
+      <img src="{{ author_pic_uri }}" alt="{{ profile_name }}" class="post-info__picture post-info__picture--account responsive" />
     {% endif %}
-    {% if subpic %}
+    {% if group_url %}
       <a href="{{ group_url }}" class="post-info__link post-info__link--group">{{ group_logo }}</a>
     {% endif %} 
   </div>
   <div class="post-info__details">
     <h4 class="post-info__author">   
-    {% if mainpic_login_check %} 
-      {% trans %} by {% endtrans %} 
-      <a href="{{ mainpic_profile_uri }}" class="post-info__link post-info__account-link">{{ mainpic_alt }}</a>
+    {% if creation_date %}
+      {% trans %} by {% endtrans %}
+    {% endif %}
+    {% if login_check %}  
+      <a href="{{ profile_uri }}" class="post-info__link post-info__account-link">{{ profile_name }}</a>
     {% else %} 
-       {{ mainpic_alt }} 
+       {{ profile_name }} 
     {% endif %}      
     </h4>
     <p class="post-info__metadata">
