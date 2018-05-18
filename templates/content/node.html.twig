@@ -101,18 +101,18 @@
   {% block postinfo %}
   {% if display_submitted %} 
 
-    {% include "@patterns/post_info/pattern-postinfo.html.twig" 
-      with {
-        author_pic_uri: file_url(node.uid.entity.user_picture.entity.uri.value|image_style('thumbnail')),
-        profile_name: node.uid.entity.name.value,
-        profile_uri: path('entity.user.canonical', {'user': user.id}),
-        creation_date: node.created.value|time_diff,
-        group_logo: ngf_group_logo,
-        group_url: ngf_group_url,
-        group_name: ngf_group_name,
-        login_check: logged_in,
-      }
-    %}
+  {% include "@patterns/post_info/pattern-postinfo.html.twig" 
+    with {
+      author_pic_uri: file_url(node.uid.entity.user_picture.entity.uri.value|image_style('thumbnail')),
+      profile_name: node.uid.entity.name.value,
+      profile_uri: path('entity.user.canonical', {'user': user.id}),
+      creation_date: node.created.value|time_diff,
+      group_pic_uri: file_url(ngf_group_logo_uri|image_style('thumbnail')),
+      group_url: ngf_group_url,
+      group_name: ngf_group_name,
+      login_check: logged_in,
+    }
+  %}
  
   {% endif %}
   {% endblock postinfo %}
@@ -121,7 +121,7 @@
   {# block coverimage #}
 
   {% block coverimage %}
-    {{ ngf_group_logo_uri }}
+
     {% if content.field_ngf_cover_image %}  
       {% set coverimageurl = file_url(content.field_ngf_cover_image|field_target_entity.field_media_image.entity.uri.value|image_style('media_large')) %}
         <img src="{{ coverimageurl }}" class="responsive">
@@ -130,7 +130,7 @@
   </header>
 
   {% block content %}
-   {# {{ content }} #}
+    {{ content }} 
   {% endblock content %}
 
 </article>

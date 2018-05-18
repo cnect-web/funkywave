@@ -21,6 +21,8 @@
   {% set mainpic_profile_uri = profile_uri %}
   {% set mainpic_login_check = login_check %}
   {% set subpic = group_url %}
+  {% set subpic_uri = group_pic_uri %}
+  {% set subpic_alt = group_name %}   
 {% else %}
   {% set mainpic_uri = group_logo %}
   {% set mainpic_alt = group_name %}
@@ -37,7 +39,7 @@
       <img src="{{ mainpic_uri }}" alt="{{ mainpic_alt }}" class="post-info__picture post-info__picture--account responsive" />
     {% endif %}
     {% if subpic %}
-      <a href="{{ group_url }}" class="post-info__link post-info__link--group">{{ group_logo }}</a>
+      <a href="{{ group_url }}" class="post-info__link post-info__link--group"><img src="{{ subpic_uri }}" class="post-info__picture post-info__picture--group responsive" alt="{{ subpic_alt }}" /></a>
     {% endif %} 
   </div>
   <div class="post-info__details">
