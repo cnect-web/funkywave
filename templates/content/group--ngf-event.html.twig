@@ -65,8 +65,8 @@
     {% if content.field_ngf_cover_image %}  
       {% set coverimageurl = file_url(content.field_ngf_cover_image|field_target_entity.field_media_image.entity.uri.value|image_style('media_large')) %}
         <img src="{{ coverimageurl }}" class="responsive">
-      {% endif %}
-    }
+    {% endif %}
+    
   {% endblock coverimage %}
 
   {% block eventdata %}

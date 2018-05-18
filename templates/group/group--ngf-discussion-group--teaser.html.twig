@@ -40,13 +40,7 @@
  */
 #}
 
-{{ title_prefix }}
-{% if not page %}
-  <h2{{ title_attributes }}>
-    <a href="{{ url }}" rel="bookmark">{{ label }}</a>
-  </h2>
-{% endif %}
-{{ title_suffix }}
+
 
 {% include "@patterns/post_info/pattern-postinfo.html.twig" 
   with {   
@@ -55,13 +49,14 @@
     group_logo: file_url(ngf_group_logo_uri|image_style('thumbnail')),
     group_url: ngf_group_url,
     group_name: label,
+    group_visibility: content.field_ngf_group_visibility,
   }
 %}
 
 {# group_name: ngf_group_name, #}
 
-{{ group_name }}
-{{ label }}
+
+
 
 
 
