@@ -20,6 +20,7 @@ function funkywave_preprocess_node(&$variables) {
   $variables['ngf_group_name'] = NULL;
   $variables['ngf_group_url'] = NULL;
   $variables['ngf_group_logo'] = NULL;
+  $variables['ngf_group_logo_uri'] = NULL;
  
   if (isset($node->group) && $group = $node->group) {
     $variables['ngf_group_name'] = $group->label();
@@ -29,6 +30,7 @@ function funkywave_preprocess_node(&$variables) {
       $media_entity = Media::load($image[0]['target_id']);
       $file_entity  = $media_entity->field_media_image->first()->getValue();
       $file = File::load($file_entity['target_id']);
+      $variables['ngf_group_logo_uri'] = $file->getFileUri();
  
       $render = [
         '#theme' => 'image_style',
@@ -51,4 +53,12 @@ function funkywave_preprocess_user(&$vars) {
     // get user name
     $vars['user_name'] = $user->getUsername();
   }
+}
+
+/**
+* Implements template_preprocess_group
+*/
+function funkywave_preprocess_group(&$variables) {
+  // This is needed so the group name is printed along with {{content}}.
+  $variables['content']['label']['#printed'] = FALSE;
 }
