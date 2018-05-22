@@ -40,6 +40,17 @@
  */
 #}
 
+{% if content.field_ngf_group_visibility[0] == 'Private' %}
+  {{ group.uid.entity.name.value }}
+{% endif %}
+
+{% set group_visibility_key = content.field_ngf_group_visibility['#items'].getString() %}
+{% if group_visibility_key == "1" %}
+  {% set group_visibility_icon_value = 'fa fa-lock' %}
+{% endif %}
+{% if group_visibility_key == "2" %}
+  {% set group_visibility_icon_value = 'far fa-eye-slash' %}
+{% endif %}
 
 {% include "@patterns/post_info/pattern-postinfo.html.twig" 
   with {   
@@ -48,12 +59,7 @@
     group_logo: file_url(content.field_ngf_cover_image|field_target_entity.field_media_image.entity.uri.value|image_style('thumbnail')),
     group_url: url,
     group_name: label,
-    group_visibility: content.field_ngf_group_visibility,
+    group_visibility: content.field_ngf_group_visibility[0],
+    group_visibility_icon: group_visibility_icon_value
   }
 %}
-
-
-
-
-
-
