@@ -47,12 +47,17 @@
     group_pic_uri: file_url(content.field_ngf_cover_image|field_target_entity.field_media_image.entity.uri.value|image_style('thumbnail')),
     group_name: label,
     group_profile_uri: url,
+    group_profile_uri_back: 'todo',
     group_profile_members: 'todo',
+    group_profile_members_uri: 'todo',
+    group_profile_followers: 'todo',
+    group_profile_followers_uri: 'todo',
+    group_profile_subgroups: 'todo',
+    group_profile_subgroups_uri: 'todo',
     group_visibility: content.field_ngf_group_visibility[0],
   }
 %}
 
-{{ content.members_and_followers }}
 {{ kint(content.members_and_followers['#items']['group-members']) }}
 {{ content.members_and_followers['#items']['group-members']['#count'] }}
 
