@@ -40,6 +40,8 @@
  */
 #}
 
+<div class="profile profile--group clearfix">
+
 <header>
 
 {% include "@patterns/profile_header/pattern-profileheader.html.twig" 
@@ -48,11 +50,18 @@
     group_name: label,
     group_profile_uri: url,
     group_profile_uri_back: 'todo',
-    group_profile_members: 'todo',
+    action_contact: 'todo contact',
+    group_action_contact_uri: 'todo',
+    action_join_leave_uri: 'todo',
+    action_join_leave: 'todo Leave',
+    action_join_leave_class: 'profile__actions--leave',
+    action_follow: 'todo follow',
+    group_action_follow_uri: 'todo',
+    group_profile_members: 'todo members',
     group_profile_members_uri: 'todo',
-    group_profile_followers: 'todo',
+    group_profile_followers: 'todo followers',
     group_profile_followers_uri: 'todo',
-    group_profile_subgroups: 'todo',
+    group_profile_subgroups: 'todo subgroups',
     group_profile_subgroups_uri: 'todo',
     group_visibility: content.field_ngf_group_visibility[0],
   }
@@ -62,3 +71,5 @@
 {{ content.members_and_followers['#items']['group-members']['#count'] }}
 
 <header>
+
+</div>
