@@ -17,9 +17,9 @@
 
 {# Depending on the flag action, set the appropriate action class. #}
 {% if action == 'unflag' %}
-    {% set action_class = 'action-unflag' %}
+    {% set action_class = 'action-unflag profile__actions--unfollow' %}
 {% else %}
-    {% set action_class = 'action-flag' %}
+    {% set action_class = 'action-flag profile__actions--follow' %}
 {% endif %}
 
 {# Set the remaining Flag CSS classes. #}
@@ -35,5 +35,5 @@
 {# Set nofollow to prevent search bots from crawling anonymous flag links #}
 {% set attributes = attributes.setAttribute('rel', 'nofollow') %}
 
-<div class="{{classes|join(' ')}}"><a{{ attributes }}>{{ title }}</a></div>
+<a{{ attributes.addClass(classes) }}>{{ title }}</a>
 {% endspaceless %}

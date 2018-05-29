@@ -51,18 +51,11 @@
     group_profile_uri_back: 'todo',
     action_contact: 'todo contact',
     group_action_contact_uri: 'todo',
-
     group_action_join: content.join_follow['#items']['group-join']['#title'],
     group_action_join_uri: content.join_follow['#items']['group-join']['#url'],
-
     group_action_leave: content.join_follow['#items']['group-leave']['#title'],
     group_action_leave_uri: content.join_follow['#items']['group-leave']['#url'],
-
-
-
-    group_action_follow: 'niet mogelijk ajax',
-
-
+    group_action_follow: content.join_follow['#items']['group-follow'],
     group_profile_members: content.members_followers['#items']['members']['#title'],
     group_profile_members_uri: content.members_followers['#items']['members']['#url'],
     group_profile_followers: content.members_followers['#items']['followers']['#title'],
@@ -72,8 +65,6 @@
     group_visibility: content.field_ngf_group_visibility[0],
   }
 %}
-
-{{ content.join_follow['#items']['group-follow'] }}
 
 <header>
 </div>
