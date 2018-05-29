@@ -18,7 +18,8 @@
   {% set profile_groups = user_profile_groups %}
   {% set profile_groups_uri = user_profile_groups_uri %}
   {% set action_contact_uri = user_action_contact_uri %}
-  {% set action_follow_uri = user_action_follow_uri %}     
+  {% set action_follow = user_action_follow %}  
+  {% set action_follow_uri = user_action_follow_uri %}  
 {% else %}
   {% set profile_pic_uri = group_pic_uri %}
   {% set profile_title = group_name %}
@@ -32,7 +33,12 @@
   {% set profile_groups = group_profile_subgroups %} 
   {% set profile_groups_uri = group_profile_subgroups_uri %}
   {% set action_contact_uri = group_action_contact_uri %}
-  {% set action_follow_uri = group_action_follow_uri %}  
+  {% set action_follow = group_action_follow %}
+  {% set action_follow_uri = group_action_follow_uri %}    
+  {% set action_join = group_action_join %}
+  {% set action_join_uri = group_action_join_uri %}
+  {% set action_leave = group_action_leave %}
+  {% set action_leave_uri = group_action_leave_uri %}    
 {% endif %}  
 
 {% if profile_uri %}
@@ -65,8 +71,11 @@
   {% if action_contact %}
     <li><a href="{{ action_contact_uri }}" class="profile__actions--contact">{{ action_contact }}</a></li>
   {% endif %}
-  {% if action_join_leave %}
-    <li><a href="{{ action_join_leave_uri }}" class="{{ action_join_leave_class }}">{{ action_join_leave }}</a></li>
+  {% if action_join %}
+    <li><a href="{{ action_join_uri }}" class="profile__actions--join">{{ action_join }}</a></li>
+  {% endif %}
+  {% if action_leave %}
+    <li><a href="{{ action_leave_uri }}" class="profile__actions--leave">{{ action_leave }}</a></li>
   {% endif %}
   {% if action_follow %}
     <li><a href="{{ action_follow_uri }}" class="profile__actions--follow">{{ action_follow }}</a></li>
