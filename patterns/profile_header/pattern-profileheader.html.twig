@@ -37,7 +37,9 @@
   {% set action_join_uri = group_action_join_uri %}
   {% set action_leave = group_action_leave %}
   {% set action_leave_uri = group_action_leave_uri %}    
-{% endif %}  
+{% endif %}
+
+{% set catch_cache = content|render %}  
 
 {% if profile_uri %}
   <a href="{{ profile_uri }}" class="profile__pic__link">
