@@ -40,50 +40,11 @@
  */
 #}
 
-{% block profileheader %}
-  <header>
-    {% set catch_cache = content|render %}   
+<div{{ content_attributes }}>
 
-    {# profile header top #}
-    {% include '@patterns/profile_header_top/pattern-profileheader-top.html.twig'
-      with {
-        profile_pic_uri: file_url(content.field_ngf_cover_image|field_target_entity.field_media_image.entity.uri.value|image_style('thumbnail')),
-        profile_title: label,
-        profile_uri: url,
-        profile_uri_back: 'todo',
-      }
-    only %}
+  
 
-    {# profile meta #}
-    {% include '@patterns/profile_meta/pattern-profile-meta.html.twig'
-      with {
-        profile_meta: content.field_ngf_group_visibility[0],
-      }
-    only %}
+  {{ content }}
+</div>
 
-    {# profile actions #}  
-    {% include '@patterns/profile_actions/pattern-profile-actions.html.twig'
-      with {
-        action_contact: 'todo contact',
-        action_contact_uri: 'todo',
-        action_join: content.join_follow['#items']['group-join']['#title'],
-        action_join_uri: content.join_follow['#items']['group-join']['#url'],
-        action_leave: content.join_follow['#items']['group-leave']['#title'],
-        action_leave_uri: content.join_follow['#items']['group-leave']['#url'],
-        action_follow: content.join_follow['#items']['group-follow'],
-      }
-    only %}
 
-    {# profile networks #}
-    {% include "@patterns/profile_networks/pattern-profile-networks.html.twig" 
-      with {   
-        profile_members: content.members_followers['#items']['members']['#title'],
-        profile_members_uri: content.members_followers['#items']['members']['#url'],
-        profile_followers: content.members_followers['#items']['followers']['#title'],
-        profile_followers_uri: content.members_followers['#items']['followers']['#url'],
-        profile_subgroups: 'todo subgroups',
-        profile_subgroups_uri: 'todo',
-      }
-    only %}
-  </header>
-{% endblock profileheader %}
