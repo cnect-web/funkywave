@@ -10,40 +10,63 @@ use Drupal\Core\Template\Attribute;
 use Drupal\image\Entity\ImageStyle;
 use Drupal\media\Entity\Media;
 use Drupal\file\Entity\File;
- 
+use Drupal\Core\Link;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
+
 /**
 * Implement template_preprocess_node().
 */
 function funkywave_preprocess_node(&$variables) {
+  $node = $variables['elements']['#node'];
+  if ($variables['view_mode'] == 'full' && $node->getType() == 'ngf_discussion') {
 
-  if ($variables['view_mode'] == 'full') {
-    $node = $variables['elements']['#node'];
+    $variables['ngf_sub_picture'] = NULL;
+    $variables['ngf_context_text'] = NULL;
 
-    $variables['ngf_group_name'] = NULL;
-    $variables['ngf_group_url'] = NULL;
-    $variables['ngf_group_logo'] = NULL;
-    $variables['ngf_group_logo_uri'] = NULL;
-   
+    $variables['ngf_group_container_class'] = 'post-info--no-group';
     if (isset($node->group) && $group = $node->group) {
-
-      $variables['ngf_group_name'] = $group->label();
-      $variables['ngf_group_url'] = $group->url();
+      $variables['ngf_group_container_class'] = 'post-info--group';
 
       if (!$group->field_ngf_cover_image->isEmpty()) {
-        $image = $group->get('field_ngf_cover_image')->getValue();
-        $media_entity = Media::load($image[0]['target_id']);
-        $file_entity  = $media_entity->field_media_image->first()->getValue();
-        $file = File::load($file_entity['target_id']);
-        $variables['ngf_group_logo_uri'] = $file->getFileUri();
-   
+        $media_id = $group->get('field_ngf_cover_image')->target_id;
+        $media_entity = Media::load($media_id);
+
         $render = [
           '#theme' => 'image_style',
           '#style_name' => 'thumbnail',
-          '#uri' => $file->getFileUri(),
+          '#uri' => $media_entity->get('field_media_image')->entity->getFileUri(),
           '#attributes' => ['class' => ['post-info__picture post-info__picture--group responsive']]
         ];
-        $variables['ngf_group_logo'] = drupal_render($render);
+
+        $link_render = [
+          '#title' => $render,
+          '#type' => 'link',
+          '#url' => $group->toUrl(),
+          '#attributes' => [
+            'class' => [
+              'post-info__link post-info__link--group'
+            ]
+          ]
+        ];
+        $variables['ngf_sub_picture'] = $link_render;
       }
+
+      $visibility_icon = '';
+      if ($group->field_ngf_group_visibility->value == NGF_GROUP_PUBLIC) {
+        $visibility_icon = 'far fa-eye-slash';
+      }
+      if ($group->field_ngf_group_visibility->value == NGF_GROUP_PRIVATE) {
+        $visibility_icon = 'fa fa-lock';
+      }
+
+      $variables['ngf_context_text'] = t(
+        'Posted @created_date ago in <a href=":group_url" class="post-info__link post-info__group-link">@group_title</a>',
+        [
+          '@created_date' => \Drupal::service('date.formatter')->formatTimeDiffSince($group->created->value),
+          ':group_url' => $group->url(),
+          '@group_title' => $group->label(),
+        ]
+      ) . ' <i class="' . $visibility_icon . '"></i>';
     }
   }
 }
@@ -64,6 +87,12 @@ function funkywave_preprocess_user(&$vars) {
 * Implements template_preprocess_group
 */
 function funkywave_preprocess_group(&$variables) {
-  // This is needed so the group name is printed along with {{content}}.
-  $variables['content']['label']['#printed'] = FALSE;
+  $group = $variables['group'];
+//  var_dump($group->label);
+//  var_dump($group->label());
+//  exit();
+  if ($variables['view_mode'] == 'full' && $group->getGroupType()->id() == 'ngf_event') {
+    // This is needed so the group name is printed along with {{content}}.
+    $variables['content']['label']['#printed'] = FALSE;
+  }
 }

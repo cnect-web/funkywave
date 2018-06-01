@@ -95,25 +95,20 @@
       {{ label }}
     </h2>
   {% endif %}
-  {{ title_suffix }}
 
-  {# block postinfo #}
+   {#block postinfo #}
   {% block postinfo %}
-  {% if display_submitted %} 
-
-  {% include "@patterns/post_info/pattern-postinfo.html.twig" 
-    with {
-      author_pic_uri: file_url(node.uid.entity.user_picture.entity.uri.value|image_style('thumbnail')),
-      title: node.uid.entity.name.value,
-      url: path('entity.user.canonical', {'user': user.id}),
-      logged_in: logged_in,  
-      group_pic_uri: file_url(ngf_group_logo_uri|image_style('thumbnail')),
-      group_url: ngf_group_url,
-      group_name: ngf_group_name,
-    }
-  %}
- 
-  {% endif %}
+      {% include "@patterns/post_info/pattern-postinfo-new.html.twig"
+          with {
+              image_url: file_url(node.uid.entity.user_picture.entity.uri.value|image_style('thumbnail')),
+              title: node.owner.full_name.value,
+              url: path('entity.user.canonical', {'user': user.id}),
+              logged_in: logged_in,
+              context_text: ngf_context_text,
+              subpic: ngf_sub_picture,
+              container_class: ngf_group_container_class,
+          }
+      %}
   {% endblock postinfo %}
   {# end block postinfo #}
 
