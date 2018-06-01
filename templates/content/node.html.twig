@@ -104,12 +104,13 @@
   {% include "@patterns/post_info/pattern-postinfo.html.twig" 
     with {
       author_pic_uri: file_url(node.uid.entity.user_picture.entity.uri.value|image_style('thumbnail')),
-      title: node.uid.entity.name.value,
-      url: path('entity.user.canonical', {'user': user.id}),
-      logged_in: logged_in,  
+      profile_name: node.uid.entity.name.value,
+      profile_uri: path('entity.user.canonical', {'user': user.id}),
+      creation_date: node.created.value|time_diff,
       group_pic_uri: file_url(ngf_group_logo_uri|image_style('thumbnail')),
       group_url: ngf_group_url,
       group_name: ngf_group_name,
+      login_check: logged_in,
     }
   %}
  
