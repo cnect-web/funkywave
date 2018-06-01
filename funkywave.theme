@@ -15,35 +15,30 @@ use Drupal\file\Entity\File;
 * Implement template_preprocess_node().
 */
 function funkywave_preprocess_node(&$variables) {
-
-  if ($variables['view_mode'] == 'full') {
-    $node = $variables['elements']['#node'];
-
-    $variables['ngf_group_name'] = NULL;
-    $variables['ngf_group_url'] = NULL;
-    $variables['ngf_group_logo'] = NULL;
-    $variables['ngf_group_logo_uri'] = NULL;
-   
-    if (isset($node->group) && $group = $node->group) {
-
-      $variables['ngf_group_name'] = $group->label();
-      $variables['ngf_group_url'] = $group->url();
-
-      if (!$group->field_ngf_cover_image->isEmpty()) {
-        $image = $group->get('field_ngf_cover_image')->getValue();
-        $media_entity = Media::load($image[0]['target_id']);
-        $file_entity  = $media_entity->field_media_image->first()->getValue();
-        $file = File::load($file_entity['target_id']);
-        $variables['ngf_group_logo_uri'] = $file->getFileUri();
-   
-        $render = [
-          '#theme' => 'image_style',
-          '#style_name' => 'thumbnail',
-          '#uri' => $file->getFileUri(),
-          '#attributes' => ['class' => ['post-info__picture post-info__picture--group responsive']]
-        ];
-        $variables['ngf_group_logo'] = drupal_render($render);
-      }
+  $node = $variables['elements']['#node'];
+ 
+  $variables['ngf_group_name'] = NULL;
+  $variables['ngf_group_url'] = NULL;
+  $variables['ngf_group_logo'] = NULL;
+  $variables['ngf_group_logo_uri'] = NULL;
+ 
+  if (isset($node->group) && $group = $node->group) {
+    $variables['ngf_group_name'] = $group->label();
+    $variables['ngf_group_url'] = $group->url();
+    if (!$group->field_ngf_cover_image->isEmpty()) {
+      $image = $group->get('field_ngf_cover_image')->getValue();
+      $media_entity = Media::load($image[0]['target_id']);
+      $file_entity  = $media_entity->field_media_image->first()->getValue();
+      $file = File::load($file_entity['target_id']);
+      $variables['ngf_group_logo_uri'] = $file->getFileUri();
+ 
+      $render = [
+        '#theme' => 'image_style',
+        '#style_name' => 'thumbnail',
+        '#uri' => $file->getFileUri(),
+        '#attributes' => ['class' => ['post-info__picture post-info__picture--group responsive']]
+      ];
+      $variables['ngf_group_logo'] = drupal_render($render);
     }
   }
 }
