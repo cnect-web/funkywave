@@ -1,0 +1,37 @@
+{#
+/**
+ * @file
+ * post info pattern.
+ */
+#}
+<div class="post-info {{ container_class }} clearfix">
+  <div class="post-info__ilustration">
+    {% if logged_in %} 
+      <a href="{{ url }}" class="post-info__link post-info__link--account">
+    {% endif %}
+
+      <img src="{{ image_url }}" alt="{{ title }}" class="post-info__picture post-info__picture--account responsive" />
+
+    {% if logged_in %} 
+      </a> 
+    {% endif %}
+
+    {% if subpic %}
+      {{ subpic }}
+    {% endif %} 
+  </div>  
+  <div class="post-info__details">
+    <h4 class="post-info__author">   
+      {% if logged_in %} 
+        <a href="{{ url }}" class="post-info__link post-info__account-link">
+          {{ title }}
+        </a> 
+      {% else %}
+        {{ title }}
+      {% endif %}
+    </h4>
+    <p class="post-info__metadata">
+      {{ context_text }}
+    </p>
+  </div>
+</div>
