@@ -115,18 +115,12 @@
   {# block coverimage #}
 
   {% block coverimage %}
-
-    {% if content.field_ngf_cover_image %}  
-      {% set coverimageurl = file_url(content.field_ngf_cover_image|field_target_entity.field_media_image.entity.uri.value|image_style('media_large')) %}
-      {% set coverimagealt = content.field_ngf_cover_image|field_target_entity.field_media_image.alt %}
-        <img src="{{ coverimageurl }}" class="responsive" alt="{{ coverimagealt }}">
-      {% endif %}
-    {% endblock coverimage %}  
+      {{ content.field_ngf_cover_image }}
+  {% endblock coverimage %}
   </header>
 
   {% block content %}
-    {{ content|without('field_ngf_cover_image') }} 
-    {{ content.description }} 
+    {{ content|without('field_ngf_cover_image') }}
   {% endblock content %}
 
 </article>
