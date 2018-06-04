@@ -88,9 +88,6 @@ function funkywave_preprocess_user(&$vars) {
 */
 function funkywave_preprocess_group(&$variables) {
   $group = $variables['group'];
-//  var_dump($group->label);
-//  var_dump($group->label());
-//  exit();
   if ($variables['view_mode'] == 'full' && $group->getGroupType()->id() == 'ngf_event') {
     // This is needed so the group name is printed along with {{content}}.
     $variables['content']['label']['#printed'] = FALSE;

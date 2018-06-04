@@ -54,7 +54,7 @@
       {#}#}
     {#%}#}
 
-    {% include "@patterns/post_info/pattern-postinfo-new.html.twig"
+    {% include "@patterns/post_info/pattern-postinfo.html.twig"
       with {
         title: group.label(),
         image_url: file_url(group.field_media_image.entity.uri.value|image_style('thumbnail')),
