@@ -7,53 +7,61 @@
 
 {% set groupclass = '' %}
 {% if group_url and author_pic_uri %}
-  {% set groupclass = 'post-info--group' %}
+    {% set groupclass = 'post-info--group' %}
 {% else %}
-  {% set groupclass = 'post-info--no-group' %}
+    {% set groupclass = 'post-info--no-group' %}
 {% endif %} 
 
 {% set mainpic = '' %}
 {% set subpic = '' %}
 
-{% if author_pic %}
-  {% set mainpic = author_pic %}
+{% if author_pic_uri %}
+    {% set mainpic_uri = author_pic_uri %}
+    {% set mainpic_alt = profile_name %}
+    {% set mainpic_profile_uri = profile_uri %}
+    {% set mainpic_login_check = login_check %}
+    {% set subpic = group_url %}
+    {% set subpic_uri = group_pic_uri %}
+    {% set subpic_alt = group_name %}
 {% else %}
-  {% set mainpic = group_logo %}
-{% endif %}  
+    {% set mainpic_uri = group_logo %}
+    {% set mainpic_alt = group_name %}
+    {% set mainpic_profile_uri = group_url %}
+    {% set mainpic_login_check = '1' %}
+{% endif %}
 
 <div class="post-info {{ groupclass }} clearfix">
   <div class="post-info__ilustration">
-  {# link to the user profile wrapped around the user image #}
-    {% if login_check and author_pic_uri %} 
-      <a href="{{ profile_uri }}" class="post-info__link post-info__link--account"><img src="{{ author_pic_uri }}" alt="{{ profile_name }}" class="post-info__picture post-info__picture--account responsive" /></a>
-
-      
-      
-    {% else %} 
-      <img src="{{ author_pic_uri }}" alt="{{ profile_name }}" class="post-info__picture post-info__picture--account responsive" />
-    {% endif %}
-    {% if group_url %}
-      <a href="{{ group_url }}" class="post-info__link post-info__link--group">{{ group_logo }}</a>
-    {% endif %} 
+      {# link to the user profile wrapped around the user image #}
+      {% if mainpic_login_check %}
+        <a href="{{ mainpic_profile_uri }}" class="post-info__link post-info__link--account"><img src="{{ mainpic_uri }}" alt="{{ mainpic_alt }}" class="post-info__picture post-info__picture--account responsive" /></a>
+      {% else %}
+        <img src="{{ mainpic_uri }}" alt="{{ mainpic_alt }}" class="post-info__picture post-info__picture--account responsive" />
+      {% endif %}
+      {% if subpic %}
+        <a href="{{ group_url }}" class="post-info__link post-info__link--group"><img src="{{ subpic_uri }}" class="post-info__picture post-info__picture--group responsive" alt="{{ subpic_alt }}" /></a>
+      {% endif %}
   </div>
   <div class="post-info__details">
-    <h4 class="post-info__author">   
-    {% if creation_date %}
-      {% trans %} by {% endtrans %}
-    {% endif %}
-    {% if login_check %}  
-      <a href="{{ profile_uri }}" class="post-info__link post-info__account-link">{{ profile_name }}</a>
-    {% else %} 
-       {{ profile_name }} 
-    {% endif %}      
+    <h4 class="post-info__author">
+        {% if mainpic_login_check %}
+            {% if creation_date %}{% trans %} by {% endtrans %}{% endif %}
+          <a href="{{ mainpic_profile_uri }}" class="post-info__link post-info__account-link">{{ mainpic_alt }}</a>
+        {% else %}
+            {{ mainpic_alt }}
+        {% endif %}
     </h4>
     <p class="post-info__metadata">
-      {% if creation_date %}
-        {% trans %} Posted {{ creation_date }} {% endtrans %}
-      {% endif %}    
-      {% if group_url %}
-        {% trans %} in {% endtrans %} <a href="{{ group_url }}" class="post-info__link post-info__group-link">{{ group_name }}</a>
-      {% endif %}
+        {% if creation_date %}
+            {% trans %} Posted {{ creation_date }} {% endtrans %}
+            {% if group_url %}
+                {% trans %} in {% endtrans %} <a href="{{ group_url }}" class="post-info__link post-info__group-link">{{ group_name }}</a>
+            {% endif %}
+        {% endif %}
+        {% if group_visibility %}
+          <i class="{{ group_visibility_icon_value }}"></i>
+            {{ group_visibility }}
+        {% endif %}
     </p>
   </div>
 </div>

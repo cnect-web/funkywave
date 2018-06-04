@@ -42,16 +42,27 @@
 
   {# block postinfo #}
   {% block postinfo %}
+    {#{% include "@patterns/post_info/pattern-postinfo-new.html.twig"#}
+      {#with {#}
+        {#author_pic_uri: file_url(group.uid.entity.user_picture.entity.uri.value|image_style('thumbnail')),#}
+        {#profile_name: group.uid.entity.name.value,#}
+        {#profile_uri: path('entity.user.canonical', {'user': user.id}),#}
+        {#creation_date: group.created.value|time_diff,#}
+        {#group_logo: file_url(content.field_ngf_cover_image|field_target_entity.field_media_image.entity.uri.value|image_style('thumbnail')),#}
+        {#group_name: 'todo',#}
+        {#login_check: logged_in,#}
+      {#}#}
+    {#%}#}
 
-    {% include "@patterns/post_info/pattern-postinfo.html.twig" 
+    {% include "@patterns/post_info/pattern-postinfo.html.twig"
       with {
-        author_pic_uri: file_url(group.uid.entity.user_picture.entity.uri.value|image_style('thumbnail')),
-        profile_name: group.uid.entity.name.value,
-        profile_uri: path('entity.user.canonical', {'user': user.id}),
-        creation_date: group.created.value|time_diff,     
-        group_logo: file_url(content.field_ngf_cover_image|field_target_entity.field_media_image.entity.uri.value|image_style('thumbnail')),
-        group_name: 'todo',
-        login_check: logged_in,
+        title: group.label(),
+        image_url: file_url(group.field_media_image.entity.uri.value|image_style('thumbnail')),
+            url: path('entity.user.canonical', {'user': user.id}),
+            logged_in: logged_in,
+            context_text: ngf_context_text,
+            subpic: ngf_sub_picture,
+            container_class: ngf_group_container_class,
       }
     %}
 
@@ -61,9 +72,8 @@
   {# block coverimage #}
   {% block coverimage %}
 
-    {% if content.field_ngf_cover_image %}  
-      {% set coverimageurl = file_url(content.field_ngf_cover_image|field_target_entity.field_media_image.entity.uri.value|image_style('media_large')) %}
-        <img src="{{ coverimageurl }}" class="responsive">
+    {% if group.field_media_image %}
+      <img src="{{ group.field_media_image.entity.uri.value|image_style('media_large') }}" class="responsive" alt="{{ group.label }}" >
     {% endif %}
     
   {% endblock coverimage %}
