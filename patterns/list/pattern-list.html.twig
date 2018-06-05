@@ -123,8 +123,11 @@
   
   {{ content|without('field_ngf_cover_image') }}
 
-  {#
-  {% include "@patterns/tags/pattern-tags.html.twig"
+  {% block related_topics %}
+
+  {# TODO 
+
+  {% include "@patterns/list/pattern-list.html.twig"
     with { 
       items: content.field_ngf_interests['#items'],
       css_class: sub-section sub-section--related-taxonomy,
@@ -158,6 +161,7 @@
       </ul>
     {% endif %}
   </div>
+  {% end block related_topics %}
 
   {% endblock content %}
 
