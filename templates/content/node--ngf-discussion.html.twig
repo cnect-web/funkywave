@@ -119,12 +119,40 @@
   {% endblock coverimage %}
   </header>
 
-  {% block content %}
+  {{ content.field_ngf_description }}
   
-  {{ content|without('field_ngf_cover_image') }}
+  {% block related_content %}
 
-  {#
-  {% include "@patterns/tags/pattern-tags.html.twig"
+  {% set label = content.field_ngf_related_content['#title'] %}
+  {% set items = content.field_ngf_related_content['#items'] %}
+  {% set css_class = 'sub-section sub-section--attachment' %}
+
+  <div class="{{ css_class }}">
+  {% if label is not empty %}
+    <h3>{{ label }}</h3>
+  {% endif %}
+  {% if items is not empty %}
+    <ul class="list list--taxonomy">
+      {% for item in items %}
+        <li class="list__item list__item--tag">
+          <p class="file__info">
+            <a href="{{ path('entity.node.canonical', {'node': item.entity.id}) }}" class="file__link" title="">
+              <span class="file__title"> {{ item.entity.title.value }} </span>
+            </a>
+          </p>
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+  </div>  
+
+  {% endblock related_content %}  
+
+  {% block related_topics %}
+
+  {# TODO 
+
+  {% include "@patterns/list/pattern-list.html.twig"
     with { 
       items: content.field_ngf_interests['#items'],
       css_class: sub-section sub-section--related-taxonomy,
@@ -159,6 +187,6 @@
     {% endif %}
   </div>
 
-  {% endblock content %}
+  {% endblock related_topics %}
 
 </article>
