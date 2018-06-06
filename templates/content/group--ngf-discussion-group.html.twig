@@ -58,11 +58,11 @@
       with {
         title: group.label(),
         image_url: file_url(group.field_media_image.entity.uri.value|image_style('thumbnail')),
-            url: path('entity.user.canonical', {'user': user.id}),
-            logged_in: logged_in,
-            context_text: ngf_context_text,
-            subpic: ngf_sub_picture,
-            container_class: ngf_group_container_class,
+        url: path('entity.user.canonical', {'user': user.id}),
+        logged_in: logged_in,
+        context_text: ngf_context_text,
+        subpic: ngf_sub_picture,
+        container_class: ngf_group_container_class,
       }
     %}
 
@@ -71,54 +71,9 @@
 
   {# block coverimage #}
   {% block coverimage %}
-
-    {% if group.field_media_image %}
-      <img src="{{ group.field_media_image.entity.uri.value|image_style('media_large') }}" class="responsive" alt="{{ group.label }}" >
-    {% endif %}
-    
+     {{ content.field_ngf_cover_image }}
   {% endblock coverimage %}
 
-  {% block eventdata %}
-    {# convert date to an integer stamp #}
-    {% set event_start_date = group.field_ngf_event_start_date.value|date('U') %}
-    {# Convert event_end_date to an integer stamp if not empty #}  
-    {% if group.field_ngf_event_end_date is not empty %}
-      {% set event_end_date = group.field_ngf_event_end_date.value|date('U') %}
-    {% else %}
-      {% set event_end_date = NULL %}
-    {% endif %}
-    
-    {# Event year #}  
-    {% set event_start_date_year = event_start_date|date('Y') %}
-    {% set event_end_date_year = event_end_date|date('Y') %}
-
-    {# Event month #}  
-    {% set event_start_date_month = event_start_date|date('m') %}
-    {% set event_end_date_month = event_end_date|date('m') %} 
-
-    {# Start date & end date the same #}   
-
-    <div class="event-dates">
-      <h3>{% trans %} When {% endtrans %}</h3>
-      {% if event_end_date is null %}
-        <time><span class="event-start-date">{{ event_start_date|format_date('ngf_day_month_year') }}</span></time>
-      {% else %}
-        {# same month same year #}
-        {% if (event_start_date_month == event_end_date_month) and (event_start_date_year == event_end_date_year) %}
-          <time><span class="event-start-date">{{ event_start_date|format_date('ngf_day') }}</span></time>
-          <span>-</span> 
-          <time><span class="event-end-date">{{ event_end_date|format_date('ngf_day_month_year') }}</span></time> 
-        {# different month same year #}
-        {% elseif (event_start_date_month != event_end_date_month) and (event_start_date_year == event_end_date_year) %}
-           <time><span class="event-start-date">{{ event_start_date|format_date('ngf_day_month') }}</span></time>
-           <span>-</span> 
-           <time><span class="event-end-date">{{ event_end_date|format_date('ngf_day_month_year') }}</span></time> 
-        {# different year for event start date & end date #}
-        {% elseif (event_start_date_year != event_end_date_year) %}
-           <time><span class="event-start-date">{{ event_start_date|format_date('ngf_day_month_year') }}</span></time>
-           <span>-</span> 
-           <time><span class="event-end-date">{{ event_end_date|format_date('ngf_day_month_year') }}</span></time>
-        {% endif %}
-      {% endif %}
-    </div>
-  {% endblock eventdata %}  
+  {% block content %}
+    {{ content|without('field_ngf_cover_image') }}
+  {% endblock content %}

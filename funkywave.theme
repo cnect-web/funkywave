@@ -18,10 +18,24 @@ use Drupal\Core\StringTranslation\TranslatableMarkup;
 */
 function funkywave_preprocess_node(&$variables) {
   $node = $variables['elements']['#node'];
-  if ($variables['view_mode'] == 'full' && $node->getType() == 'ngf_discussion') {
+  $view_mode = $variables['view_mode'];
+  $display_modes = [
+    'full',
+    'teaser',
+    'ngf_teaser_user_commented',
+    'ngf_teaser_user_created',
+  ];
+
+  if (in_array($view_mode, $display_modes)
+    && $node->getType() == 'ngf_discussion') {
 
     $variables['ngf_sub_picture'] = NULL;
-    $variables['ngf_context_text'] = NULL;
+    $variables['ngf_context_text'] = t(
+      'Posted @created_date ago',
+      [
+        '@created_date' => \Drupal::service('date.formatter')->formatTimeDiffSince($node->created->value)
+      ]
+    );
 
     $variables['ngf_group_container_class'] = 'post-info--no-group';
     if (isset($node->group) && $group = $node->group) {
@@ -62,11 +76,13 @@ function funkywave_preprocess_node(&$variables) {
       $variables['ngf_context_text'] = t(
         'Posted @created_date ago in <a href=":group_url" class="post-info__link post-info__group-link">@group_title</a>',
         [
-          '@created_date' => \Drupal::service('date.formatter')->formatTimeDiffSince($group->created->value),
+          '@created_date' => \Drupal::service('date.formatter')->formatTimeDiffSince($node->created->value),
           ':group_url' => $group->url(),
           '@group_title' => $group->label(),
         ]
       ) . ' <i class="' . $visibility_icon . '"></i>';
+    } elseif ($view_mode == 'ngf_teaser_user_commented') {
+      $variables['ngf_context_text'] = t('Commented');
     }
   }
 }
@@ -88,8 +104,22 @@ function funkywave_preprocess_user(&$vars) {
 */
 function funkywave_preprocess_group(&$variables) {
   $group = $variables['group'];
+  $view_mode = $variables['view_mode'];
+
   if ($variables['view_mode'] == 'full' && $group->getGroupType()->id() == 'ngf_event') {
     // This is needed so the group name is printed along with {{content}}.
     $variables['content']['label']['#printed'] = FALSE;
+  }
+
+  $display_modes = [
+    'teaser',
+    'ngf_user_created',
+  ];
+
+  if ($group->getGroupType()->id() == 'ngf_discussion_group' && in_array($view_mode, $display_modes)) {
+    $variables['ngf_group_container_class'] = 'post-info--group';
+    $variables['ngf_context_text'] = t('Created @created_date ago', [
+      '@created_date' => \Drupal::service('date.formatter')->formatTimeDiffSince($group->created->value)
+    ]);
   }
 }

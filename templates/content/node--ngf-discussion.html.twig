@@ -98,7 +98,7 @@
 
    {#block postinfo #}
   {% block postinfo %}
-      {% include "@patterns/post_info/pattern-postinfo-new.html.twig"
+      {% include "@patterns/post_info/pattern-postinfo.html.twig"
           with {
               image_url: file_url(node.uid.entity.user_picture.entity.uri.value|image_style('thumbnail')),
               title: node.owner.full_name.value,

@@ -40,9 +40,6 @@
  */
 #}
 
-{{ kint(content|keys) }}
-{{ kint(group|keys) }}
-
   {# block postinfo #}
   {% block postinfo %}
     {% set profile_pic_uri = group.uid.entity.user_picture.entity.uri.value %}
