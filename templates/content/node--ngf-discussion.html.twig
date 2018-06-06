@@ -112,8 +112,6 @@
   {% endblock postinfo %}
   {# end block postinfo #}
 
-  {{ node.owner.full_name.value }}
-
   {# block coverimage #}
 
   {% block coverimage %}
@@ -125,31 +123,8 @@
   
   {% block related_content %}
 
-  {% set label = content.field_ngf_related_content['#title'] %}
-  {% set items = content.field_ngf_related_content['#items'] %}
-  {% set css_class = 'sub-section sub-section--attachment' %}
-
-  <div class="{{ css_class }}">
-  {% if label is not empty %}
-    <h3>{{ label }}</h3>
-  {% endif %}
-  {% if items is not empty %}
-    <ul class="list list--taxonomy">
-      {% for item in items %}
-        <li class="list__item list__item--tag">
-          <p class="file__info">
-            <a href="{{ path('entity.node.canonical', {'node': item.entity.id}) }}" class="file__link" title="">
-              <span class="file__title"> {{ item.entity.title.value }} </span>
-            </a>
-          </p>
-        </li>
-      {% endfor %}
-    </ul>
-  {% endif %}
-  </div>  
-
   {% endblock related_content %}  
-
+    {# load a view with related content #}
   {% block related_topics %}
 
   {# TODO 
@@ -168,20 +143,21 @@
   %}
   #}
 
+
   {% set label = content.field_ngf_interests['#title'] %}
-  {% set tags = content.field_ngf_interests['#items'] %}
+  {% set items = content.field_ngf_interests['#items'] %}
   {% set css_class = 'sub-section sub-section--related-taxonomy' %}  
 
   <div class="{{ css_class }}">
     {% if label is not empty %}
       <h3>{{ label }}</h3>
     {% endif %}
-    {% if tags is not empty %}
+    {% if items is not empty %}
       <ul class="list list--taxonomy">
-        {% for tag in tags %}
+        {% for item in items %}
           <li class="list__item list__item--tag">
-            <a class="tag tag__link" href="{{ path('entity.taxonomy_term.canonical', {'taxonomy_term': tag.entity.id}) }}">
-              {{ tag.entity.name.value }}
+            <a class="tag tag__link" href="{{ path('entity.taxonomy_term.canonical', {'taxonomy_term': item.entity.id}) }}">
+              {{ item.entity.name.value }}
             </a>
           </li>
         {% endfor %}
