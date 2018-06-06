@@ -67,9 +67,12 @@ function funkywave_preprocess_node(&$variables) {
 
       $visibility_icon = '';
       if ($group->field_ngf_group_visibility->value == NGF_GROUP_PUBLIC) {
-        $visibility_icon = 'far fa-eye-slash';
+        $visibility_icon = 'fa fa-eye-slash';
+      } 
+      elseif ($group->field_ngf_group_visibility->value == NGF_GROUP_PRIVATE) {
+        $visibility_icon = 'fa fa-lock';
       }
-      if ($group->field_ngf_group_visibility->value == NGF_GROUP_PRIVATE) {
+      elseif ($group->field_ngf_group_visibility->value == NGF_GROUP_SECRET) {
         $visibility_icon = 'fa fa-lock';
       }
 
@@ -117,9 +120,18 @@ function funkywave_preprocess_group(&$variables) {
   ];
 
   if ($group->getGroupType()->id() == 'ngf_discussion_group' && in_array($view_mode, $display_modes)) {
-    $variables['ngf_group_container_class'] = 'post-info--group';
-    $variables['ngf_context_text'] = t('Created @created_date ago', [
-      '@created_date' => \Drupal::service('date.formatter')->formatTimeDiffSince($group->created->value)
-    ]);
+    $variables['ngf_group_container_class'] = 'post-info--no-group';
+    if ($group->field_ngf_group_visibility->value == NGF_GROUP_PUBLIC) {
+      $variables['ngf_context_text'] = t('Public group');
+    } 
+    elseif ($group->field_ngf_group_visibility->value == NGF_GROUP_PRIVATE) {
+      $visibility_icon = 'fa fa-lock';
+      $variables['ngf_context_text'] = '<i class="' . $visibility_icon . '"></i> ' . t('Private group');
+    }
+    elseif ($group->field_ngf_group_visibility->value == NGF_GROUP_SECRET) {
+      $visibility_icon = 'fa fa-eye-slash';
+      $variables['ngf_context_text'] = '<i class="' . $visibility_icon . '"></i> ' . t('Secret group');
+    }
+   
   }
 }
