@@ -40,7 +40,7 @@
  */
 #}
 
-{% include "@patterns/post_info/pattern-postinfo.html.twig"
+{% include "@patterns/profile-shortinfo/pattern-profile-shortinfo.html.twig"
   with {
     image_url: file_url(content.field_ngf_cover_image|field_target_entity.field_media_image.entity.uri.value|image_style('thumbnail')),
     title: label,
