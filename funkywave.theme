@@ -37,9 +37,9 @@ function funkywave_preprocess_node(&$variables) {
       ]
     );
 
-    $variables['ngf_group_container_class'] = 'post-info--no-group';
+    $variables['ngf_group_container_class'] = 'profile-shortinfo--no-group';
     if (isset($node->group) && $group = $node->group) {
-      $variables['ngf_group_container_class'] = 'post-info--group';
+      $variables['ngf_group_container_class'] = 'profile-shortinfo--group';
 
       if (!$group->field_ngf_cover_image->isEmpty()) {
         $media_id = $group->get('field_ngf_cover_image')->target_id;
@@ -49,7 +49,7 @@ function funkywave_preprocess_node(&$variables) {
           '#theme' => 'image_style',
           '#style_name' => 'thumbnail',
           '#uri' => $media_entity->get('field_media_image')->entity->getFileUri(),
-          '#attributes' => ['class' => ['post-info__picture post-info__picture--group responsive']]
+          '#attributes' => ['class' => ['profile-shortinfo__picture profile-shortinfo__picture--group responsive']]
         ];
 
         $link_render = [
@@ -58,7 +58,7 @@ function funkywave_preprocess_node(&$variables) {
           '#url' => $group->toUrl(),
           '#attributes' => [
             'class' => [
-              'post-info__link post-info__link--group'
+              'profile-shortinfo__link profile-shortinfo__link--group'
             ]
           ]
         ];
@@ -77,7 +77,7 @@ function funkywave_preprocess_node(&$variables) {
       }
 
       $variables['ngf_context_text'] = t(
-        'Posted @created_date ago in <a href=":group_url" class="post-info__link post-info__group-link">@group_title</a>',
+        'Posted @created_date ago in <a href=":group_url" class="profile-shortinfo__link profile-shortinfo__group-link">@group_title</a>',
         [
           '@created_date' => \Drupal::service('date.formatter')->formatTimeDiffSince($node->created->value),
           ':group_url' => $group->url(),
@@ -120,7 +120,7 @@ function funkywave_preprocess_group(&$variables) {
   ];
 
   if ($group->getGroupType()->id() == 'ngf_discussion_group' && in_array($view_mode, $display_modes)) {
-    $variables['ngf_group_container_class'] = 'post-info--no-group';
+    $variables['ngf_group_container_class'] = 'profile-shortinfo--no-group';
     if ($group->field_ngf_group_visibility->value == NGF_GROUP_PUBLIC) {
       $variables['ngf_context_text'] = t('Public group');
     } 
