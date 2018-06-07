@@ -16,8 +16,8 @@
  * @see template_preprocess_user()
  */
 #}
-<article{{ attributes.addClass('profile') }}>
-  <header>
+
+  <header class="profile">
 
   	{% set first_name = content.field_ngf_first_name|field_raw.value %}
   	{% set last_name = content.field_ngf_last_name|field_raw.value %}
@@ -38,4 +38,4 @@
     </ul>
 
   </header>
-</article>
+
