@@ -497,27 +497,31 @@ form .form__block--toggle .label-text, .form .form__block--toggle .label-text {
   width: 100%;
 }
 
-.list--file {
+.list--file, .list--event {
   padding: 0;
 }
 
-.list--file .list__item--file {
+.list--file .list__item--file, .list--file .list__item--event, .list--event .list__item--file, .list--event .list__item--event {
   list-style: none;
   background: transparent no-repeat left top;
   background-size: 32px 38px;
   padding-left: 45px;
 }
 
-.list--file .list__item--file.list__item--pdf {
+.list--file .list__item--file.list__item--pdf, .list--file .list__item--event.list__item--pdf, .list--event .list__item--file.list__item--pdf, .list--event .list__item--event.list__item--pdf {
   background-image: url(../images/file--pdf.jpg);
 }
 
-.list--file .list__item--file.list__item--url {
+.list--file .list__item--file.list__item--url, .list--file .list__item--event.list__item--url, .list--event .list__item--file.list__item--url, .list--event .list__item--event.list__item--url {
   background-image: url(../images/file--url.jpg);
 }
 
-.list--file .list__item--file p {
+.list--file .list__item--file p, .list--file .list__item--event p, .list--event .list__item--file p, .list--event .list__item--event p {
   margin: 0 0 0.8rem 0;
+}
+
+.list--file .list__item--event, .list--event .list__item--event {
+  background-image: url(../images/article--event-icon.svg);
 }
 
 .list--flex-space-evenly, header.profile .profile__networks, header.profile .profile__actions {
@@ -979,8 +983,14 @@ a.btn:focus, input.btn:focus, button.btn:focus {
   }
 }
 
-.sub-section--comments h3 {
-  margin-bottom: 2rem;
+.sub-section--comments__title {
+  padding-left: 3.6rem;
+  min-height: 3.7rem;
+  margin-bottom: 0.7rem;
+  background-image: url(../images/article--comment-icon.svg);
+  background-position: 0.5rem 0;
+  background-repeat: no-repeat;
+  background-size: 2.38rem 2.5rem;
 }
 
 .sub-section--comments > ul {
@@ -1013,6 +1023,21 @@ a.btn:focus, input.btn:focus, button.btn:focus {
   padding-left: 1.5rem;
   margin-top: -1.6rem;
   padding-top: 1.6rem;
+}
+
+.sub-section--comments ul ul ul ul {
+  border-left: none;
+  padding-left: 0;
+}
+
+.sub-section--comments .comment__link--reply {
+  padding-left: 2.6rem;
+  min-height: 3.7rem;
+  background-image: url(../images/article--comment-outline-icon.svg);
+  background-position: 0.5rem 0;
+  background-repeat: no-repeat;
+  background-size: 1.7rem 1.7rem;
+  text-decoration: none;
 }
 
 @media (min-width: 768px) {
@@ -1476,6 +1501,10 @@ a.btn:focus, input.btn:focus, button.btn:focus {
   }
 }
 
+.newsfeed:first-child {
+  margin: 0 -15px;
+}
+
 .newsfeed {
   background-color: #FFFFFF;
   text-align: left;
@@ -1489,6 +1518,10 @@ a.btn:focus, input.btn:focus, button.btn:focus {
   padding-left: 15px;
   padding-right: 15px;
   padding-top: 5.5rem;
+}
+
+.newsfeed .sub-section {
+  border-top: solid 1px #a6a7ab;
 }
 
 .newsfeed__item h2 {
@@ -1523,12 +1556,17 @@ a.btn:focus, input.btn:focus, button.btn:focus {
   border-radius: 10px;
 }
 
-.newsfeed__item--discussion h2 {
+.newsfeed__item--ngf-discussion h2 {
   background-image: url(../images/article--discussion-icon.svg);
   background-size: 2.38rem 2.5rem;
 }
 
-.newsfeed__item--draft h2 {
+.newsfeed__item--ngf-event h2 {
+  background-image: url(../images/article--event-icon.svg);
+  background-size: 2.38rem 2.5rem;
+}
+
+.newsfeed__item--unpublished h2 {
   background-image: url(../images/article--draft-icon.svg);
   background-size: 2.38rem 2.5rem;
 }
@@ -1539,21 +1577,19 @@ a.btn:focus, input.btn:focus, button.btn:focus {
   padding-left: 25px;
 }
 
-.newsfeed .sub-section {
-  border-top: solid 1px #a6a7ab;
-}
-
-.newsfeed .newsfeed__item--short {
+.newsfeed .newsfeed__item--teaser {
   background-image: url(../images/hr--wavy.svg);
   background-repeat: no-repeat;
   background-position: center top;
   padding: 7.5rem 15px 4rem 15px;
   background-size: 100% 40px;
+  margin-top: -30px;
 }
 
-.newsfeed .newsfeed__item--short:first-child {
+.newsfeed .newsfeed__item--teaser:first-child {
   padding-top: 4rem;
   background-image: none !important;
+  margin-top: 0px;
 }
 
 .newsfeed .newsfeed__item--pinned {
@@ -1569,11 +1605,11 @@ a.btn:focus, input.btn:focus, button.btn:focus {
   text-shadow: 0 2px 0 #f0e7f7, 0 3px 0 #f0e7f7, 1px 2px 0 #f0e7f7, -1px 2px 0 #f0e7f7;
 }
 
-.newsfeed .newsfeed__item--pinned.newsfeed__item--short:first-child {
+.newsfeed .newsfeed__item--pinned.newsfeed__item--teaser:first-child {
   background-color: #f0e7f7;
 }
 
-.newsfeed .newsfeed__item--draft {
+.newsfeed .newsfeed__item--unpublished {
   color: #05111E;
   background-image: url(../images/hr--wavy.svg), -webkit-gradient(linear, left top, left bottom, color-stop(50%, #ffebeb), color-stop(50%, #ffebeb));
   background-image: url(../images/hr--wavy.svg), linear-gradient(#ffebeb 50%, #ffebeb 50%);
@@ -1582,11 +1618,11 @@ a.btn:focus, input.btn:focus, button.btn:focus {
   background-size: 100% 40px, 100% calc(100% - 28px);
 }
 
-.newsfeed .newsfeed__item--draft > * a, .newsfeed .newsfeed__item--draft > * a:hover, .newsfeed .newsfeed__item--draft h2 a, .newsfeed .newsfeed__item--draft h2 a:hover {
+.newsfeed .newsfeed__item--unpublished > * a, .newsfeed .newsfeed__item--unpublished > * a:hover, .newsfeed .newsfeed__item--unpublished h2 a, .newsfeed .newsfeed__item--unpublished h2 a:hover {
   text-shadow: 0 2px 0 #ffebeb, 0 3px 0 #ffebeb, 1px 2px 0 #ffebeb, -1px 2px 0 #ffebeb;
 }
 
-.newsfeed .newsfeed__item--draft.newsfeed__item--short:first-child {
+.newsfeed .newsfeed__item--unpublished.newsfeed__item--teaser:first-child {
   background-color: #ffebeb;
 }
 
@@ -1771,14 +1807,14 @@ a.btn:focus, input.btn:focus, button.btn:focus {
 }
 
 .profile-listing {
-  padding: 0 15px;
+  padding: 0 0px;
   margin-top: 30px;
 }
 
 header.profile {
   text-align: center;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 header.profile ~ .inpage-nav {
@@ -2022,6 +2058,7 @@ header.profile .profile__actions a.profile__actions--add2list:before {
 .sub-section--related__title {
   padding-left: 3.6rem;
   min-height: 3.7rem;
+  margin-bottom: 0.7rem;
 }
 
 .sub-section--related__title--discussion {
@@ -2123,6 +2160,15 @@ a.share--email {
   a.share--email:before {
     background-position: -8rem 0;
   }
+}
+
+.related-events h3 {
+  margin-bottom: 1rem;
+}
+
+.related-events h3 a {
+  font-weight: 700;
+  font-size: 1.6rem;
 }
 
 /*# sourceMappingURL=style.css.map */
