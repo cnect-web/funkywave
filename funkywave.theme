@@ -24,6 +24,7 @@ function funkywave_preprocess_node(&$variables) {
     'teaser',
     'ngf_teaser_user_commented',
     'ngf_teaser_user_created',
+    'ngf_follow_up',
   ];
 
   if (in_array($view_mode, $display_modes)
@@ -112,6 +113,7 @@ function funkywave_preprocess_group(&$variables) {
   if ($variables['view_mode'] == 'full' && $group->getGroupType()->id() == 'ngf_event') {
     // This is needed so the group name is printed along with {{content}}.
     $variables['content']['label']['#printed'] = FALSE;
+    $variables['ngf_group_container_class'] = 'profile-shortinfo--group';
   }
 
   $display_modes = [
