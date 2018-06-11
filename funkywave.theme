@@ -32,63 +32,67 @@ function funkywave_preprocess_node(&$variables) {
 
     $variables['ngf_sub_picture'] = NULL;
     $variables['ngf_context_text'] = t(
-      'Posted @created_date ago',
-      [
+      'Posted @created_date ago', [
         '@created_date' => \Drupal::service('date.formatter')->formatTimeDiffSince($node->created->value)
-      ]
-    );
+    ]);
 
     $variables['ngf_group_container_class'] = 'profile-shortinfo--no-group';
     if (isset($node->group) && $group = $node->group) {
-      $variables['ngf_group_container_class'] = 'profile-shortinfo--group';
-
-      if (!$group->field_ngf_cover_image->isEmpty()) {
-        $media_id = $group->get('field_ngf_cover_image')->target_id;
-        $media_entity = Media::load($media_id);
-
-        $render = [
-          '#theme' => 'image_style',
-          '#style_name' => 'thumbnail',
-          '#uri' => $media_entity->get('field_media_image')->entity->getFileUri(),
-          '#attributes' => ['class' => ['profile-shortinfo__picture profile-shortinfo__picture--group responsive']]
-        ];
-
-        $link_render = [
-          '#title' => $render,
-          '#type' => 'link',
-          '#url' => $group->toUrl(),
-          '#attributes' => [
-            'class' => [
-              'profile-shortinfo__link profile-shortinfo__link--group'
-            ]
-          ]
-        ];
-        $variables['ngf_sub_picture'] = $link_render;
-      }
-
-      $visibility_icon = '';
-      if ($group->field_ngf_group_visibility->value == NGF_GROUP_PUBLIC) {
-        $visibility_icon = 'fa fa-eye-slash';
-      } 
-      elseif ($group->field_ngf_group_visibility->value == NGF_GROUP_PRIVATE) {
-        $visibility_icon = 'fa fa-lock';
-      }
-      elseif ($group->field_ngf_group_visibility->value == NGF_GROUP_SECRET) {
-        $visibility_icon = 'fa fa-lock';
-      }
-
-      $variables['ngf_context_text'] = t(
-        'Posted @created_date ago in <a href=":group_url" class="profile-shortinfo__link profile-shortinfo__group-link">@group_title</a>',
-        [
-          '@created_date' => \Drupal::service('date.formatter')->formatTimeDiffSince($node->created->value),
-          ':group_url' => $group->url(),
-          '@group_title' => $group->label(),
-        ]
-      ) . ' <i class="' . $visibility_icon . '"></i>';
+      _funkywave_group_context($node, $node->group, $variables);
     } elseif ($view_mode == 'ngf_teaser_user_commented') {
       $variables['ngf_context_text'] = t('Commented');
     }
   }
+}
+
+function _funkywave_group_context($entity, $group, &$variables) {
+  $variables['ngf_group_container_class'] = 'profile-shortinfo--group';
+
+  if (!$group->field_ngf_cover_image->isEmpty()) {
+    $media_id = $group->get('field_ngf_cover_image')->target_id;
+    $media_entity = Media::load($media_id);
+
+    $render = [
+      '#theme' => 'image_style',
+      '#style_name' => 'thumbnail',
+      '#uri' => $media_entity->get('field_media_image')->entity->getFileUri(),
+      '#attributes' => ['class' => ['profile-shortinfo__picture profile-shortinfo__picture--group responsive']]
+    ];
+
+    $link_render = [
+      '#title' => $render,
+      '#type' => 'link',
+      '#url' => $group->toUrl(),
+      '#attributes' => [
+        'class' => [
+          'profile-shortinfo__link profile-shortinfo__link--group'
+        ]
+      ]
+    ];
+    $variables['ngf_sub_picture'] = $link_render;
+  }
+
+  $visibility_icon = '';
+  if (!empty($group->field_ngf_group_visibility)) {
+    if ($group->field_ngf_group_visibility->value == NGF_GROUP_PUBLIC) {
+      $visibility_icon = 'fa fa-eye-slash';
+    }
+    elseif ($group->field_ngf_group_visibility->value == NGF_GROUP_PRIVATE) {
+      $visibility_icon = 'fa fa-lock';
+    }
+    elseif ($group->field_ngf_group_visibility->value == NGF_GROUP_SECRET) {
+      $visibility_icon = 'fa fa-lock';
+    }
+  }
+
+  $variables['ngf_context_text'] = t(
+      'Posted @created_date ago in <a href=":group_url" class="profile-shortinfo__link profile-shortinfo__group-link">@group_title</a>',
+      [
+        '@created_date' => \Drupal::service('date.formatter')->formatTimeDiffSince($entity->created->value),
+        ':group_url' => $group->url(),
+        '@group_title' => $group->label(),
+      ]
+    ) . ' <i class="' . $visibility_icon . '"></i>';
 }
 
 function funkywave_preprocess_user(&$vars) {
@@ -109,11 +113,13 @@ function funkywave_preprocess_user(&$vars) {
 function funkywave_preprocess_group(&$variables) {
   $group = $variables['group'];
   $view_mode = $variables['view_mode'];
-
-  if ($variables['view_mode'] == 'full' && $group->getGroupType()->id() == 'ngf_event') {
+  if ($view_mode == 'full' && $group->getGroupType()->id() == 'ngf_event') {
     // This is needed so the group name is printed along with {{content}}.
     $variables['content']['label']['#printed'] = FALSE;
     $variables['ngf_group_container_class'] = 'profile-shortinfo--group';
+    if (!empty($group->group)) {
+      _funkywave_group_context($group, $group->group, $variables);
+    }
   }
 
   $display_modes = [
