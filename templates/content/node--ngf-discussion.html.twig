@@ -78,7 +78,7 @@
    node.isPromoted() ? 'newsfeed__item--promoted',
    node.isSticky() ? 'newsfeed__item--sticky',
    not node.isPublished() ? 'node--unpublished newsfeed__item--unpublished',
-   view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+   view_mode ? 'newsfeed__item--' ~ view_mode|clean_class,
  ]
 %}
 
@@ -117,15 +117,25 @@
   {% block coverimage %}
       {{ content.field_ngf_cover_image }}
   {% endblock coverimage %}
+
   </header>
 
+  {# Show more button (will only be printed in teaser view mode) #}
+  {{ content.field_ngf_introtext }}
+
+  {# Show more button (will only be printed in teaser view mode) #}
+  {{ content.show_more }}
+
+  {# Show description (paragraphs) #}
   {{ content.field_ngf_description }}
-  
+
   {% block related_content %}
       {{ content.related_content }}
   {% endblock related_content %}  
     {# load a view with related content #}
   {% block related_topics %}
+
+
 
   {# TODO 
 
@@ -148,6 +158,7 @@
   {% set items = content.field_ngf_interests['#items'] %}
   {% set css_class = 'sub-section sub-section--related-taxonomy' %}  
 
+  {% if items is not empty %}
   <div class="{{ css_class }}">
     {% if label is not empty %}
       <h3>{{ label }}</h3>
@@ -164,6 +175,7 @@
       </ul>
     {% endif %}
   </div>
+  {% endif %}
 
   {% endblock related_topics %}
 
