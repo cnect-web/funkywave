@@ -92,7 +92,7 @@ function _funkywave_group_context($entity, $group, &$variables) {
         ':group_url' => $group->url(),
         '@group_title' => $group->label(),
       ]
-    ) . ' <i class="' . $visibility_icon . '"></i>';
+    );
 }
 
 function funkywave_preprocess_user(&$vars) {
@@ -113,10 +113,15 @@ function funkywave_preprocess_user(&$vars) {
 function funkywave_preprocess_group(&$variables) {
   $group = $variables['group'];
   $view_mode = $variables['view_mode'];
-  if ($view_mode == 'full' && $group->getGroupType()->id() == 'ngf_event') {
+  $display_modes = [
+    'full',
+    'teaser',
+    'ngf_follow_up',
+  ];
+
+  if (in_array($view_mode, $display_modes)  && $group->getGroupType()->id() == 'ngf_event') {
     // This is needed so the group name is printed along with {{content}}.
     $variables['content']['label']['#printed'] = FALSE;
-    $variables['ngf_group_container_class'] = 'profile-shortinfo--group';
     if (!empty($group->group)) {
       _funkywave_group_context($group, $group->group, $variables);
     }
