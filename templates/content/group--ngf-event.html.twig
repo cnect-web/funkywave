@@ -43,10 +43,7 @@
 {%
  set classes = [
    'newsfeed__item',
-   'newsfeed__item--' ~ node.bundle|clean_class,
-   node.isPromoted() ? 'newsfeed__item--promoted',
-   node.isSticky() ? 'newsfeed__item--sticky',
-   not node.isPublished() ? 'node--unpublished newsfeed__item--unpublished',
+   'newsfeed__item--' ~ group.bundle|clean_class,
    view_mode ? 'newsfeed__item--' ~ view_mode|clean_class,
  ]
 %}
@@ -54,7 +51,7 @@
 <article{{ attributes.addClass(classes) }}>
 <header>
 
-  {% if not group %}
+  {% if not page %}
     <h2>
       <a href="{{ url }}" rel="bookmark">{{ label }}</a>
     </h2>
@@ -71,6 +68,7 @@
     with {
       title: group.uid.entity.name.value,
       image_url: file_url(group.uid.entity.user_picture.entity.uri.value|image_style('thumbnail')),
+      logged_in: logged_in,
       context_text: ngf_context_text,
       subpic: ngf_sub_picture,
       container_class: ngf_group_container_class,
@@ -83,14 +81,13 @@
 
   {# block coverimage #}
   {% block coverimage %}
-
-    {% if group.field_media_image %}
-      <img src="{{ group.field_media_image.entity.uri.value|image_style('media_large') }}" class="responsive" alt="{{ group.label }}" >
+    {% if content.field_ngf_cover_image is not empty %}
+      {{ content.field_ngf_cover_image }}
     {% endif %}
-    
   {% endblock coverimage %}
 
   {% block eventdata %}
+
     {# convert date to an integer stamp #}
     {% set event_start_date = group.field_ngf_event_start_date.value|date('U') %}
     {# Convert event_end_date to an integer stamp if not empty #}  
@@ -108,9 +105,10 @@
     {% set event_start_date_month = event_start_date|date('m') %}
     {% set event_end_date_month = event_end_date|date('m') %} 
 
-    {# Start date & end date the same #}   
-
+    {# Start date & end date the same #}
+ 
     <div class="event-data">
+      {% if content.field_ngf_event_start_date is not empty %} 
       <h3><i class="fas fa-calendar-alt"></i>{% trans %} Date and time {% endtrans %}</h3>
       <p>
       {% if event_end_date is null %}
@@ -133,15 +131,18 @@
            <time><span class="event-end-date">{{ event_end_date|format_date('ngf_day_month_year') }}</span></time>
         {% endif %}
       {% endif %}
-    </p>
+      </p>
+      {% endif %}
 
-    {% if content.field_ngf_address is not empty %}
-      <div class="event-location">
-        <h3><i class="fas fa-map-marker-alt"></i>{% trans %} Location {% endtrans %}</h3>
-        {{ content.field_ngf_venue|field_raw('value') }} {{ content.field_ngf_address|field_value }}
-      </div>
-    {% endif %}
+      {% if content.field_ngf_address is not empty %}
+        <div class="event-location">
+          <h3><i class="fas fa-map-marker-alt"></i>{% trans %} Location {% endtrans %}</h3>
+            <p>{{ content.field_ngf_venue|field_raw('value') }} </p>
+            {{ content.field_ngf_address|field_value }}
+        </div>
+      {% endif %}
     </div>
+
 
   {% endblock eventdata %} 
 
@@ -151,6 +152,18 @@
       {{ content.field_ngf_introtext }}
     {% endif %} 
   {% endblock eventintrotext %}
+
+  {#  Show more button (will only be printed in teaser view mode) #}
+  {% if content.show_more %}
+  {% include "@patterns/button/pattern-button.html.twig"
+    with {
+      url: path('entity.group.canonical', {'group': content.show_more['#url'].routeParameters.group }),
+      label: content.show_more['#title'], 
+      container_class: 'btn-list btn-list--right',
+      button_class: 'btn--green', 
+    }
+  %}
+  {% endif %}
 
   {# Event Description #}
   {% block eventdescritption %}
@@ -163,9 +176,6 @@
   {% block eventspeakers %}
     {# todo needs development #}
   {% endblock eventspeakers %}
-  
-
-  {# End Event speakers #}
 
   {# Event register #}
   {% block eventregister %}
@@ -175,7 +185,7 @@
       {% include "@patterns/button/pattern-button.html.twig" 
         with{
           url: event_registration_url,
-          title: event_registration_title,
+          label: event_registration_title,
           container_class: 'btn-list--center extra-space--top',
           button_class: 'btn--blue btn--large',
         }

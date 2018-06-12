@@ -112,30 +112,32 @@
   {% endblock postinfo %}
   {# end block postinfo #}
 
-  {# block coverimage #}
-
+ {# block coverimage #}
   {% block coverimage %}
+    {% if content.field_ngf_cover_image is not empty %}
       {{ content.field_ngf_cover_image }}
+    {% endif %}
   {% endblock coverimage %}
 
-  </header>
-
-  {# Show more button (will only be printed in teaser view mode) #}
+  {# Introtext #}
   {{ content.field_ngf_introtext }}
 
   {# Show more button (will only be printed in teaser view mode) #}
-  {{ content.show_more }}
+  {% if content.show_more %}
+  {% include "@patterns/button/pattern-button.html.twig"
+    with {
+      url: path('entity.node.canonical', {'node': content.show_more['#url'].routeParameters.node }),
+      label: content.show_more['#title'], 
+      container_class: 'btn-list btn-list--right',
+      button_class: 'btn--green', 
+    }
+  %}
+  {% endif %}
 
   {# Show description (paragraphs) #}
   {{ content.field_ngf_description }}
 
-  {% block related_content %}
-      {{ content.related_content }}
-  {% endblock related_content %}  
-    {# load a view with related content #}
   {% block related_topics %}
-
-
 
   {# TODO 
 
@@ -178,6 +180,17 @@
   {% endif %}
 
   {% endblock related_topics %}
+
+  {# Call view related content #}
+  {% block related_content %}
+    {# to avoid endless loop #}
+    {% if view_mode == "full" %}
+      {{ drupal_view('ngf_discussion_related_content', 'block') }}
+    {% endif %}  
+  {% endblock related_content %} 
+
+  {# Comments #}
+  {{ content.field_comments }}  
 
 
 </article>
