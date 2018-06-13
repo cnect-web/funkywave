@@ -109,7 +109,7 @@
  
     <div class="event-data">
       {% if content.field_ngf_event_start_date is not empty %} 
-      <h3><i class="fas fa-calendar-alt"></i>{% trans %} Date and time {% endtrans %}</h3>
+      <h3><i class="fas fa-calendar-alt"></i> {% trans %} Date and time {% endtrans %}</h3>
       <p>
       {% if event_end_date is null %}
         <time><span class="event-start-date">{{ event_start_date|format_date('ngf_day_month_year') }}</span></time>
@@ -136,7 +136,7 @@
 
       {% if content.field_ngf_address is not empty %}
         <div class="event-location">
-          <h3><i class="fas fa-map-marker-alt"></i>{% trans %} Location {% endtrans %}</h3>
+          <h3><i class="fas fa-map-marker-alt"></i> {% trans %} Location {% endtrans %}</h3>
             <p>{{ content.field_ngf_venue|field_raw('value') }} </p>
             {{ content.field_ngf_address|field_value }}
         </div>
@@ -192,5 +192,48 @@
       %}
     {% endif %} 
   {% endblock eventregister %}
+
+  {% block related_topics %}
+
+  {# TODO 
+
+  {% include "@patterns/list/pattern-list.html.twig"
+    with { 
+      items: content.field_ngf_interests['#items'],
+      css_class: sub-section sub-section--related-taxonomy,
+      label: content.field_ngf_interests['#title'],
+      list_class: list list--taxonomy,
+      item_class: list__item list__item--tag,
+      link_class: tag tag__link,
+      url: '',
+      title: '',
+    }
+  %}
+  #}
+
+  {% set label = content.field_ngf_interests['#title'] %}
+  {% set items = content.field_ngf_interests['#items'] %}
+  {% set css_class = 'sub-section sub-section--related-taxonomy' %}  
+
+  {% if items is not empty %}
+  <div class="{{ css_class }}">
+    {% if label is not empty %}
+      <h3>{{ label }}</h3>
+    {% endif %}
+    {% if items is not empty %}
+      <ul class="list list--taxonomy">
+        {% for item in items %}
+          <li class="list__item list__item--tag">
+            <a class="tag tag__link" href="{{ path('entity.taxonomy_term.canonical', {'taxonomy_term': item.entity.id}) }}">
+              {{ item.entity.name.value }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
+  {% endif %} 
+
+  {% endblock related_topics %}
 
 </article>

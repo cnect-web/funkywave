@@ -98,17 +98,17 @@
 
   {#block postinfo #}
   {% block postinfo %}
-      {% include "@patterns/profile-shortinfo/pattern-profile-shortinfo.html.twig"
-          with {
-              image_url: file_url(node.uid.entity.user_picture.entity.uri.value|image_style('thumbnail')),
-              title: node.owner.full_name.value,
-              url: path('entity.user.canonical', {'user': user.id}),
-              logged_in: logged_in,
-              context_text: ngf_context_text,
-              subpic: ngf_sub_picture,
-              container_class: ngf_group_container_class,
-          }
-      %}
+    {% include "@patterns/profile-shortinfo/pattern-profile-shortinfo.html.twig"
+      with {
+        image_url: file_url(node.uid.entity.user_picture.entity.uri.value|image_style('thumbnail')),
+        title: node.owner.full_name.value,
+        url: path('entity.user.canonical', {'user': user.id}),
+        logged_in: logged_in,
+        context_text: ngf_context_text,
+        subpic: ngf_sub_picture,
+        container_class: ngf_group_container_class,
+       }
+    %}
   {% endblock postinfo %}
   {# end block postinfo #}
 
@@ -185,7 +185,9 @@
   {% block related_content %}
     {# to avoid endless loop #}
     {% if view_mode == "full" %}
-      {{ drupal_view('ngf_discussion_related_content', 'block') }}
+      <div class="sub-section sub-section--related">
+        {{ drupal_view('ngf_discussion_related_content', 'block') }}
+      </div>
     {% endif %}  
   {% endblock related_content %} 
 
