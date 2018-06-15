@@ -18,6 +18,11 @@ body {
   padding: 0;
   line-height: 1.8;
   background-color: #1f1e23;
+  background-image: url(../images/body-bckgrd--md.svg);
+  background-repeat: no-repeat;
+  background-position: 50% top;
+  background-attachment: fixed;
+  background-size: 100% 80px;
 }
 
 .wf-active body {
@@ -998,8 +1003,20 @@ a.btn:focus, input.btn:focus, button.btn:focus {
   margin: 0;
 }
 
+.sub-section--comments ul.links.inline {
+  padding-bottom: 15px;
+}
+
+.sub-section--comments ul.links.inline li {
+  display: inline-block;
+}
+
 .sub-section--comments li {
   list-style: none;
+}
+
+.sub-section--comments li .profile-shortinfo {
+  margin-top: 15px;
 }
 
 .sub-section--comments .profile-shortinfo {
@@ -1030,10 +1047,30 @@ a.btn:focus, input.btn:focus, button.btn:focus {
   padding-left: 0;
 }
 
-.sub-section--comments .comment__link--reply {
+.sub-section--comments .comment-reply a {
   padding-left: 2.6rem;
   min-height: 3.7rem;
   background-image: url(../images/article--comment-outline-icon.svg);
+  background-position: 0.5rem 0;
+  background-repeat: no-repeat;
+  background-size: 1.7rem 1.7rem;
+  text-decoration: none;
+}
+
+.sub-section--comments .comment-edit a {
+  padding-left: 2.6rem;
+  min-height: 3.7rem;
+  background-image: url(../images/article--edit-outline-icon.svg);
+  background-position: 0.5rem 0;
+  background-repeat: no-repeat;
+  background-size: 1.7rem 1.7rem;
+  text-decoration: none;
+}
+
+.sub-section--comments .comment-delete a {
+  padding-left: 2.6rem;
+  min-height: 3.7rem;
+  background-image: url(../images/article--delete-outline-icon.svg);
   background-position: 0.5rem 0;
   background-repeat: no-repeat;
   background-size: 1.7rem 1.7rem;
@@ -1091,6 +1128,11 @@ a.btn:focus, input.btn:focus, button.btn:focus {
     height: 100vh;
     float: right;
     background-color: #26252B;
+    background-image: url(../images/body-bckgrd--md.svg);
+    background-repeat: no-repeat;
+    background-position: 50% top;
+    background-attachment: fixed;
+    background-size: 100% 80px;
     z-index: 4;
     padding: 60px 15px;
     padding-bottom: 500em;
@@ -1101,6 +1143,12 @@ a.btn:focus, input.btn:focus, button.btn:focus {
     position: fixed;
     width: calc(25% - 30px);
     max-width: 270px;
+  }
+
+  .general-footer ul {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
   }
 }
 
@@ -1426,10 +1474,26 @@ a.btn:focus, input.btn:focus, button.btn:focus {
     margin-left: -15px;
   }
 
+  .navigation-menu__list--tools:empty {
+    background-image: url(../images/logo-area-bckgrd--md--no-action.svg);
+  }
+
+  .navigation-menu__list--tools.navigation-menu__list--single-tool {
+    background-image: url(../images/logo-area-bckgrd--md--one-action.svg);
+  }
+
   .navigation-menu__list--tools .navigation-menu__item {
     display: inline-block;
     padding: 0;
     margin-left: 0px;
+  }
+
+  .navigation-menu__list--tools .navigation-menu__item:only-child {
+    display: block;
+    margin: 0px 0% 0 -2.45% !important;
+    position: absolute;
+    height: 54px;
+    width: 54px;
   }
 
   .navigation-menu__list--tools .navigation-menu__item:first-child {
@@ -1498,6 +1562,24 @@ a.btn:focus, input.btn:focus, button.btn:focus {
     width: 75vw;
     max-width: 900px;
     margin-left: -15px;
+  }
+
+  .navigation-menu__list--tools .navigation-menu__item:only-child {
+    display: block;
+    margin: 0px 0% 0 -18px !important;
+    position: absolute;
+    height: 54px;
+    width: 54px;
+  }
+}
+
+@media (min-width: 1100px) {
+  .navigation-menu__list--tools .navigation-menu__item:only-child {
+    display: block;
+    margin: 0px 0% 0 -2.75% !important;
+    position: absolute;
+    height: 54px;
+    width: 54px;
   }
 }
 

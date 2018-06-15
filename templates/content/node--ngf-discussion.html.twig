@@ -119,6 +119,8 @@
     {% endif %}
   {% endblock coverimage %}
 
+  </header>
+
   {# Introtext #}
   {{ content.field_ngf_introtext }}
 
@@ -192,7 +194,10 @@
   {% endblock related_content %} 
 
   {# Comments #}
+  {% if view_mode == "full" %}
   {{ content.field_comments }}  
+  {% endif %} 
+  
 
 
 </article>

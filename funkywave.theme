@@ -148,3 +148,12 @@ function funkywave_preprocess_group(&$variables) {
    
   }
 }
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter()
+ * Create theme suggestions for user profile templates
+**/
+function funkywave_theme_suggestions_user_alter(&$suggestions, array $variables) {
+  $viewmode = $variables['elements']['#view_mode'];
+  $suggestions[] = 'user__' . $viewmode;
+}
