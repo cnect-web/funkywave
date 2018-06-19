@@ -135,7 +135,7 @@
       {% if content.field_ngf_address['#items'] is not empty %}
         <div class="event-location">
           <h3><i class="fas fa-map-marker-alt"></i> {% trans %} Location {% endtrans %}</h3>
-            <p>{{ content.field_ngf_venue|field_raw('value') }} </p>
+            <h4>{{ content.field_ngf_venue|field_raw('value') }} </h4>
             {{ content.field_ngf_address|field_value }}
         </div>
       {% endif %}

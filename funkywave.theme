@@ -13,6 +13,7 @@ use Drupal\file\Entity\File;
 use Drupal\Core\Link;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
 
+
 /**
 * Implement template_preprocess_node().
 */
@@ -136,7 +137,7 @@ function funkywave_preprocess_group(&$variables) {
     $variables['ngf_group_container_class'] = 'profile-shortinfo--no-group';
     if ($group->field_ngf_group_visibility->value == NGF_GROUP_PUBLIC) {
       $variables['ngf_context_text'] = t('Public group');
-    } 
+    }
     elseif ($group->field_ngf_group_visibility->value == NGF_GROUP_PRIVATE) {
       $visibility_icon = 'fa fa-lock';
       $variables['ngf_context_text'] = '<i class="' . $visibility_icon . '"></i> ' . t('Private group');
@@ -145,7 +146,7 @@ function funkywave_preprocess_group(&$variables) {
       $visibility_icon = 'fa fa-eye-slash';
       $variables['ngf_context_text'] = '<i class="' . $visibility_icon . '"></i> ' . t('Secret group');
     }
-   
+
   }
 }
 
@@ -156,4 +157,33 @@ function funkywave_preprocess_group(&$variables) {
 function funkywave_theme_suggestions_user_alter(&$suggestions, array $variables) {
   $viewmode = $variables['elements']['#view_mode'];
   $suggestions[] = 'user__' . $viewmode;
+}
+
+/**
+ * Implements hook_theme_form_alter()
+ * The form id becomes the data attribute on the input fields and submit button
+**/
+function funkywave_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $form['actions']['submit']['#attributes']['data-twig-suggestion'] = $form['#id'];
+  $suggestion = str_replace(['-'], '_', $form['#id']);
+  $form['keys']['#attributes']['data-twig-suggestion'] = $suggestion;
+}
+
+/**
+ * theme suggestions input alter to create the completely custom and flexible template suggestion
+**/
+function funkywave_theme_suggestions_input_alter(&$suggestions, array $variables) {
+  $element = $variables['element'];
+  if (isset($element['#attributes']['data-twig-suggestion'])) {
+    $suggestion_suffix = str_replace(['-'], '_', $element['#attributes']['data-twig-suggestion']);
+    $suggestions[] = 'input__' . $element['#type'] . '__' . $suggestion_suffix;
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_container_alter().
+ */
+function funkywave_theme_suggestions_container_alter(&$suggestions, array $variables) {
+  $element = $variables['element'];
+  $suggestions[] = 'container__' . $element['#type'];
 }
