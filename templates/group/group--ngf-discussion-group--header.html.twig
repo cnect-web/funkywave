@@ -54,7 +54,7 @@
   only %}
 
   {# profile meta #}
-  
+
   {% include '@patterns/profile_meta/pattern-profile-meta.html.twig'
     with {
       profile_meta: content.field_ngf_group_visibility[0],
@@ -62,7 +62,7 @@
   only %}
 
   {# profile actions #}
-  
+
   {% include '@patterns/profile_actions/pattern-profile-actions.html.twig'
     with {
       action_contact: 'todo contact',
@@ -77,14 +77,14 @@
 
   {# profile networks #}
 
-  {% include "@patterns/profile_networks/pattern-profile-networks.html.twig" 
-    with {   
+  {% include "@patterns/profile_networks/pattern-profile-networks.html.twig"
+    with {
       profile_members: content.members_followers['#items']['members']['#title'],
       profile_members_uri: content.members_followers['#items']['members']['#url'],
       profile_followers: content.members_followers['#items']['followers']['#title'],
       profile_followers_uri: content.members_followers['#items']['followers']['#url'],
-      profile_subgroups: 'todo subgroups',
-      profile_subgroups_uri: 'todo',
+      profile_subgroups: content.members_followers['#items']['subgroups']['#title'],
+      profile_subgroups_uri: content.members_followers['#items']['subgroups']['#url'],
     }
   only %}
 
