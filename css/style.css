@@ -135,7 +135,7 @@ form__block, .form__block {
   margin: 1.5rem 0 1rem;
 }
 
-form__block--text label, form__fake-label, .form__block--text label, .form__fake-label {
+form__block label, form__fake-label, .form__block label, .form__fake-label {
   display: block;
   font-weight: 600;
   margin-bottom: 0.3em;
@@ -1723,7 +1723,7 @@ a.btn:focus, input.btn:focus, button.btn:focus {
     max-width: 270px;
   }
 
-  .general-footer ul {
+  .general-footer ul.menu {
     position: fixed;
     width: 100%;
     bottom: 0;

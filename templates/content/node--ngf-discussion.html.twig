@@ -129,9 +129,9 @@
   {% include "@patterns/button/pattern-button.html.twig"
     with {
       url: path('entity.node.canonical', {'node': content.show_more['#url'].routeParameters.node }),
-      label: content.show_more['#title'], 
+      label: content.show_more['#title'],
       container_class: 'btn-list btn-list--right',
-      button_class: 'btn--green', 
+      button_class: 'btn--green',
     }
   %}
   {% endif %}
@@ -141,10 +141,10 @@
 
   {% block related_topics %}
 
-  {# TODO 
+  {# TODO
 
   {% include "@patterns/list/pattern-list.html.twig"
-    with { 
+    with {
       items: content.field_ngf_interests['#items'],
       css_class: sub-section sub-section--related-taxonomy,
       label: content.field_ngf_interests['#title'],
@@ -160,7 +160,7 @@
 
   {% set label = content.field_ngf_interests['#title'] %}
   {% set items = content.field_ngf_interests['#items'] %}
-  {% set css_class = 'sub-section sub-section--related-taxonomy' %}  
+  {% set css_class = 'sub-section sub-section--related-taxonomy' %}
 
   {% if items is not empty %}
   <div class="{{ css_class }}">
@@ -187,17 +187,19 @@
   {% block related_content %}
     {# to avoid endless loop #}
     {% if view_mode == "full" %}
-      <div class="sub-section sub-section--related">
-        {{ drupal_view('ngf_discussion_related_content', 'block') }}
-      </div>
-    {% endif %}  
-  {% endblock related_content %} 
+      {# checks if the view returns a result, it needs a wrapper. needs improvement #}
+      {% if drupal_view_result('ngf_discussion_related_content', 'block') %}
+        <div class="sub-section sub-section--related">
+          <h3 class="sub-section__title sub-section--related__title sub-section--related__title--discussion">Follow up</h3>
+          {{ drupal_view('ngf_discussion_related_content', 'block') }}
+        </div>
+      {% endif %}
+    {% endif %}
+  {% endblock related_content %}
 
   {# Comments #}
   {% if view_mode == "full" %}
-  {{ content.field_comments }}  
-  {% endif %} 
-  
-
+  {{ content.field_comments }}
+  {% endif %}
 
 </article>
