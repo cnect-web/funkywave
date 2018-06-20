@@ -23,9 +23,9 @@
   	{% set last_name = content.field_ngf_last_name|field_raw.value %}
     {% set profile_pic_url = file_url(content.user_picture|field_target_entity.uri.value|image_style('thumbnail')) %}
 
-    {% if profile_pic_url %}	
+    {% if profile_pic_url %}
   	<a href="#" class="profile__pic__link"><!-- link to full pic -->
-      <img src="{{ profile_pic_url }}" alt="{{ first_name }} {{ last_name }} {% trans %} Profile picture {% endtrans %}" class="Christina Mattews Profile picture" />
+      <img src="{{ profile_pic_url }}" alt="{{ first_name }} {{ last_name }} {% trans %} Profile picture {% endtrans %}" class="profile__pic" />
     </a>
     {% endif %}
 
