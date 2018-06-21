@@ -8,7 +8,11 @@
 
 {% if profile_uri %}
   <a href="{{ profile_uri }}" class="profile__pic__link">
-    <img src="{{ profile_pic_uri }}" class="profile__pic" alt="{{ profile_title }}">
+{% endif %}
+    {% if profile_pic_uri %}
+      <img src="{{ profile_pic_uri }}" class="profile__pic" alt="{{ profile_title }}" />
+    {% endif %}
+{% if profile_uri %}
   </a>
 {% endif %}
     
