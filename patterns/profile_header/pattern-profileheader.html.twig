@@ -1,0 +1,95 @@
+{#
+/**
+ * @file
+ * post info pattern.
+ */
+#}
+
+{% if author_pic_uri %}
+  {% set profile_pic_uri = author_pic_uri %}
+  {% set profile_title = author_name %}
+  {% set profile_uri = user_profile_uri %}
+  {% set profile_uri_more = user_profile_uri_more %}
+  {% set profile_uri_back = user_profile_uri_back %}
+  {% set profile_members = user_profile_members %}
+  {% set profile_members_uri = user_profile_members_uri %}  
+  {% set profile_followers = user_profile_followers %}
+  {% set profile_followers_uri = user_profile_followers_uri %}  
+  {% set profile_groups = user_profile_groups %}
+  {% set profile_groups_uri = user_profile_groups_uri %}
+  {% set action_contact_uri = user_action_contact_uri %}
+  {% set action_follow = user_action_follow %}    
+{% else %}
+  {% set profile_pic_uri = group_pic_uri %}
+  {% set profile_title = group_name %}
+  {% set profile_uri = group_profile_uri %}
+  {% set profile_uri_more = group_profile_uri_more %}
+  {% set profile_uri_back = group_profile_uri_back %}
+  {% set profile_members = group_profile_members %}
+  {% set profile_members_uri = group_profile_members_uri %}  
+  {% set profile_followers = group_profile_followers %}
+  {% set profile_followers_uri = group_profile_followers_uri %}
+  {% set profile_groups = group_profile_subgroups %} 
+  {% set profile_groups_uri = group_profile_subgroups_uri %}
+  {% set action_contact_uri = group_action_contact_uri %}
+  {% set action_follow = group_action_follow %}   
+  {% set action_join = group_action_join %}
+  {% set action_join_uri = group_action_join_uri %}
+  {% set action_leave = group_action_leave %}
+  {% set action_leave_uri = group_action_leave_uri %}    
+{% endif %}
+
+{% set catch_cache = content|render %}  
+
+{% if profile_uri %}
+  <a href="{{ profile_uri }}" class="profile__pic__link">
+    <img src="{{ profile_pic_uri }}" class="profile__pic" alt="{{ profile_title }}">
+  </a>
+{% endif %}
+    
+{% if profile_title %}  
+  <h2 class="profile__title"><a href="{{ profile_uri }}">{{ profile_title }}</a></h2>
+{% endif %}
+
+{% if profile_uri_more %}
+  <a href="{{ profile_uri_more }}" class="profile__link--about">{% trans %} Learn more {% endtrans %}<span class="sr-only">{% trans %} about {% endtrans %}{{ profile_title }}</span><i class="fas fa-chevron-right"></i>
+  </a>
+{% endif %}
+
+{% if profile_uri_back %}
+  <a href="{{ profile_uri_back }}" class="profile__link--about"><i class="fas fa-chevron-left"></i> {% trans %}Back to profile page {% endtrans %}<span class="sr-only">{% trans %} of {% endtrans %} {{ profile_title }}</span>
+</a>
+{% endif %}
+    
+{% if group_visibility %}
+  <ul class="profile__meta">
+    <li>{{ group_visibility }}</li>
+  </ul>
+{% endif %}
+   
+<ul class="profile__actions">
+  {% if action_contact %}
+    <li><a href="{{ action_contact_uri }}" class="profile__actions--contact">{{ action_contact }}</a></li>
+  {% endif %}
+  {% if action_join %}
+    <li><a href="{{ action_join_uri }}" class="profile__actions--join">{{ action_join }}</a></li>
+  {% endif %}
+  {% if action_leave %}
+    <li><a href="{{ action_leave_uri }}" class="profile__actions--leave">{{ action_leave }}</a></li>
+  {% endif %}
+  {% if action_follow %}
+    <li>{{ action_follow }}</li>
+  {% endif %}
+</ul>
+   
+<ul class="profile__networks active">
+  {% if profile_members %}
+    <li class="profile__networks__item profile__members"><a href="{{ profile_members_uri }}">{{ profile_members }}</a></li>
+  {% endif %}
+  {% if profile_followers %}
+    <li class="profile__networks__item profile__followers"><a href="{{ profile_followers_uri }}">{{ profile_followers }}</a></li>
+  {% endif %}
+  {% if profile_groups %}
+    <li class="profile__networks__item profile__subgroups"><a href="{{ profile_groups_uri }}">{{ profile_groups }}</a></li>
+  {% endif %}
+</ul>
