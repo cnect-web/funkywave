@@ -104,7 +104,7 @@ function funkywave_preprocess_user(&$vars) {
     // get user name
   }
   else {
-    $vars['user_pic'] = file_create_url($vars['directory'] . '/images/default_user.jpg');;
+    $vars['user_pic'] = file_create_url($vars['directory'] . '/images/default_user.jpg');
   }
   $vars['user_name'] = $user->getUsername();
   $vars['full_name'] = $user->full_name->value;
