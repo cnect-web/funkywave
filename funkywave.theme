@@ -12,6 +12,7 @@ use Drupal\media\Entity\Media;
 use Drupal\file\Entity\File;
 use Drupal\Core\Link;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
+use \Drupal\Core\Url;
 
 
 /**
@@ -43,6 +44,15 @@ function funkywave_preprocess_node(&$variables) {
     } elseif ($view_mode == 'ngf_teaser_user_commented') {
       $variables['ngf_context_text'] = t('Commented');
     }
+
+    $variables['classes'] = [
+      'newsfeed__item',
+      'newsfeed__item--' . $node->bundle(),
+      $node->isPromoted() ? 'newsfeed__item--promoted' : '',
+      $node->isSticky() ? 'newsfeed__item--sticky' : '',
+      !$node->isPublished() ? 'node--unpublished newsfeed__item--unpublished' : '',
+      'newsfeed__item--' . $view_mode,
+    ];
   }
 }
 
@@ -73,19 +83,6 @@ function _funkywave_group_context($entity, $group, &$variables) {
     $variables['ngf_sub_picture'] = $link_render;
   }
 
-  $visibility_icon = '';
-  if (!empty($group->field_ngf_group_visibility)) {
-    if ($group->field_ngf_group_visibility->value == NGF_GROUP_PUBLIC) {
-      $visibility_icon = 'fa fa-eye-slash';
-    }
-    elseif ($group->field_ngf_group_visibility->value == NGF_GROUP_PRIVATE) {
-      $visibility_icon = 'fa fa-lock';
-    }
-    elseif ($group->field_ngf_group_visibility->value == NGF_GROUP_SECRET) {
-      $visibility_icon = 'fa fa-lock';
-    }
-  }
-
   $variables['ngf_context_text'] = t(
       'Posted @created_date ago in <a href=":group_url" class="profile-shortinfo__link profile-shortinfo__group-link">@group_title</a>',
       [
@@ -98,17 +95,31 @@ function _funkywave_group_context($entity, $group, &$variables) {
 
 function funkywave_preprocess_user(&$vars) {
   $user = $vars['user'];
-//  var_dump($user->full_name->value);
-//  exit();
-  // get user image
-//  kint($user->user_picture);
+
+  $view_mode = $vars['elements']['#view_mode'];
+  $user_id = $user->id();
+
   if (!empty($user->user_picture->entity)) {
     $cover_image = $user->user_picture->entity->getFileUri();
     $vars['user_pic'] = ImageStyle::load('thumbnail')->buildUrl($cover_image);
-    // get user name
   }
   $vars['user_name'] = $user->getUsername();
   $vars['full_name'] = $user->full_name->value;
+  $vars['profile_uri'] = Url::fromRoute('ngf_user_profile.page.profile', [
+    'user' => $user_id,
+  ])->toString();
+
+  if (\Drupal::routeMatch()->getRouteName() == 'ngf_user_profile.page.user_about') {
+    $vars['profile_uri_back'] = $vars['profile_uri'];
+    $vars['profile_uri_more'] = '';
+  }
+  else {
+    $vars['profile_uri_back'] = '';
+    $vars['profile_uri_more'] = Url::fromRoute('ngf_user_profile.page.user_about', [
+      'user' => $user_id,
+    ])->toString();
+  }
+
 }
 
 /**
@@ -117,37 +128,57 @@ function funkywave_preprocess_user(&$vars) {
 function funkywave_preprocess_group(&$variables) {
   $group = $variables['group'];
   $view_mode = $variables['view_mode'];
-  $display_modes = [
-    'full',
-    'teaser',
-    'ngf_follow_up',
-  ];
 
-  if (in_array($view_mode, $display_modes)  && $group->getGroupType()->id() == 'ngf_event') {
-    // This is needed so the group name is printed along with {{content}}.
-    $variables['content']['label']['#printed'] = FALSE;
-    if (!empty($group->group)) {
-      _funkywave_group_context($group, $group->group, $variables);
+  if ($group->getGroupType()->id() == 'ngf_event') {
+
+    $display_modes = [
+      'full',
+      'teaser',
+      'ngf_follow_up',
+    ];
+
+    if (in_array($view_mode, $display_modes)) {
+      // This is needed so the group name is printed along with {{content}}.
+      $variables['content']['label']['#printed'] = FALSE;
+      if (!empty($group->group)) {
+        _funkywave_group_context($group, $group->group, $variables);
+      }
     }
+
   }
+  else if ($group->getGroupType()->id() == 'ngf_discussion_group') {
 
-  $display_modes = [
-    'teaser',
-    'ngf_user_created',
-  ];
+    $display_modes = [
+      'teaser',
+      'ngf_user_created',
+    ];
 
-  if ($group->getGroupType()->id() == 'ngf_discussion_group' && in_array($view_mode, $display_modes)) {
-    $variables['ngf_group_container_class'] = 'profile-shortinfo--no-group';
-    if ($group->field_ngf_group_visibility->value == NGF_GROUP_PUBLIC) {
-      $variables['ngf_context_text'] = t('Public group');
+    if (in_array($view_mode, $display_modes)) {
+      $variables['ngf_group_container_class'] = 'profile-shortinfo--no-group';
+      if ($group->field_ngf_group_visibility->value == NGF_GROUP_PUBLIC) {
+        $variables['ngf_context_text'] = t('Public group');
+      }
+      elseif ($group->field_ngf_group_visibility->value == NGF_GROUP_PRIVATE) {
+        $visibility_icon = 'fa fa-lock';
+        $variables['ngf_context_text'] = '<i class="' . $visibility_icon . '"></i> ' . t('Private group');
+      }
+      elseif ($group->field_ngf_group_visibility->value == NGF_GROUP_SECRET) {
+        $visibility_icon = 'fa fa-eye-slash';
+        $variables['ngf_context_text'] = '<i class="' . $visibility_icon . '"></i> ' . t('Secret group');
+      }
     }
-    elseif ($group->field_ngf_group_visibility->value == NGF_GROUP_PRIVATE) {
-      $visibility_icon = 'fa fa-lock';
-      $variables['ngf_context_text'] = '<i class="' . $visibility_icon . '"></i> ' . t('Private group');
-    }
-    elseif ($group->field_ngf_group_visibility->value == NGF_GROUP_SECRET) {
-      $visibility_icon = 'fa fa-eye-slash';
-      $variables['ngf_context_text'] = '<i class="' . $visibility_icon . '"></i> ' . t('Secret group');
+
+    if ($view_mode == 'ngf_header') {
+      if (\Drupal::routeMatch()->getRouteName() == 'ngf_group.page.info') {
+        $variables['profile_uri_back'] = $group->url();
+        $variables['profile_uri_more'] = '';
+      }
+      else {
+        $variables['profile_uri_back'] = '';
+        $variables['profile_uri_more'] = Url::fromRoute('ngf_group.page.info', [
+          'group' => $group->id(),
+        ])->toString();
+      }
     }
 
   }
@@ -202,9 +233,9 @@ function funkywave_theme_suggestions_page_alter(array &$suggestions, array $vari
   if ($exception = $request->attributes->get('exception')) {
     // Get the status code.
     $status_code = $exception->getStatusCode();
-    if (in_array($status_code, array(401, 403, 404))) {
+    if (in_array($status_code, [401, 403, 404])) {
       $suggestions[] = 'page__error';
-      $suggestions[] .= 'page__error__' . $status_code;
+      $suggestions[] = 'page__error__' . $status_code;
     }
   }
 }

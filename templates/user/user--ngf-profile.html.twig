@@ -22,9 +22,10 @@
         with {
         profile_pic_uri: user_pic,
         profile_title: full_name,
-        profile_uri: '/profile/' ~ user.id(),
-        profile_uri_back: 'back',
-        profile_uri_more: '/profile/' ~ user.id() ~ '/about'
+        profile_location: content.field_ngf_city|field_value,
+        profile_uri: profile_uri,
+        profile_uri_back: profile_uri_back,
+        profile_uri_more: profile_uri_more
     }
     only %}
 

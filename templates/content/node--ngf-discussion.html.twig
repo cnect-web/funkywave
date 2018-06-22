@@ -71,35 +71,20 @@
  */
 #}
 
-{%
- set classes = [
-   'newsfeed__item',
-   'newsfeed__item--' ~ node.bundle|clean_class,
-   node.isPromoted() ? 'newsfeed__item--promoted',
-   node.isSticky() ? 'newsfeed__item--sticky',
-   not node.isPublished() ? 'node--unpublished newsfeed__item--unpublished',
-   view_mode ? 'newsfeed__item--' ~ view_mode|clean_class,
- ]
-%}
-
 {{ attach_library('classy/node') }}
-
 
 {% block article %}
 <article{{ attributes.addClass(classes) }}>
   {% block header %}
   <header>
     {{ title_prefix }}
-    {% if not page %}
-      <h2>
-        <a href="{{ url }}" rel="bookmark">{{ label }}</a>
-      </h2>
-    {% else %}
-       <h2>
-        {{ label }}
-      </h2>
-    {% endif %}
-
+    <h2>
+        {% if not page %}
+            <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+        {% else %}
+            {{ label }}
+        {% endif %}
+    </h2>
     {#block postinfo #}
     {% block postinfo %}
       {% include "@patterns/profile-shortinfo/pattern-profile-shortinfo.html.twig"
@@ -165,30 +150,7 @@
     }
   %}
   #}
-
-
-  {% set label = content.field_ngf_interests['#title'] %}
-  {% set items = content.field_ngf_interests['#items'] %}
-  {% set css_class = 'sub-section sub-section--related-taxonomy' %}
-
-  {% if items is not empty %}
-  <div class="{{ css_class }}">
-    {% if label is not empty %}
-      <h3>{{ label }}</h3>
-    {% endif %}
-    {% if items is not empty %}
-      <ul class="list list--taxonomy">
-        {% for item in items %}
-          <li class="list__item list__item--tag">
-            <a class="tag tag__link" href="{{ path('entity.taxonomy_term.canonical', {'taxonomy_term': item.entity.id}) }}">
-              {{ item.entity.name.value }}
-            </a>
-          </li>
-        {% endfor %}
-      </ul>
-    {% endif %}
-  </div>
-  {% endif %}
+  {{ content.field_ngf_interests }}
 
   {% endblock related_topics %}
 

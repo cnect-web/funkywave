@@ -16,20 +16,7 @@
  * @see template_preprocess_user()
  */
 #}
-
-{# block profile #}
-
-{% block profileinfo %}
-  {% include "@patterns/profile-shortinfo/pattern-profile-shortinfo.html.twig"
-    with {
-      image_url: file_url(user.user_picture.entity.uri.value|image_style('thumbnail')),
-      title: full_name,
-      url: path('entity.user.canonical', {'user': user.id}),
-      context_text: 'ngf_context_text',
-      logged_in: logged_in,
-      container_class: 'profile-shortinfo--no-group',
-    }
-  %}
-{% endblock profileinfo %}
-
-{# |field_target_entity.uri.value|image_style('thumbnail') #}
+<div class="newsfeed" style="padding: 0 15px">
+    <h3>{% trans %}About{% endtrans %} {{ full_name }}</h3>
+    {{ content }}
+</div>
