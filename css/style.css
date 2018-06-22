@@ -1857,7 +1857,20 @@ a.btn:focus, input.btn:focus, button.btn:focus {
   font-weight: 600;
 }
 
+.inpage-nav .nav--tabs li a.is-active {
+  color: #515155;
+  font-weight: 600;
+}
+
 .inpage-nav .nav--tabs li a.active::after {
+  margin-top: 2px;
+  height: 5px;
+  background-color: #662D91;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.inpage-nav .nav--tabs li a.is-active::after {
   margin-top: 2px;
   height: 5px;
   background-color: #662D91;
