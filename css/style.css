@@ -80,6 +80,29 @@ a:not(.toolbar-item):hover {
   overflow: hidden;
 }
 
+.general-container--card {
+  height: auto;
+  width: 100%;
+  max-width: 768px;
+  background-color: #FFFFFF;
+  margin: auto;
+  text-align: center;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  -webkit-box-shadow: 0px 0px 25px black;
+  box-shadow: 0px 0px 25px black;
+}
+
+.general-container--card main {
+  min-height: auto;
+  float: none;
+  width: 100%;
+  max-width: 32em;
+  margin: auto !important;
+  padding: 75px 0px 0px 0px;
+  text-align: left;
+}
+
 main {
   margin-top: -36px;
   padding: 0px 15px 75px 15px;
@@ -107,7 +130,6 @@ main *:not(img):not(svg)::selection {
     margin-top: 0;
     margin-left: 33%;
     width: 66%;
-    padding-top: 75px;
     padding: 75px 15px 0px 15px;
   }
 }
@@ -124,7 +146,7 @@ main *:not(img):not(svg)::selection {
 }
 
 .form-wrapper {
-  padding: inherit;
+  padding: 0px 15px 30px 15px;
 }
 
 .wf-active input, .wf-active textarea {
@@ -138,6 +160,7 @@ form__block, .form__block {
 form__block label, form__fake-label, .form__block label, .form__fake-label {
   display: block;
   font-weight: 600;
+  text-align: left;
   margin-bottom: 0.3em;
 }
 
@@ -531,7 +554,7 @@ form .form__block--toggle .label-text, .form .form__block--toggle .label-text {
 
 @media (min-width: 768px) {
   .form-wrapper {
-    padding: 0px 15px 30px 15px;
+    padding: 0px 0px 30px 0px;
   }
 
   main.form-wrapper {
@@ -1535,9 +1558,6 @@ a.btn:focus, input.btn:focus, button.btn:focus {
   }
 }
 
-.sub-section--comments {
-}
-
 .sub-section--comments__title {
   padding-left: 3.6rem;
   min-height: 3.7rem;
@@ -1549,6 +1569,7 @@ a.btn:focus, input.btn:focus, button.btn:focus {
 }
 
 .sub-section--comments .indented {
+  margin-left: 0rem !important;
   border-left: solid 2px #CCC;
   padding-left: 1.5rem;
 }
@@ -1655,6 +1676,44 @@ a.btn:focus, input.btn:focus, button.btn:focus {
   background-image: url(../images/file--xls.jpg);
 }
 
+.general-footer--card {
+  position: relative !important;
+  bottom: auto;
+  z-index: auto;
+  width: 100%;
+}
+
+.general-footer--card ul.menu {
+  padding: 0;
+  margin: 1.5rem;
+  margin-top: 3rem;
+}
+
+.general-footer--card ul.menu li {
+  display: inline-block;
+}
+
+.general-footer--card ul.menu li::after {
+  content: " | ";
+}
+
+.general-footer--card ul.menu li a {
+  color: #a6a7ab;
+  text-shadow: 0 2px 0 #FFFFFF, 0 3px 0 #FFFFFF, 1px 2px 0 #FFFFFF, -1px 2px 0 #FFFFFF;
+  -webkit-box-shadow: 0 1px 0 0 #662D91;
+  box-shadow: 0 1px 0 0 #662D91;
+  -webkit-transition: all .2s ease;
+  transition: all .2s ease;
+}
+
+.general-footer--card ul.menu li a:hover {
+  color: #1a3773;
+  -webkit-box-shadow: 0 1px 0 0 #662D91;
+  box-shadow: 0 1px 0 0 #662D91;
+  -webkit-transition: all .2s ease;
+  transition: all .2s ease;
+}
+
 @media (min-width: 768px) {
   .general-footer {
     position: fixed !important;
@@ -1663,20 +1722,21 @@ a.btn:focus, input.btn:focus, button.btn:focus {
     width: 33%;
   }
 
-  .general-footer ul {
+  .general-footer ul.menu {
     padding: 0;
     margin: 1.5rem;
+    margin-top: 3rem;
   }
 
-  .general-footer ul li {
+  .general-footer ul.menu li {
     display: inline-block;
   }
 
-  .general-footer ul li::after {
+  .general-footer ul.menu li::after {
     content: " | ";
   }
 
-  .general-footer ul li a {
+  .general-footer ul.menu li a {
     color: #a6a7ab;
     text-shadow: 0 2px 0 #26252B, 0 3px 0 #26252B, 1px 2px 0 #26252B, -1px 2px 0 #26252B;
     -webkit-box-shadow: 0 1px 0 0 #c6c7cc;
@@ -1685,10 +1745,48 @@ a.btn:focus, input.btn:focus, button.btn:focus {
     transition: all .2s ease;
   }
 
-  .general-footer ul li a:hover {
+  .general-footer ul.menu li a:hover {
     color: #1a3773;
     -webkit-box-shadow: 0 1px 0 0 #FFFFFF;
     box-shadow: 0 1px 0 0 #FFFFFF;
+    -webkit-transition: all .2s ease;
+    transition: all .2s ease;
+  }
+
+  .general-footer--card {
+    position: relative !important;
+    bottom: auto;
+    z-index: auto;
+    width: 100%;
+  }
+
+  .general-footer--card ul.menu {
+    padding: 0;
+    margin: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .general-footer--card ul.menu li {
+    display: inline-block;
+  }
+
+  .general-footer--card ul.menu li::after {
+    content: " | ";
+  }
+
+  .general-footer--card ul.menu li a {
+    color: #a6a7ab;
+    text-shadow: 0 2px 0 #FFFFFF, 0 3px 0 #FFFFFF, 1px 2px 0 #FFFFFF, -1px 2px 0 #FFFFFF;
+    -webkit-box-shadow: 0 1px 0 0 #662D91;
+    box-shadow: 0 1px 0 0 #662D91;
+    -webkit-transition: all .2s ease;
+    transition: all .2s ease;
+  }
+
+  .general-footer--card ul.menu li a:hover {
+    color: #1a3773;
+    -webkit-box-shadow: 0 1px 0 0 #662D91;
+    box-shadow: 0 1px 0 0 #662D91;
     -webkit-transition: all .2s ease;
     transition: all .2s ease;
   }
@@ -1728,6 +1826,28 @@ a.btn:focus, input.btn:focus, button.btn:focus {
     width: 100%;
     bottom: 0;
   }
+
+  .general-footer--card {
+    background-color: transparent;
+    bottom: auto;
+    z-index: auto;
+    width: 100%;
+    height: auto;
+    padding: 0;
+    margin-bottom: 0;
+  }
+
+  .general-footer--card > * {
+    position: auto;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .general-footer--card ul.menu {
+    position: relative;
+    width: 100%;
+    bottom: 0;
+  }
 }
 
 .new-item {
@@ -1745,6 +1865,37 @@ a.btn:focus, input.btn:focus, button.btn:focus {
   height: 45px;
   width: 45px;
   font-size: 2.2rem;
+}
+
+.pre-banner {
+  width: 100%;
+  max-width: 768px;
+  background-image: url(../images/header-arch-only.svg);
+  background-repeat: no-repeat;
+  background-size: 100% 82px;
+  position: fixed;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  min-height: 82px;
+}
+
+.background--talk {
+  background-image: url(../images/homepage-illustration.jpg);
+  background-repeat: no-repeat;
+  background-size: 768px 400px;
+  background-position: center top;
+  min-height: calc(20vh + 82px);
+  background-color: #FFF;
+  padding-top: 120px;
+  text-align: center;
+}
+
+.logo {
+  width: 100%;
+  max-width: 515px;
+  height: auto;
+  margin: auto;
 }
 
 @media (min-width: 768px) {
@@ -1857,20 +2008,7 @@ a.btn:focus, input.btn:focus, button.btn:focus {
   font-weight: 600;
 }
 
-.inpage-nav .nav--tabs li a.is-active {
-  color: #515155;
-  font-weight: 600;
-}
-
 .inpage-nav .nav--tabs li a.active::after {
-  margin-top: 2px;
-  height: 5px;
-  background-color: #662D91;
-  -webkit-transition: all 0.2s;
-  transition: all 0.2s;
-}
-
-.inpage-nav .nav--tabs li a.is-active::after {
   margin-top: 2px;
   height: 5px;
   background-color: #662D91;
