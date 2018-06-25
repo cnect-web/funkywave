@@ -73,6 +73,12 @@
 
 {{ attach_library('classy/node') }}
 
+{% if node.uid.entity.user_picture.entity.uri.value is empty %}
+    {% set image_url = file_url(directory ~ '/images/default_user.jpg') %}
+{% else %}
+    {% set image_url = file_url(node.uid.entity.user_picture.entity.uri.value|image_style('thumbnail')) %}
+{% endif %}
+
 {% block article %}
 <article{{ attributes.addClass(classes) }}>
   {% block header %}
@@ -89,7 +95,7 @@
     {% block postinfo %}
       {% include "@patterns/profile-shortinfo/pattern-profile-shortinfo.html.twig"
         with {
-          image_url: file_url(node.uid.entity.user_picture.entity.uri.value|image_style('thumbnail')),
+          image_url: image_url,
           title: node.owner.full_name.value,
           url: path('entity.user.canonical', {'user': user.id}),
           logged_in: logged_in,
