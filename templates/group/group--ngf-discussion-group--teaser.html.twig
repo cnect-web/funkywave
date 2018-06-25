@@ -40,9 +40,15 @@
  */
 #}
 
+{% if content.field_ngf_cover_image|render is empty %}
+    {% set image_url = file_url(directory ~ '/images/default_group.jpg') %}
+{% else %}
+    {% set image_url = file_url(content.field_ngf_cover_image|field_target_entity.field_media_image.entity.uri.value|image_style('thumbnail')) %}
+{% endif %}
+
 {% include "@patterns/profile-shortinfo/pattern-profile-shortinfo.html.twig"
   with {
-    image_url: file_url(content.field_ngf_cover_image|field_target_entity.field_media_image.entity.uri.value|image_style('thumbnail')),
+    image_url: image_url,
     title: label,
     url: url,
     context_text: ngf_context_text,
