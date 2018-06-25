@@ -19,10 +19,16 @@
 
 {# block profile #}
 
+{% if node.uid.entity.user_picture.entity.uri.value is empty %}
+    {% set image_url = file_url(directory ~ '/images/default_user.jpg') %}
+{% else %}
+    {% set image_url = file_url(user.user_picture.entity.uri.value|image_style('thumbnail')) %}
+{% endif %}
+
 {% block profileinfo %}
   {% include "@patterns/profile-shortinfo/pattern-profile-shortinfo.html.twig"
     with {
-      image_url: file_url(user.user_picture.entity.uri.value|image_style('thumbnail')),
+      image_url: image_url,
       title: full_name,
       url: path('entity.user.canonical', {'user': user.id}),
       context_text: 'ngf_context_text',
