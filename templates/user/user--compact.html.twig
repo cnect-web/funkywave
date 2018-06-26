@@ -19,7 +19,7 @@
 
 {# block profile #}
 
-{% if node.uid.entity.user_picture.entity.uri.value is empty %}
+{% if user.user_picture.entity.uri.value is empty %}
     {% set image_url = file_url(directory ~ '/images/default_user.jpg') %}
 {% else %}
     {% set image_url = file_url(user.user_picture.entity.uri.value|image_style('thumbnail')) %}
