@@ -64,10 +64,16 @@
   {# block postinfo #}
   {% block postinfo %}
 
+  {% if group.uid.entity.user_picture.entity.uri.value is empty %}
+      {% set image_url = file_url(directory ~ '/images/default_user.jpg') %}
+  {% else %}
+      {% set image_url = file_url(group.uid.entity.user_picture.entity.uri.value|image_style('thumbnail')) %}
+  {% endif %}
+
   {% include "@patterns/profile-shortinfo/pattern-profile-shortinfo.html.twig"
     with {
       title: group.uid.entity.name.value,
-      image_url: file_url(group.uid.entity.user_picture.entity.uri.value|image_style('thumbnail')),
+      image_url: image_url,
       logged_in: logged_in,
       context_text: ngf_context_text,
       subpic: ngf_sub_picture,
