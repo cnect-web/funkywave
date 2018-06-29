@@ -15,6 +15,14 @@ use Drupal\Core\StringTranslation\TranslatableMarkup;
 use \Drupal\Core\Url;
 
 
+function funkywave_preprocess_form_element_label(&$variables) {
+  $element = $variables['element'];
+  // A #id property of a dedicated #type 'label' element as precedence.
+  if (!empty($element['#id'])) {
+    $variables['id'] = $element['#id'];
+  }
+}
+
 /**
 * Implement template_preprocess_node().
 */
