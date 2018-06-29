@@ -12,13 +12,12 @@
 #}
 
 {%
- set classes = [
-   'btn',
-   'btn--green',
- ]
+set classes = [
+'btn',
+'btn--green',
+]
 %}
 
 <button{{ attributes.addClass(classes) }} >
-  <i class="fas fa-plus"></i>
-  {{ attributes.value }}
+    {{ attributes.value }}
 </button>
