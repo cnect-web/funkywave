@@ -21,9 +21,7 @@
   ]
 %}
 {% if title is not empty or required %}
-  <label{{ attributes.addClass(classes) }}
-          {% if required %} required
-          {% endif %}>
+  <label{{ attributes.addClass(classes) }}>
           {{ title }}
       {% if required %}<span class="form--required text-danger" title="This field is required."><span class="sr-only">Mandatory field</span> *</span>
       {% endif %}
