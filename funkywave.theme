@@ -67,21 +67,34 @@ function _funkywave_group_context($entity, $group, &$variables) {
       '#theme' => 'image_style',
       '#style_name' => 'thumbnail',
       '#uri' => $media_entity->get('field_media_image')->entity->getFileUri(),
-      '#attributes' => ['class' => ['profile-shortinfo__picture profile-shortinfo__picture--group responsive']]
-    ];
-
-    $link_render = [
-      '#title' => $render,
-      '#type' => 'link',
-      '#url' => $group->toUrl(),
       '#attributes' => [
-        'class' => [
-          'profile-shortinfo__link profile-shortinfo__link--group'
-        ]
+        'class' => ['profile-shortinfo__picture profile-shortinfo__picture--group responsive'],
+        'alt' => $group->label(),
       ]
     ];
-    $variables['ngf_sub_picture'] = $link_render;
   }
+  else {
+    $render = [
+      '#theme' => 'custom_image',
+      '#url' => file_create_url($variables['directory'] . '/images/default_group.jpg'),
+      '#attributes' => [
+        'class' => ['profile-shortinfo__picture profile-shortinfo__picture--group responsive'],
+        'alt' => $group->label(),
+      ]
+    ];
+  }
+
+  $link_render = [
+    '#title' => $render,
+    '#type' => 'link',
+    '#url' => $group->toUrl(),
+    '#attributes' => [
+      'class' => [
+        'profile-shortinfo__link profile-shortinfo__link--group'
+      ]
+    ]
+  ];
+  $variables['ngf_sub_picture'] = $link_render;
 
   $variables['ngf_context_text'] = t(
       'Posted @created_date ago in <a href=":group_url" class="profile-shortinfo__link profile-shortinfo__group-link">@group_title</a>',
@@ -96,7 +109,6 @@ function _funkywave_group_context($entity, $group, &$variables) {
 function funkywave_preprocess_user(&$vars) {
   $user = $vars['user'];
 
-  $view_mode = $vars['elements']['#view_mode'];
   $user_id = $user->id();
 
   if (!empty($user->user_picture->entity)) {
@@ -244,4 +256,15 @@ function funkywave_theme_suggestions_page_alter(array &$suggestions, array $vari
       $suggestions[] = 'page__error__' . $status_code;
     }
   }
+}
+
+
+function funkywave_theme() {
+  $themes['custom_image'] = [
+    'variables' => [
+      'attributes' => [],
+      'url' => NULL,
+    ],
+  ];
+  return $themes;
 }
