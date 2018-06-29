@@ -16,22 +16,13 @@
  * @see template_preprocess_user()
  */
 #}
-
 {# block profile #}
-
-{% if user.user_picture.entity.uri.value is empty %}
-    {% set image_url = file_url(directory ~ '/images/default_user.jpg') %}
-{% else %}
-    {% set image_url = file_url(user.user_picture.entity.uri.value|image_style('thumbnail')) %}
-{% endif %}
-
 {% block profileinfo %}
   {% include "@patterns/profile-shortinfo/pattern-profile-shortinfo.html.twig"
     with {
-      image_url: image_url,
       title: full_name,
       url: path('entity.user.canonical', {'user': user.id}),
-      context_text: 'ngf_context_text',
+      context_text: content.field_ngf_city|field_value,
       logged_in: logged_in,
       container_class: 'profile-shortinfo--no-group',
     }
