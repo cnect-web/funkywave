@@ -8,6 +8,7 @@
  * - title_display: Elements title_display setting.
  * - required: An indicator for whether the associated form element is required.
  * - attributes: A list of HTML attributes for the label.
+ * - id: the #id attribute of the element.
  *
  * @see template_preprocess_form_element_label()
  */
@@ -22,7 +23,9 @@
 %}
 {% if title is not empty or required %}
   <label{{ attributes.addClass(classes) }}>
+    {% if id == 'edit-copy' %}
     <span class="onoffswitch-inner"></span>
+    {% endif %}
     <span class="label-text"> {{ title }} </span>
       {% if required %}<span class="form--required text-danger" title="{% trans %}This field is required.{% endtrans %}">
           <span class="sr-only">{% trans %}Mandatory field{% endtrans %}</span> *</span>
