@@ -53,11 +53,16 @@
         {#login_check: logged_in,#}
       {#}#}
     {#%}#}
+    {% if group.field_media_image.entity.uri.value|render is empty %}
+        {% set image_url = file_url(directory ~ '/images/default_group.jpg') %}
+    {% else %}
+        {% set image_url = file_url(group.field_media_image.entity.uri.value|image_style('thumbnail')) %}
+    {% endif %}
 
     {% include "@patterns/profile-shortinfo/pattern-profile-shortinfo.html.twig"
       with {
         title: group.label(),
-        image_url: file_url(group.field_media_image.entity.uri.value|image_style('thumbnail')),
+        image_url: image_url,
         url: path('entity.user.canonical', {'user': user.id}),
         logged_in: logged_in,
         context_text: ngf_context_text,
