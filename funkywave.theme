@@ -264,3 +264,21 @@ function funkywave_theme_suggestions_form_element_label_alter(array &$suggestion
     $suggestions[] = 'form_element_label__all';
   }
 }
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+/* This is needed since ngf_user_registration wrapped title wo we cannot generalise */
+/* StepFour.php line 57 (ngf_user_registration) */
+/* Otherwise we could use the standard core form_element suggestion */
+function funkywave_theme_suggestions_form_element_alter(array &$suggestions, array $variables) {
+  $route_name = \Drupal::routeMatch()->getRouteName();
+
+  $contact_routes = array(
+    'contact.ngf_user_registration',
+  );
+
+  if (!in_array($route_name, $contact_routes)) {
+    $suggestions[] = 'form_element__all';
+  }
+}
