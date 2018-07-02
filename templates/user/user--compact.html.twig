@@ -17,9 +17,11 @@
  */
 #}
 {# block profile #}
+
 {% block profileinfo %}
   {% include "@patterns/profile-shortinfo/pattern-profile-shortinfo.html.twig"
     with {
+      image_url: user_pic,
       title: full_name,
       url: path('entity.user.canonical', {'user': user.id}),
       context_text: content.field_ngf_city|field_value,
@@ -28,5 +30,3 @@
     }
   %}
 {% endblock profileinfo %}
-
-{# |field_target_entity.uri.value|image_style('thumbnail') #}
