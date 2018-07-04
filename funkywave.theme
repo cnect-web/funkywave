@@ -233,10 +233,6 @@ function funkywave_form_alter(&$form, FormStateInterface $form_state, $form_id) 
   $form['actions']['submit']['#attributes']['data-twig-suggestion'] = $form['#id'];
   $suggestion = str_replace(['-'], '_', $form['#id']);
   $form['keys']['#attributes']['data-twig-suggestion'] = $suggestion;
-
-  // Avoid preview button on form displays.
-  unset($form['actions']['preview']);
-
 }
 
 /**
