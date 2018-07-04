@@ -73,6 +73,17 @@
 
 {{ attach_library('classy/node') }}
 
+{%
+ set classes = [
+   'newsfeed__item',
+   'newsfeed__item--' ~ node.bundle|clean_class,
+   node.isPromoted() ? 'newsfeed__item--promoted',
+   node.isSticky() ? 'newsfeed__item--sticky',
+   not node.isPublished() ? 'node--unpublished newsfeed__item--unpublished',
+   view_mode ? 'newsfeed__item--' ~ view_mode|clean_class,
+ ]
+%}
+
 {% if node.uid.entity.user_picture.entity.uri.value is empty %}
     {% set image_url = file_url(directory ~ '/images/default_user.jpg') %}
 {% else %}

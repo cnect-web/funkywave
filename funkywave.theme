@@ -53,14 +53,7 @@ function funkywave_preprocess_node(&$variables) {
       $variables['ngf_context_text'] = t('Commented');
     }
 
-    $variables['classes'] = [
-      'newsfeed__item',
-      'newsfeed__item--' . $node->bundle(),
-      $node->isPromoted() ? 'newsfeed__item--promoted' : '',
-      $node->isSticky() ? 'newsfeed__item--sticky' : '',
-      !$node->isPublished() ? 'node--unpublished newsfeed__item--unpublished' : '',
-      'newsfeed__item--' . $view_mode,
-    ];
+
   }
 }
 
