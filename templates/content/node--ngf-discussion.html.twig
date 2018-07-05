@@ -130,7 +130,9 @@
 
   {# Introtext #}
   {% block introtext %}
-    {{ content.field_ngf_introtext }}
+    {% if content.field_ngf_introtext is not empty %}
+      <p>{{ content.field_ngf_introtext|field_value }}</p>
+    {% endif %}
   {% endblock introtext %}
 
   {% block show_more %}

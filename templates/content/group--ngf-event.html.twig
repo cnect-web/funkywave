@@ -146,7 +146,9 @@
         </div>
       {% endif %}
 
-      {{ content.field_ngf_location }}
+      {% if content.field_ngf_address|render %}
+        {{ content.field_ngf_location }}
+      {% endif %}
 
     </div>
   {% endblock eventdata %}
@@ -155,7 +157,7 @@
   {# Event Summary #}
   {% block eventintrotext %}
     {% if content.field_ngf_introtext is not empty %}
-      {{ content.field_ngf_introtext }}
+      <p>{{ content.field_ngf_introtext|field_value }}</p>
     {% endif %}
   {% endblock eventintrotext %}
 
