@@ -127,6 +127,7 @@ a:not(.toolbar-item):hover {
 }
 
 main {
+  display: block;
   margin-top: -36px;
   padding: 0px 15px 75px 15px;
   min-height: 100vh;
@@ -160,7 +161,7 @@ main *:not(img):not(svg)::selection {
     margin-top: 0;
     margin-left: 33%;
     width: 66%;
-    padding: 75px 15px 0px 15px;
+    padding: 100px 15px 0px 15px;
   }
 
   .general-container--card {
@@ -855,10 +856,12 @@ li.tag {
   position: relative;
   display: inline-block;
   font-weight: 700;
+  width: 25px;
+  height: 25px;
   padding: 0 3rem;
   line-height: 3rem;
   color: #88898c;
-  background-color: #FFFFFF;
+  background-color: #FFF;
   z-index: 0;
 }
 
@@ -1273,6 +1276,12 @@ input.btn {
   font-size: 1.8rem;
 }
 
+.btn.btn--large .icon {
+  height: 1.8rem;
+  margin-right: 1rem;
+  display: inline-block;
+}
+
 a.btn, input.btn, button.btn {
   color: #05111E;
   font-size: 1.3rem;
@@ -1287,6 +1296,12 @@ a.btn, input.btn, button.btn {
   margin: 15px 0;
   border: none;
   cursor: pointer;
+}
+
+a.btn .icon, input.btn .icon, button.btn .icon {
+  height: 1.3rem;
+  margin-right: 1rem;
+  display: inline-block;
 }
 
 a.btn:not(.btn--large):last-child, input.btn:not(.btn--large):last-child, button.btn:not(.btn--large):last-child {
@@ -2548,10 +2563,11 @@ a.btn:focus, input.btn:focus, button.btn:focus {
 }
 
 .logo-area {
-  background-image: url("../images/logo-area-bckgrd--sm.svg");
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#1a3773), to(#1a3773)), url("../images/logo-area-bckgrd--sm.svg");
+  background-image: linear-gradient(#1a3773, #1a3773), url("../images/logo-area-bckgrd--sm.svg");
   background-repeat: no-repeat;
-  background-size: 100vw 10vh;
-  background-position: center top;
+  background-size: 100vw 25px, 100vw 10vh;
+  background-position: center 0, center 25px;
   height: 100px;
   width: 100vw;
 }
@@ -2614,6 +2630,7 @@ a.logo__link span {
 @media (min-width: 992px) {
   .logo-area {
     width: 25%;
+    max-width: 300px;
   }
 
   h1.logo--title {
@@ -3431,6 +3448,7 @@ header.profile .profile__meta li, header.profile .profile__location li {
   color: #515155;
   display: block;
   list-style: none;
+  max-width: 100%;
 }
 
 header.profile .profile__location li {
