@@ -127,9 +127,15 @@ function funkywave_preprocess_user(&$variables) {
 
   $variables['user_name'] = $user->getUsername();
   $variables['full_name'] = $user->full_name->value;
-  $variables['profile_uri'] = Url::fromRoute('ngf_user_profile.page.profile', [
-    'user' => $user_id,
-  ])->toString();
+
+  if ($user->id() == \Drupal::currentUser()->id()) {
+    $variables['profile_uri'] = Url::fromRoute('ngf_user_profile.page.profile')->toString();
+  }
+  else {
+    $variables['profile_uri'] = Url::fromRoute('ngf_user_profile.page.user_profile', [
+      'user' => $user_id,
+    ])->toString();
+  }
 
   if (\Drupal::routeMatch()->getRouteName() == 'ngf_user_profile.page.user_about') {
     $variables['profile_uri_back'] = $variables['profile_uri'];
