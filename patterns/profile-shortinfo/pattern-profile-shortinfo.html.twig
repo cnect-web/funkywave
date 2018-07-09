@@ -7,21 +7,20 @@
 
 <div class="profile-shortinfo {{ container_class }} clearfix">
   <div class="profile-shortinfo__ilustration">
-      {% if logged_in %}
-    <a href="{{ url }}" class="profile-shortinfo__link profile-shortinfo__link--account">
-        {% endif %}
+      {% if url %}
+      <a href="{{ url }}" class="profile-shortinfo__link profile-shortinfo__link--account">
+      {% endif %}
 
       <img src="{{ image_url }}" alt="{{ title }}" class="profile-shortinfo__picture profile-shortinfo__picture--account responsive" />
 
-        {% if logged_in %}
-    </a>
+      {% if url %}
+      </a>
       {% endif %}
-
       {{ subpic }}
   </div>
   <div class="profile-shortinfo__details">
     <h4 class="profile-shortinfo__author">
-        {% if logged_in %}
+        {% if url %}
           <a href="{{ url }}" class="profile-shortinfo__link profile-shortinfo__account-link">
               {{ title }}
           </a>
