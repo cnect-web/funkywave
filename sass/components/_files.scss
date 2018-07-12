@@ -1,0 +1,52 @@
+/*.list--file, .list--event {
+  padding: 0;
+
+  .list__item--file, .list__item--event {
+    list-style: none;
+    background: transparent no-repeat left top;
+    background-size: 32px 38px;
+    padding-left: 45px;
+
+    &.list__item--pdf {
+      background-image:  url(../images/file--pdf.jpg);
+    }
+    &.list__item--url {
+      background-image:  url(../images/file--url.jpg);
+    }
+
+    p {
+      margin: 0 0 0.8rem 0;
+    }
+  }
+  
+  .list__item--event {
+    background-image:  url(../images/article--event-icon.svg);
+  }
+}*/
+
+.media--type-file {
+  margin-top: 16px;
+}
+
+.field--type-file .file{
+  // same as .list__item--file
+  list-style: none;
+  background: transparent no-repeat left top;
+  background-size: 32px 38px;
+  padding-left: 45px;
+  display: block;
+  min-height: 38px;
+  
+  &.file--mime-application-pdf {
+    background-image:  url(../images/file--pdf.jpg);
+  }
+  &.file--mime-application-txt, &.file--mime-application-rtf, &.file--mime-application-doc, &.file--mime-application-docx, &.file--mime-application-odf, &.file--mime-application-odg, &.file--mime-application-odp, &.file--mime-application-ods,  &.file--mime-application-odt,  &.file--mime-application-fodt,  &.file--mime-application-fodg,  &.file--mime-application-apges  {
+    background-image:  url(../images/file--txt.jpg);
+  }
+  &.file--mime-application-ppt, &.file--mime-application-pptx, &.file--mime-application-key {
+    background-image:  url(../images/file--ppt.ppt);
+  }
+  &.file--mime-application-xls, &.file--mime-application-xlsx, &.file--mime-application-numbers {
+    background-image:  url(../images/file--xls.jpg);
+  }
+}

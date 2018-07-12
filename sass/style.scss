@@ -3,7 +3,9 @@
 @import "modularscale";
 @import "breakpoint";
 
+// Import theme variables
+@import "theme/**/*.scss";
+
 // Import sass partials
-//@import "base/*/*.scss";
-//@import "components/*/*.scss";
-@import "patterns/*/*.scss";
+@import "base/**/*.scss";
+@import "components/**/*.scss";
