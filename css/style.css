@@ -73,7 +73,8 @@ p + h2, p + h3, p + h4 {
   margin-top: 1.8em;
 }
 
-a:not(.toolbar-item) {
+a:not(.toolbar-item),
+a:not(.ui-menu-item-wrapper) {
   color: #662D91;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
@@ -86,7 +87,10 @@ a:not(.toolbar-item) {
   transition: all .2s ease;
 }
 
-a:not(.toolbar-item):hover {
+
+
+a:not(.toolbar-item):hover,
+a:not(.ui-menu-item-wrapper):hover {
   color: #003ba7;
   -webkit-box-shadow: 0 1px 0 0 #FFFFFF;
   box-shadow: 0 1px 0 0 #FFFFFF;
@@ -1118,7 +1122,7 @@ li.tag {
     width: 100%;
     max-width: 46px;
     height: auto;
-    border: 2px solid transparent;
+    border: 2px solid rgba(0, 0, 0, 0);
     -webkit-box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.75);
     box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.75);
     margin-right: 15px;
@@ -2920,6 +2924,10 @@ a.logo__link span {
   margin: 0 -15px;
 }
 
+.newsfeed .view-empty {
+  padding: 0 15px;
+}
+
 .sub-section {
   border-top: solid 1px #a6a7ab;
   margin-bottom: 16px;
@@ -2993,6 +3001,10 @@ a.logo__link span {
   -ms-flex-negative: 0;
   flex-shrink: 0;
   display: block;
+}
+
+.newsfeed__item .newsfeed__article-wrapper {
+  padding: 0 15px;
 }
 
 .newsfeed__legend-copyright {
@@ -3663,3 +3675,54 @@ a.share--email {
 }
 
 /*# sourceMappingURL=style.css.map */
+
+ul.ui-menu {
+  width: 100%;
+  max-width: 32em;
+  z-index: 2000;
+  margin: 0;
+  padding: 0;
+}
+
+ul.ui-menu li.ui-menu-item {
+  list-style: none;
+  width: 100%;
+  max-width: none;
+}
+
+ul.ui-menu li.ui-menu-item a {
+  text-shadow: none;
+  x-webkit-box-shadow: none;
+  box-shadow: none;
+  padding: 0.5rem 0.7rem;
+}
+
+ul.ui-menu a.ui-menu-item-wrapper {
+  display: block;
+}
+
+ul.ui-menu .ui-state-focus,
+ul.ui-menu .ui-state-active {
+  margin: 0;
+}
+
+li.ui-menu-item .ui-menu-item-wrapper.ui-state-active {
+  background: #662D91 !important;
+  border: none;
+  color: #fff;
+}
+
+
+
+.form-item-city, #city-wrapper {
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove chosen background  */
+
+.chosen-container .chosen-results li.highlighted {
+  background-image: none;
+}
+
+
