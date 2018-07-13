@@ -1,0 +1,63 @@
+a.tag, li.tag {
+  background-color: $gray-700;
+  color: $white;
+  border-radius: 2rem;
+  text-shadow: none;
+  box-shadow: none;
+  
+  font-size: 1.3rem;
+  border: solid 1px $gray-700;
+}
+
+a.tag.tag--deletable, li.tag.tag--deletable {
+  padding-right: 0.2rem;
+}
+
+a.tag {
+  padding: 0.45rem 0.6rem;
+}
+
+a.tag:hover {
+  background-color: $gray-400;
+  color: $gray-900;
+}
+
+
+li.tag {
+  padding: 0.2rem 0.6rem;
+  line-height: 1.1;
+}
+
+.tag button.close {
+  line-height: 2rem;
+  padding: 0.1rem;
+  border: none;
+  background-color: rgba($white,0.8);
+  box-shadow: 0 0 0 3px $gray-700 !important;
+  cursor: pointer;
+  color: $red;
+  border-radius: 10rem;
+  font-weight: 900;
+  height: 2rem;
+  min-width: 2rem;
+  margin-left: 0.6rem;
+  transition: all 0.2s;
+  text-align: center;
+  
+  span {
+    margin-top: -0.1rem;
+    display: block;
+  }
+  
+  &:hover {
+    background-color: rgba($white,1);
+    box-shadow: 0 0 0 3px rgba($red, 0.5) !important;
+    transition: all 0.2s;
+  }
+  
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px $red !important;
+    transition: all 0.2s;
+  }
+}

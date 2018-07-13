@@ -73,8 +73,7 @@ p + h2, p + h3, p + h4 {
   margin-top: 1.8em;
 }
 
-a:not(.toolbar-item),
-a:not(.ui-menu-item-wrapper) {
+a:not(.toolbar-item) {
   color: #662D91;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
@@ -87,10 +86,7 @@ a:not(.ui-menu-item-wrapper) {
   transition: all .2s ease;
 }
 
-
-
-a:not(.toolbar-item):hover,
-a:not(.ui-menu-item-wrapper):hover {
+a:not(.toolbar-item):hover {
   color: #003ba7;
   -webkit-box-shadow: 0 1px 0 0 #FFFFFF;
   box-shadow: 0 1px 0 0 #FFFFFF;
@@ -572,6 +568,48 @@ form .form__block--toggle .label-text, .form .form__block--toggle .label-text {
   content: "";
   display: block;
   clear: both;
+}
+
+ul.ui-menu {
+  width: 100%;
+  max-width: 32em;
+  z-index: 2000;
+  margin: 0;
+  padding: 0;
+}
+
+ul.ui-menu li.ui-menu-item {
+  list-style: none;
+  width: 100%;
+  max-width: none;
+}
+
+ul.ui-menu li.ui-menu-item a {
+  text-shadow: none;
+  x-webkit-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  padding: 0.5rem 0.7rem;
+}
+
+ul.ui-menu a.ui-menu-item-wrapper {
+  display: block;
+}
+
+ul.ui-menu .ui-state-focus,
+  ul.ui-menu .ui-state-active {
+  margin: 0;
+}
+
+ul.ui-menu .ui-menu-item-wrapper.ui-state-active {
+  background: #662D91 !important;
+  border: none;
+  color: #fff;
+}
+
+.form-item-city, #city-wrapper {
+  margin: 0;
+  padding: 0;
 }
 
 @media (min-width: 578px) {
@@ -1544,6 +1582,8 @@ a.btn:focus, input.btn:focus, button.btn:focus {
   box-shadow: none;
   font-size: 1.6rem;
   font-family: Raleway;
+  background: none;
+  border: none;
 }
 
 .chosen-container-single .chosen-default {
@@ -1671,6 +1711,7 @@ a.btn:focus, input.btn:focus, button.btn:focus {
 .chosen-container .chosen-results li.highlighted {
   background-color: #662D91;
   color: #fff;
+  background-image: none;
 }
 
 .chosen-container .chosen-results li.no-results {
@@ -1809,6 +1850,11 @@ a.btn:focus, input.btn:focus, button.btn:focus {
   text-shadow: none;
   -webkit-box-shadow: none;
   box-shadow: none;
+}
+
+.chosen-container-active.chosen-with-drop a.chosen-single {
+  background: none;
+  border: none;
 }
 
 .chosen-container-active.chosen-with-drop a.chosen-single div {
@@ -3675,54 +3721,3 @@ a.share--email {
 }
 
 /*# sourceMappingURL=style.css.map */
-
-ul.ui-menu {
-  width: 100%;
-  max-width: 32em;
-  z-index: 2000;
-  margin: 0;
-  padding: 0;
-}
-
-ul.ui-menu li.ui-menu-item {
-  list-style: none;
-  width: 100%;
-  max-width: none;
-}
-
-ul.ui-menu li.ui-menu-item a {
-  text-shadow: none;
-  x-webkit-box-shadow: none;
-  box-shadow: none;
-  padding: 0.5rem 0.7rem;
-}
-
-ul.ui-menu a.ui-menu-item-wrapper {
-  display: block;
-}
-
-ul.ui-menu .ui-state-focus,
-ul.ui-menu .ui-state-active {
-  margin: 0;
-}
-
-li.ui-menu-item .ui-menu-item-wrapper.ui-state-active {
-  background: #662D91 !important;
-  border: none;
-  color: #fff;
-}
-
-
-
-.form-item-city, #city-wrapper {
-  margin: 0;
-  padding: 0;
-}
-
-/* Remove chosen background  */
-
-.chosen-container .chosen-results li.highlighted {
-  background-image: none;
-}
-
-

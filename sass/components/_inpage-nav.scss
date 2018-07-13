@@ -1,0 +1,82 @@
+.nav--tabs::-webkit-scrollbar{width:2px;height:2px;}
+.nav--tabs::-webkit-scrollbar-button{width:2px;height:2px;}
+
+.inpage-nav {
+  border-bottom: solid 1px $gray-300;
+  
+  .nav--tabs {
+    
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin-bottom: 0;
+    padding:0 0 0 15px;
+    width:100%;
+    overflow-y: auto;
+    
+    li {
+      list-style: none;
+      display: block;
+      flex-basis: 100px;
+      flex: 0;
+      padding: 0 15px 2px;
+      
+      &:first-child {
+        padding-left: 0;
+      }
+      
+      a{
+        display: block;
+        white-space: nowrap;
+        box-shadow: none;
+        box-shadow: none;
+      }
+      
+      a:after{
+        content: "";
+        display: block;
+        height: 0px;
+        background-color: $white;
+        margin-top: 8px;
+        padding: 0 9px;
+        margin-bottom: -4px;
+        transition: all 0.2s;
+      } 
+      
+      a:hover::after {
+        margin-top: 2px;
+        height: 5px;
+        background-color: #a6a7ab;
+        transition: all 0.2s;
+      }
+      
+      a.active {
+        color: $text-color;
+        font-weight: 600;
+      }
+      
+      a.active::after {
+        margin-top: 2px;
+        height: 5px;
+        background-color: $purple;
+        transition: all 0.2s;
+      }
+      
+      
+      a.active:hover {
+        cursor: default;
+      }
+    }
+    
+  }
+}
+
+.tab-content {
+  .tab-pane {
+    display: none;
+  }
+  
+  .tab-pane.active {
+    display: block;
+  }
+}
