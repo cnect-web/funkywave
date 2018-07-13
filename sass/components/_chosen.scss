@@ -51,7 +51,7 @@
   top: 100%;
   z-index: 1010;
   width: calc(100% + 0.4rem);
-  padding: 0.7rem 0.9rem 0.7rem 1.6rem; 
+  padding: 0.7rem 0.9rem 0.7rem 1.6rem;
   margin-left: -1.1rem;
   border: solid 2px #a6a7ab;
   border-top: 0;
@@ -107,6 +107,8 @@
   box-shadow: none;
   font-size: 1.6rem;
   font-family: Raleway;
+  background: none;
+  border: none;
 }
 
 .chosen-container-single .chosen-default {
@@ -235,6 +237,7 @@
 .chosen-container .chosen-results li.highlighted {
   background-color: #662D91;
   color: #fff;
+  background-image: none
 }
 
 .chosen-container .chosen-results li.no-results {
@@ -379,6 +382,8 @@
 }
 
 .chosen-container-active.chosen-with-drop a.chosen-single {
+  background: none;
+  border: none;
 }
 
 .chosen-container-active.chosen-with-drop a.chosen-single div {
