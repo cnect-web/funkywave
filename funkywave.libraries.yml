@@ -3,7 +3,6 @@ global-css:
     theme:
       css/style.css: {}
       css/override.css: {}
-      css/autocomplete.css: {}
 global-js:
   js:
     js/script.js: {}

@@ -220,8 +220,7 @@ function funkywave_preprocess_group(&$variables) {
  * Create theme suggestions for user profile templates
 **/
 function funkywave_theme_suggestions_user_alter(&$suggestions, array $variables) {
-  $viewmode = $variables['elements']['#view_mode'];
-  $suggestions[] = 'user__' . $viewmode;
+  $suggestions[] = 'user__' . $variables['elements']['#view_mode'];
 }
 
 /**
@@ -229,7 +228,12 @@ function funkywave_theme_suggestions_user_alter(&$suggestions, array $variables)
  * The form id becomes the data attribute on the input fields and submit button
 **/
 function funkywave_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-  $form['actions']['submit']['#attributes']['data-twig-suggestion'] = $form['#id'];
+  if (!empty($form['actions']['submit'])) {
+    $form['actions']['submit']['#attributes']['data-twig-suggestion'] = $form['#id'];
+  }
+  if (!empty($form['actions']['preview'])) {
+    $form['actions']['preview']['#attributes']['data-twig-suggestion'] = $form['#id'];
+  }
   $suggestion = str_replace(['-'], '_', $form['#id']);
   $form['keys']['#attributes']['data-twig-suggestion'] = $suggestion;
 }
@@ -242,6 +246,7 @@ function funkywave_theme_suggestions_input_alter(&$suggestions, array $variables
   if (isset($element['#attributes']['data-twig-suggestion'])) {
     $suggestion_suffix = str_replace(['-'], '_', $element['#attributes']['data-twig-suggestion']);
     $suggestions[] = 'input__' . $element['#type'] . '__' . $suggestion_suffix;
+    $suggestions[] = 'input__' . $element['#type'] . '__action';
   }
 }
 
@@ -249,8 +254,7 @@ function funkywave_theme_suggestions_input_alter(&$suggestions, array $variables
  * Implements hook_theme_suggestions_container_alter().
  */
 function funkywave_theme_suggestions_container_alter(&$suggestions, array $variables) {
-  $element = $variables['element'];
-  $suggestions[] = 'container__' . $element['#type'];
+  $suggestions[] = 'container__' . $variables['element']['#type'];
 }
 
 /**

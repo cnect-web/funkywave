@@ -19,5 +19,4 @@ component-libraries:
     paths:
       - patterns
 libraries-override:
-  system/base: false
   classy/base: false
