@@ -279,9 +279,10 @@ function funkywave_theme() {
       'url' => NULL,
     ],
   ];
-  $themes['user_list_item'] = [
+  $themes['short_list_item'] = [
     'variables' => [
-      'user_list' => NULL,
+      'url' => NULL,
+      'title' => NULL,
       'context' => NULL,
     ],
   ];
