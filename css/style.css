@@ -2941,7 +2941,7 @@ a.logo__link span {
   .navigation-menu__list--tools {
     background-size: 100% 80px;
     background-position: left top;
-    height: 100px;
+    height: 80px;
     width: 75vw;
     max-width: 900px;
     margin-left: -15px;
