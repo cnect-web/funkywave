@@ -824,6 +824,16 @@ li.tag {
   height: 1px;
 }
 
+ul.links.inline {
+  margin: 0;
+  padding: 0;
+  padding-bottom: 15px;
+}
+
+ul.links.inline li {
+  display: inline-block;
+}
+
 .focusable:active, .focusable:focus {
   position: static !important;
   clip: auto;
@@ -2003,16 +2013,6 @@ a.btn:focus, input.btn:focus, button.btn:focus {
 .sub-section--comments > ul {
   padding: 0;
   margin: 0;
-}
-
-.sub-section--comments ul.links.inline {
-  margin: 0;
-  padding: 0;
-  padding-bottom: 15px;
-}
-
-.sub-section--comments ul.links.inline li {
-  display: inline-block;
 }
 
 .sub-section--comments li {
