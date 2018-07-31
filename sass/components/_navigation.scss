@@ -28,12 +28,12 @@
       height: 12.5vw;
       max-width: 54px;
       max-height: 39px;
-      
+
       &.active {
         background: url(../images/navigation-menu__item--active__background--sm.svg) no-repeat center bottom;
         background-size: cover;
         border-bottom: solid 2px $pink;
-        
+
         a {
           color: scale-lightness($pink, 40);
         }
@@ -54,13 +54,13 @@
 
 
 
-@media (max-width: 767.98px) and (orientation: landscape) { 
+@media (max-width: 767.98px) and (orientation: landscape) {
   .navigation-menu {
     background-position: center bottom;
     background-size: 100vw 23vh;
-    
+
     &__list {
-  
+
       padding:0;
       margin: 0vw 1vw 0;
     }
@@ -71,7 +71,7 @@
   .not-signed .navigation-menu {
     display: block;
   }
-  
+
   .navigation-menu {
     position: relative;
     bottom: auto;
@@ -80,7 +80,7 @@
     height: auto;
     max-height: none;
     padding-top: 15px;
-    
+
       &__list {
       width: auto;
       height: auto;
@@ -101,52 +101,52 @@
         line-height: inherit;
         padding: 0.5rem 0.8rem;
         border-radius: 0.5rem;
-        
+
         svg {
           margin-right: 1.5rem;
         }
-        
+
         a{
           color: $white;
           text-shadow: none;
           box-shadow: none;
           padding: 6px 0;
           box-shadow: none;
-         
+
          &:hover {
            color: $pink;
            box-shadow: none;
-           
+
            .badge {
              background-color: $pink;
              transition: all 0.2s;
            }
          }
         }
-        
+
         &.active {
           background: rgba($white, 0.1);
           border-bottom: none;
-          
+
           .fas {
             color: $pink;
           }
-          
+
         }
       }
     }
-    
+
     &__list--feeds {
       svg {
         min-width: 2rem;
       }
     }
-    
-    &__list--tools { 
+
+    &__list--tools {
       position: fixed;
       display: flex;
       justify-content: flex-end;
-      top: 0px; 
+      top: 0px;
       z-index: 10001;
       background-image: $logo-area__background-image--md;
       background-repeat: no-repeat;
@@ -155,22 +155,22 @@
       height: 100px;
       width: 100vw;
       margin-left: -15px;
-      
+
       &:empty {
         background-image: url(../images/logo-area-bckgrd--md--no-action.svg);
       }
-      
+
       &.navigation-menu__list--single-tool {
         background-image: url(../images/logo-area-bckgrd--md--one-action.svg);
       }
-      
+
       .navigation-menu__item {
         display: inline-block;
         padding:0;
         margin-left: 0px;
-        
+
       }
-      
+
       .navigation-menu__item:only-child {
         display: block;
           margin: 0px 0% 0 -2.45% !important;
@@ -178,7 +178,7 @@
           height: 54px;
           width: 54px;
       }
-      
+
       .navigation-menu__item:first-child {
         display: block;
           margin: 11px 0% 0 -8.75%;
@@ -186,7 +186,7 @@
           height: 54px;
           width: 54px;
       }
-      
+
       .navigation-menu__item:nth-child(2) {
         display: block;
           margin: 0px 0% 0 -3.75%;
@@ -194,14 +194,14 @@
           height: 42px;
           width: 42px;
       }
-      
+
       .navigation-menu__item--tool {
         text-align: center;
         display: inline-block;
         background-image: url(../images/navigation-tools__btn__background.svg);
         background-repeat: none;
         color: $gray-900;
-      
+
         &.navigation-menu__item--filter {
           height: 54px;
           width: 54px;
@@ -212,7 +212,7 @@
             margin: auto;
           }
         }
-        
+
         &.navigation-menu__item--search {
           background-size: 42px 42px;
           display: inline-block;
@@ -225,9 +225,9 @@
           }
         }
       }
-      
+
     }
-    
+
     .badge {
       background: rgba($white, 0.8);
       padding: 0rem 0.5rem 0.1rem;
@@ -243,11 +243,11 @@
     &__list--tools {
       background-size: 100% 80px;
       background-position: left top;
-      height: 100px;
+      height: 80px;
       width: 75vw;
       max-width: 900px;
       margin-left: -15px;
-      
+
       .navigation-menu__item:only-child {
         display: block;
         margin: 0px 0% 0 -18px !important;
