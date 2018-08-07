@@ -1253,10 +1253,10 @@ input.btn {
   -webkit-box-align: end;
   -ms-flex-align: end;
   align-items: flex-end;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+  -ms-flex-direction: row;
+  flex-direction: row;
   -webkit-box-pack: end;
   -ms-flex-pack: end;
   justify-content: flex-end;
@@ -1268,10 +1268,7 @@ input.btn {
 
 .btn-list--right > .btn {
   position: relative;
-  -webkit-box-flex: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  margin: 15px 0 15px 10px;
+  margin: 15px 0 15px 15px;
 }
 
 .btn-list--right .opposite {
@@ -1357,10 +1354,6 @@ a.btn .icon, input.btn .icon, button.btn .icon {
   display: inline-block;
 }
 
-a.btn:not(.btn--large):last-child, input.btn:not(.btn--large):last-child, button.btn:not(.btn--large):last-child {
-  margin-bottom: 0px;
-}
-
 a.btn:not([disabled]):hover, input.btn:not([disabled]):hover, button.btn:not([disabled]):hover {
   color: #FFFFFF;
 }
@@ -1444,6 +1437,13 @@ a.btn:focus, input.btn:focus, button.btn:focus {
 
 .btn--blue:active, .field-add-more-submit:active {
   background: #006580;
+}
+
+button.paragraphs-dropdown-action {
+  border: none;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  margin-bottom: 0;
 }
 
 .btn-list {

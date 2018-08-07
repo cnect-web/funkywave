@@ -27,15 +27,16 @@ input.btn{
   width: 100%;
   display: flex;
   align-items: flex-end;
-  flex-direction: column;
+  /* flex-direction: column; */
+  flex-direction: row;
   justify-content: flex-end;
   flex-wrap: nowrap;
   align-content: flex-start;
 
   > .btn {
     position: relative;
-    flex-grow: 1;
-    margin: 15px 0 15px 10px;
+    /* flex-grow: 1; */
+    margin: 15px 0 15px 15px;
   }
 
   .opposite {
@@ -112,9 +113,11 @@ a.btn, input.btn, button.btn {
     display: inline-block;
   }
 
+  /*
    &:not(.btn--large):last-child {
       margin-bottom: 0px;
    }
+   */
 
    &:not([disabled]):hover {
       color: $white;
@@ -138,7 +141,11 @@ a.btn, input.btn, button.btn {
    @include button-bg($cyan);
 }
 
-
+button.paragraphs-dropdown-action {
+  border: none;
+  box-shadow: none !important;
+  margin-bottom: 0;
+}
 
 .btn-list {
   margin-top: 3rem;
