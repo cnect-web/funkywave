@@ -210,7 +210,7 @@ form textarea, .form textarea {
   min-height: 6rem;
 }
 
-form input[type=text], form input[type=email], form input[type=password], form textarea, .form input[type=text], .form input[type=email], .form input[type=password], .form textarea {
+form input[type=text], form input[type=email], form input[type=password], form textarea, form .form-date, .form input[type=text], .form input[type=email], .form input[type=password], .form textarea, .form .form-date {
   padding: 0.7rem 0.9rem;
   font-size: 1.6rem;
   line-height: 1.8;
@@ -225,42 +225,42 @@ form input[type=text], form input[type=email], form input[type=password], form t
   font-family: "Raleway";
 }
 
-form input[type=text]:focus:hover, form input[type=text]:focus, form input[type=email]:focus:hover, form input[type=email]:focus, form input[type=password]:focus:hover, form input[type=password]:focus, form textarea:focus:hover, form textarea:focus, .form input[type=text]:focus:hover, .form input[type=text]:focus, .form input[type=email]:focus:hover, .form input[type=email]:focus, .form input[type=password]:focus:hover, .form input[type=password]:focus, .form textarea:focus:hover, .form textarea:focus {
+form input[type=text]:focus:hover, form input[type=text]:focus, form input[type=email]:focus:hover, form input[type=email]:focus, form input[type=password]:focus:hover, form input[type=password]:focus, form textarea:focus:hover, form textarea:focus, form .form-date:focus:hover, form .form-date:focus, .form input[type=text]:focus:hover, .form input[type=text]:focus, .form input[type=email]:focus:hover, .form input[type=email]:focus, .form input[type=password]:focus:hover, .form input[type=password]:focus, .form textarea:focus:hover, .form textarea:focus, .form .form-date:focus:hover, .form .form-date:focus {
   outline: none;
   border: solid 2px #662D91;
   -webkit-transition: border-color 0.2s;
   transition: border-color 0.2s;
 }
 
-form input[type=text]:hover, form input[type=email]:hover, form input[type=password]:hover, form textarea:hover, .form input[type=text]:hover, .form input[type=email]:hover, .form input[type=password]:hover, .form textarea:hover {
+form input[type=text]:hover, form input[type=email]:hover, form input[type=password]:hover, form textarea:hover, form .form-date:hover, .form input[type=text]:hover, .form input[type=email]:hover, .form input[type=password]:hover, .form textarea:hover, .form .form-date:hover {
   border-color: #515155;
   -webkit-transition: border-color 0.2s;
   transition: border-color 0.2s;
 }
 
-form input[type=text]::-webkit-input-placeholder, form input[type=email]::-webkit-input-placeholder, form input[type=password]::-webkit-input-placeholder, form textarea::-webkit-input-placeholder, .form input[type=text]::-webkit-input-placeholder, .form input[type=email]::-webkit-input-placeholder, .form input[type=password]::-webkit-input-placeholder, .form textarea::-webkit-input-placeholder {
+form input[type=text]::-webkit-input-placeholder, form input[type=email]::-webkit-input-placeholder, form input[type=password]::-webkit-input-placeholder, form textarea::-webkit-input-placeholder, form .form-date::-webkit-input-placeholder, .form input[type=text]::-webkit-input-placeholder, .form input[type=email]::-webkit-input-placeholder, .form input[type=password]::-webkit-input-placeholder, .form textarea::-webkit-input-placeholder, .form .form-date::-webkit-input-placeholder {
   opacity: 0.4;
 }
 
-form input[type=text]:-ms-input-placeholder, form input[type=email]:-ms-input-placeholder, form input[type=password]:-ms-input-placeholder, form textarea:-ms-input-placeholder, .form input[type=text]:-ms-input-placeholder, .form input[type=email]:-ms-input-placeholder, .form input[type=password]:-ms-input-placeholder, .form textarea:-ms-input-placeholder {
+form input[type=text]:-ms-input-placeholder, form input[type=email]:-ms-input-placeholder, form input[type=password]:-ms-input-placeholder, form textarea:-ms-input-placeholder, form .form-date:-ms-input-placeholder, .form input[type=text]:-ms-input-placeholder, .form input[type=email]:-ms-input-placeholder, .form input[type=password]:-ms-input-placeholder, .form textarea:-ms-input-placeholder, .form .form-date:-ms-input-placeholder {
   opacity: 0.4;
 }
 
-form input[type=text]::-ms-input-placeholder, form input[type=email]::-ms-input-placeholder, form input[type=password]::-ms-input-placeholder, form textarea::-ms-input-placeholder, .form input[type=text]::-ms-input-placeholder, .form input[type=email]::-ms-input-placeholder, .form input[type=password]::-ms-input-placeholder, .form textarea::-ms-input-placeholder {
+form input[type=text]::-ms-input-placeholder, form input[type=email]::-ms-input-placeholder, form input[type=password]::-ms-input-placeholder, form textarea::-ms-input-placeholder, form .form-date::-ms-input-placeholder, .form input[type=text]::-ms-input-placeholder, .form input[type=email]::-ms-input-placeholder, .form input[type=password]::-ms-input-placeholder, .form textarea::-ms-input-placeholder, .form .form-date::-ms-input-placeholder {
   opacity: 0.4;
 }
 
-form input[type=text]::placeholder, form input[type=email]::placeholder, form input[type=password]::placeholder, form textarea::placeholder, .form input[type=text]::placeholder, .form input[type=email]::placeholder, .form input[type=password]::placeholder, .form textarea::placeholder {
+form input[type=text]::placeholder, form input[type=email]::placeholder, form input[type=password]::placeholder, form textarea::placeholder, form .form-date::placeholder, .form input[type=text]::placeholder, .form input[type=email]::placeholder, .form input[type=password]::placeholder, .form textarea::placeholder, .form .form-date::placeholder {
   opacity: 0.4;
 }
 
-form input[type=text].error, form input[type=email].error, form input[type=password].error, form textarea.error, .form input[type=text].error, .form input[type=email].error, .form input[type=password].error, .form textarea.error {
+form input[type=text].error, form input[type=email].error, form input[type=password].error, form textarea.error, form .form-date.error, .form input[type=text].error, .form input[type=email].error, .form input[type=password].error, .form textarea.error, .form .form-date.error {
   border: solid 2px #ff3939;
   -webkit-transition: border-color 0.2s;
   transition: border-color 0.2s;
 }
 
-form input[type=text] + p, form input[type=email] + p, form input[type=password] + p, form textarea + p, .form input[type=text] + p, .form input[type=email] + p, .form input[type=password] + p, .form textarea + p {
+form input[type=text] + p, form input[type=email] + p, form input[type=password] + p, form textarea + p, form .form-date + p, .form input[type=text] + p, .form input[type=email] + p, .form input[type=password] + p, .form textarea + p, .form .form-date + p {
   margin-top: 0.2em;
   -webkit-transition: border-color 0.2s;
   transition: border-color 0.2s;
@@ -866,7 +866,7 @@ ul.links.inline li {
 }
 
 .text-danger, a span.text-danger {
-  color: #ff3939;
+  display: none;
 }
 
 .text-center {
@@ -1253,10 +1253,10 @@ input.btn {
   -webkit-box-align: end;
   -ms-flex-align: end;
   align-items: flex-end;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+  -ms-flex-direction: row;
+  flex-direction: row;
   -webkit-box-pack: end;
   -ms-flex-pack: end;
   justify-content: flex-end;
@@ -1268,9 +1268,7 @@ input.btn {
 
 .btn-list--right > .btn {
   position: relative;
-  -webkit-box-flex: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
+  margin: 15px 0 15px 15px;
 }
 
 .btn-list--right .opposite {
@@ -1345,7 +1343,7 @@ a.btn, input.btn, button.btn {
   min-width: 12rem;
   font-weight: 700;
   line-height: 1.3;
-  margin: 15px 0;
+  margin: 15px 10px 15px 0;
   border: none;
   cursor: pointer;
 }
@@ -1356,10 +1354,6 @@ a.btn .icon, input.btn .icon, button.btn .icon {
   display: inline-block;
 }
 
-a.btn:not(.btn--large):last-child, input.btn:not(.btn--large):last-child, button.btn:not(.btn--large):last-child {
-  margin-bottom: 0px;
-}
-
 a.btn:not([disabled]):hover, input.btn:not([disabled]):hover, button.btn:not([disabled]):hover {
   color: #FFFFFF;
 }
@@ -1368,6 +1362,31 @@ a.btn:focus, input.btn:focus, button.btn:focus {
   -webkit-box-shadow: 0 0 0 4px #662D91 !important;
   box-shadow: 0 0 0 4px #662D91 !important;
   outline: none;
+}
+
+.btn--grey, .paragraphs-icon-button, .form-submit {
+  display: inline-block;
+  background: #c6c7cc;
+  background-image: none;
+  -webkit-box-shadow: 0 0 0 4px rgba(198, 199, 204, 0.5) !important;
+  box-shadow: 0 0 0 4px rgba(198, 199, 204, 0.5) !important;
+  text-shadow: none;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  -webkit-transform: rotateX(0deg);
+  transform: rotateX(0deg);
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+.btn--grey:not([disabled]):hover, .paragraphs-icon-button:not([disabled]):hover, .form-submit:not([disabled]):hover {
+  background: #b0b2b9;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.btn--grey:active, .paragraphs-icon-button:active, .form-submit:active {
+  background: #838590;
 }
 
 .btn--green {
@@ -1395,7 +1414,7 @@ a.btn:focus, input.btn:focus, button.btn:focus {
   background: #0c473d;
 }
 
-.btn--blue {
+.btn--blue, .field-add-more-submit {
   display: inline-block;
   background: #00c9ff;
   background-image: none;
@@ -1410,43 +1429,29 @@ a.btn:focus, input.btn:focus, button.btn:focus {
   transform-style: preserve-3d;
 }
 
-.btn--blue:not([disabled]):hover {
+.btn--blue:not([disabled]):hover, .field-add-more-submit:not([disabled]):hover {
   background: #00a9d6;
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
 }
 
-.btn--blue:active {
+.btn--blue:active, .field-add-more-submit:active {
   background: #006580;
 }
 
-.btn--grey {
-  display: inline-block;
-  background: #c6c7cc;
-  background-image: none;
-  -webkit-box-shadow: 0 0 0 4px rgba(198, 199, 204, 0.5) !important;
-  box-shadow: 0 0 0 4px rgba(198, 199, 204, 0.5) !important;
-  text-shadow: none;
-  -webkit-transition: all 0.2s ease;
-  transition: all 0.2s ease;
-  -webkit-transform: rotateX(0deg);
-  transform: rotateX(0deg);
-  -webkit-transform-style: preserve-3d;
-  transform-style: preserve-3d;
-}
-
-.btn--grey:not([disabled]):hover {
-  background: #b0b2b9;
-  -webkit-transition: all 0.2s ease;
-  transition: all 0.2s ease;
-}
-
-.btn--grey:active {
-  background: #838590;
+button.paragraphs-dropdown-action {
+  border: none;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  margin-bottom: 0;
 }
 
 .btn-list {
   margin-top: 3rem;
+}
+
+.paragraphs-actions > .button {
+  margin: 0;
 }
 
 .flip {
@@ -2979,7 +2984,7 @@ a.logo__link span {
   margin-bottom: 16px;
 }
 
-.field--type-video {
+.field__item.field--type-video {
   position: relative;
   padding-bottom: 56.25%;
   padding-top: 30px;
