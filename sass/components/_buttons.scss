@@ -33,7 +33,7 @@ input.btn{
   flex-wrap: nowrap;
   align-content: flex-start;
 
-  > .btn {
+  > .btn, .button {
     position: relative;
     /* flex-grow: 1; */
     margin: 15px 0 15px 15px;
@@ -92,7 +92,7 @@ input.btn{
   }
 }
 
-a.btn, input.btn, button.btn {
+a.btn, input.btn, button.btn, a.button {
    color: $gray-900;
    font-size: 1.3rem;
    text-decoration:none;
@@ -137,8 +137,47 @@ a.btn, input.btn, button.btn {
    @include button-bg($teal);
 }
 
-.btn--blue, .field-add-more-submit {
+.btn--blue,
+.field-add-more-submit,
+#edit-field-ngf-cover-image-actions-ief-add {
    @include button-bg($cyan);
+}
+
+.button--danger {
+  @include button-bg($red);
+}
+
+.field-add-more-submit {
+  &:before {
+    @include fa-icon;
+    @extend .fas;
+    padding-right: 5px;
+    content: fa-content($fa-var-plus);
+  }
+}
+
+#field-ngf-description-ngf-text-add-more {
+  &:before {
+    content: fa-content($fa-var-edit);
+  }
+}
+
+#field-ngf-description-ngf-file-add-more {
+  &:before {
+    content: fa-content($fa-var-file);
+  }
+}
+
+#field-ngf-description-ngf-image-add-more {
+  &:before {
+    content: fa-content($fa-var-image);
+  }
+}
+
+#field-ngf-description-ngf-video-add-more {
+  &:before {
+    content: fa-content($fa-var-video);
+  }
 }
 
 button.paragraphs-dropdown-action {
@@ -163,7 +202,7 @@ button.paragraphs-dropdown-action {
 
 @media (min-width: 768px) {
 
-  a.btn, input.btn, button.btn {
+  a.btn, input.btn, button.btn, a.button {
     font-size: 1.6rem;
   }
 
