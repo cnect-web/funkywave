@@ -4950,7 +4950,7 @@ a:not(.toolbar-item):hover {
   height: 100%;
   max-width: 1200px;
   margin: auto;
-  background-color: white;
+  background-color: #FFFFFF;
   overflow: hidden;
   position: relative;
 }
