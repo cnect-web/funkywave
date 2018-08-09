@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-html { 
+html {
   font-size:62.5%;
 }
 
@@ -24,11 +24,11 @@ body {
   background-position: 50% top;
   background-attachment: fixed;
   background-size: 100% 80px;
-  
+
   &.not-signed {
    margin-top: 3.5rem;
-   background-image: url(../images/body-bckgrd--md.svg), linear-gradient($white, $white);  
-   background-position: 50% 3.5rem, center 0;  
+   background-image: url(../images/body-bckgrd--md.svg), linear-gradient($white, $white);
+   background-position: 50% 3.5rem, center 0;
    background-size: 100% 80px, 100% 3.5rem;
   }
 }
@@ -50,10 +50,10 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 1em;
 }
 
-h1 + h2, 
-h1 + h3, 
+h1 + h2,
+h1 + h3,
 h1 + p,
-h2 + h3, 
+h2 + h3,
 h2 + h4,
 h2 + p,
 h3 + h4,
@@ -86,7 +86,7 @@ a:not(.toolbar-item){
   text-shadow: 0 2px 0 $body__background-color, 0 3px 0 $body__background-color, 1px 2px 0 $body__background-color, -1px 2px 0 $body__background-color;
   box-shadow: 0 1px 0 0 $purple;
   transition: all .2s ease;
-  
+
   &:hover {
     color: scale-lightness($blue, -40%);
     box-shadow: 0 1px 0 0 $body__background-color;
@@ -99,8 +99,18 @@ a:not(.toolbar-item){
   height: 100%;
   max-width: 1200px;
   margin: auto;
-  background-color: $white;
+  background-color: white;
   overflow: hidden;
+  position: relative;
+  /*
+  overflow: auto;
+  -ms-overflow-style: none;
+  overflow-y: -moz-hidden-unscrollable;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  */
+
 
   &--card {
     height: auto;
@@ -112,12 +122,19 @@ a:not(.toolbar-item){
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
     box-shadow: 0px 0px 25px rgba($black, 0.8);
-    
+
     main {
-      
+
     }
   }
+  &:after {
+    clear: both;
+    content: "";
+    display: table;
+  }
 }
+
+
 
 .background--talk > main {
   min-height: auto;
@@ -127,13 +144,14 @@ a:not(.toolbar-item){
   margin: auto !important;
   padding: 15px 0px 0px 0px;
   text-align: left;
-} 
+}
 
 main {
   display: block;
   margin-top: -36px;
   padding: 0px 15px 75px 15px;
   min-height: 100vh;
+  background-color: #fff;
 }
 
 main *:not(img):not(svg)::selection  {
@@ -143,44 +161,49 @@ main *:not(img):not(svg)::selection  {
 }
 
 @media (min-width: 768px) {
-  
+
   body {
     font-size: 1.6rem;
-    
+
     &.not-signed {
      margin-top: 0px;
-     background-image: url(../images/body-bckgrd--md.svg);  
-    background-position: 50% 0px,;  
+     background-image: url(../images/body-bckgrd--md.svg);
+    background-position: 50% 0px,;
     background-size: 100% 80px;
     }
   }
-  
+
   main {
     margin-top: 0;
     margin-left: 33%;
     width: 66%;
     padding: 100px 15px 0px 15px;
-
   }
-  
+
   .general-container--card {
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
   }
-  
+
 }
 
 @media (min-width: 992px) {
   .general-container {
     box-shadow: 0px 0px 25px rgba($black, 0.4);
   }
-  
+
   main {
-    margin-top: -20px;
+    /* margin-top: -20px; */
     margin-left: 25%;
     width: 50%;
     left: auto;
     position: relative;
     float: left;
+  }
+}
+
+@media (min-width: 768px) {
+  .general-container {
+    background-color: $gray-800;
   }
 }
