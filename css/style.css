@@ -4952,6 +4952,7 @@ a:not(.toolbar-item):hover {
   margin: auto;
   background-color: #FFFFFF;
   overflow: hidden;
+  position: relative;
 }
 
 .general-container--card {
@@ -4965,6 +4966,12 @@ a:not(.toolbar-item):hover {
   border-bottom-right-radius: 0px;
   -webkit-box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.8);
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.8);
+}
+
+.general-container:after {
+  clear: both;
+  content: "";
+  display: table;
 }
 
 .background--talk > main {
@@ -4982,6 +4989,7 @@ main {
   margin-top: -36px;
   padding: 0px 15px 75px 15px;
   min-height: 100vh;
+  background-color: #fff;
 }
 
 main *:not(img):not(svg)::-moz-selection {
@@ -5028,12 +5036,17 @@ main *:not(img):not(svg)::selection {
   }
 
   main {
-    margin-top: -20px;
     margin-left: 25%;
     width: 50%;
     left: auto;
     position: relative;
     float: left;
+  }
+}
+
+@media (min-width: 768px) {
+  .general-container {
+    background-color: #26252B;
   }
 }
 
@@ -7252,13 +7265,10 @@ button.paragraphs-dropdown-action {
   .general-footer {
     width: 25%;
     max-width: 300px;
-    position: relative !important;
     top: auto !important;
     left: auto !important;
-    right: auto !important;
     bottom: auto;
     height: 100vh;
-    float: right;
     background-color: #26252B;
     background-image: url(../images/body-bckgrd--md.svg);
     background-repeat: no-repeat;
@@ -7267,8 +7277,9 @@ button.paragraphs-dropdown-action {
     background-size: 100% 80px;
     z-index: 4;
     padding: 60px 15px;
-    padding-bottom: 500em;
-    margin-bottom: -500em;
+    position: absolute !important;
+    right: 0;
+    height: 100%;
   }
 
   .general-footer > * {

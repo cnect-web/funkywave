@@ -3,23 +3,23 @@
       bottom:auto;
       z-index: auto;
       width: 100%;
-      
-      ul.menu { 
+
+      ul.menu {
       padding: 0;
       margin: 1.5rem;
       margin-top: 3rem;
-        
+
       li {
         display: inline-block;
-        
+
         &::after {
           content: " | ";
         }
-        
+
         &:last-child::after {
           content: "";
         }
-        
+
         a {
           color: $gray-500;
           text-shadow: 0 2px 0 $white, 0 3px 0 $white, 1px 2px 0 $white, -1px 2px 0 $white;
@@ -31,7 +31,7 @@
             box-shadow: 0 1px 0 0 $purple;
             transition: all .2s ease;
           }
-          
+
         }
       }
     }
@@ -44,18 +44,18 @@
     z-index: 500;
     width: 33%;
     background: $gray-800;
-    
-    ul.menu { 
+
+    ul.menu {
       padding: 0;
       margin: 1.5rem;
       margin-top: 3rem;
       li {
         display: inline-block;
-      
+
         &::after {
           content: " | ";
         }
-        
+
         a {
           color: $gray-500;
           text-shadow: 0 2px 0 $gray-800, 0 3px 0 $gray-800, 1px 2px 0 $gray-800, -1px 2px 0 $gray-800;
@@ -67,29 +67,29 @@
             box-shadow: 0 1px 0 0 $body__background-color;
             transition: all .2s ease;
           }
-          
+
         }
       }
     }
-    
+
     &--card {
       position: relative !important;
       bottom:auto;
       z-index: auto;
       width: 100%;
-      
-      ul.menu { 
+
+      ul.menu {
       padding: 0;
       margin: 1.5rem;
       margin-top: 3rem;
-        
+
       li {
         display: inline-block;
-        
+
         &::after {
           content: " | ";
         }
-        
+
         a {
           color: $gray-500;
           text-shadow: 0 2px 0 $white, 0 3px 0 $white, 1px 2px 0 $white, -1px 2px 0 $white;
@@ -101,7 +101,7 @@
             box-shadow: 0 1px 0 0 $purple;
             transition: all .2s ease;
           }
-          
+
         }
       }
     }
@@ -113,13 +113,13 @@
   .general-footer {
     width: 25%;
     max-width: 300px;
-    position: relative !important;
+    /* position: relative !important; */
     top: auto !important;
     left: auto !important;
-    right: auto !important;
+    /* right: auto !important; */
     bottom: auto;
     height: 100vh;
-    float: right;
+    /* float: right; */
     background-color: $gray-800;
     background-image: url(../images/body-bckgrd--md.svg);
     background-repeat: no-repeat;
@@ -128,24 +128,28 @@
     background-size: 100% 80px;
     z-index: 4;
     padding: 60px 15px;
-    padding-bottom: 500em;
+    /*padding-bottom: 500em;
     margin-bottom: -500em;
-    
-    
+    */
+
+    position: absolute !important;
+    right: 0;
+    height: 100%;
+
+
     > * {
       position: fixed;
       width: calc(25% - 30px);
       max-width: 270px;
-      
+
     }
-    
+
     ul.menu {
       position: fixed;
       width: 100%;
       bottom: 0;
     }
-    
-    
+
     &--card {
       background-color: transparent;
       bottom: auto;
@@ -154,20 +158,20 @@
       height: auto;
       padding: 0;
     margin-bottom: 0;
-      
+
       > * {
         position: auto;
         width: 100%;
         max-width: 100%;
       }
-      
+
       ul.menu {
         position: relative;
         width: 100%;
         bottom: 0;
       }
-      
+
     }
-    
+
   }
 }
