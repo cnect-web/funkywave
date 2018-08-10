@@ -7470,6 +7470,7 @@ button.paragraphs-dropdown-action {
 
 .inpage-nav {
   border-bottom: solid 1px #dfe0e5;
+  margin-bottom: 15px;
 }
 
 .inpage-nav .nav--tabs {
@@ -7633,14 +7634,7 @@ a.logo__link span {
 }
 
 .navigation-menu {
-  position: fixed;
-  bottom: 0px;
   background: url(../images/navigation-menu__background--sm.svg) no-repeat center bottom;
-  background-size: 100vw 27vw;
-  width: 100vw;
-  height: 25vw;
-  max-height: 100px;
-  z-index: 1000;
 }
 
 .navigation-menu__list {
@@ -7678,7 +7672,7 @@ a.logo__link span {
 }
 
 .navigation-menu__list li.active a {
-  color: #ff88b2;
+  color: #FFFFFF;
 }
 
 .navigation-menu__list li a {
@@ -7688,8 +7682,25 @@ a.logo__link span {
   box-shadow: none;
 }
 
+.navigation-menu__list li a:hover {
+  color: #FFFFFF;
+}
+
 .not-signed .navigation-menu, .not-signed .new-item {
   display: none;
+}
+
+@media (max-width: 767.98px) {
+  .menu--main.navigation-menu {
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-size: 100vw 27vw;
+    height: 25vw;
+    max-height: 100px;
+    z-index: 1000;
+  }
 }
 
 @media (max-width: 767.98px) and (orientation: landscape) {

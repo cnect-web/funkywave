@@ -1,12 +1,6 @@
 .navigation-menu {
-  position: fixed;
-  bottom: 0px;
   background: url(../images/navigation-menu__background--sm.svg) no-repeat center bottom;
-  background-size: 100vw 27vw;
-  width: 100vw;
-  height: 25vw;
-  max-height: 100px;
-  z-index: 1000;
+
 
   &__list {
     float: left;
@@ -35,7 +29,8 @@
         border-bottom: solid 2px $pink;
 
         a {
-          color: scale-lightness($pink, 40);
+          /* color: scale-lightness($pink, 40); */
+          color: $white;
         }
       }
 
@@ -43,6 +38,9 @@
         color: $white;
         text-shadow: none;
         box-shadow: none;
+        &:hover {
+          color: $white;
+        }
       }
     }
   }
@@ -52,7 +50,18 @@
   display: none;
 }
 
-
+@media (max-width: 767.98px) {
+  .menu--main.navigation-menu {
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-size: 100vw 27vw;
+    height: 25vw;
+    max-height: 100px;
+    z-index: 1000;
+  }
+}
 
 @media (max-width: 767.98px) and (orientation: landscape) {
   .navigation-menu {
