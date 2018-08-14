@@ -4,6 +4,7 @@
 .fas,
 .field-add-more-submit:before,
 .field--type-file .file:before,
+.new-item .create-new:before,
 .far,
 .fal,
 .fab {
@@ -111,6 +112,7 @@
 .fas.fa-pull-left,
 .fa-pull-left.field-add-more-submit:before,
 .field--type-file .fa-pull-left.file:before,
+.new-item .fa-pull-left.create-new:before,
 .far.fa-pull-left,
 .fal.fa-pull-left,
 .fab.fa-pull-left {
@@ -121,6 +123,7 @@
 .fas.fa-pull-right,
 .fa-pull-right.field-add-more-submit:before,
 .field--type-file .fa-pull-right.file:before,
+.new-item .fa-pull-right.create-new:before,
 .far.fa-pull-right,
 .fal.fa-pull-right,
 .fab.fa-pull-right {
@@ -4846,7 +4849,8 @@
 .fa,
 .fas,
 .field-add-more-submit:before,
-.field--type-file .file:before {
+.field--type-file .file:before,
+.new-item .create-new:before {
   font-family: 'Font Awesome 5 Free';
   font-weight: 900;
 }
@@ -7346,6 +7350,21 @@ button.paragraphs-dropdown-action {
   height: 45px;
   width: 45px;
   font-size: 2.2rem;
+  font-weight: normal;
+  text-align: left;
+}
+
+.new-item .create-new:before {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+  vertical-align: -.125em;
+  padding-right: 10px;
+  content: "\f303";
 }
 
 .pre-banner {
@@ -7808,7 +7827,7 @@ a.logo__link span {
     border-bottom: none;
   }
 
-  .navigation-menu__list li.active .fas, .navigation-menu__list li.active .field-add-more-submit:before, .navigation-menu__list li.active .field--type-file .file:before, .field--type-file .navigation-menu__list li.active .file:before {
+  .navigation-menu__list li.active .fas, .navigation-menu__list li.active .field-add-more-submit:before, .navigation-menu__list li.active .field--type-file .file:before, .field--type-file .navigation-menu__list li.active .file:before, .navigation-menu__list li.active .new-item .create-new:before, .new-item .navigation-menu__list li.active .create-new:before {
     color: #ff397f;
   }
 

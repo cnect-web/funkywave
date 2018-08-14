@@ -13,6 +13,14 @@
     height: 45px;
     width: 45px;
     font-size: 2.2rem;
+    font-weight: normal;
+    text-align: left;
+    &:before {
+      @include fa-icon;
+      @extend .fas;
+      padding-right: 10px;
+      content: fa-content($fa-var-pencil-alt);
+    }
   }
 }
 
