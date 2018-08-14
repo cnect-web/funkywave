@@ -4928,6 +4928,10 @@ p + h2, p + h3, p + h4 {
   margin-top: 1.8em;
 }
 
+a {
+  color: #662D91;
+}
+
 a:not(.toolbar-item) {
   color: #662D91;
   -webkit-transition: all 0.2s;
@@ -4986,6 +4990,17 @@ a:not(.toolbar-item):hover {
   margin: auto !important;
   padding: 15px 0px 0px 0px;
   text-align: left;
+  background: transparent;
+}
+
+.background--talk header a {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.background--talk header a:hover {
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 main {
@@ -5055,7 +5070,6 @@ main *:not(img):not(svg)::selection {
 }
 
 .form-wrapper {
-  padding: 0px 15px 30px 15px;
 }
 
 .wf-active input, .wf-active textarea {
@@ -7387,7 +7401,7 @@ button.paragraphs-dropdown-action {
   background-position: center top;
   min-height: calc(20vh + 82px);
   background-color: #FFF;
-  padding-top: 120px;
+  padding: 120px 15px 0 15px;
   text-align: center;
 }
 
@@ -7516,11 +7530,7 @@ button.paragraphs-dropdown-action {
   -webkit-box-flex: 0;
   -ms-flex: 0;
   flex: 0;
-  padding: 0 15px 2px;
-}
-
-.inpage-nav .nav--tabs li:first-child {
-  padding-left: 0;
+  padding: 2px 15px 2px 0;
 }
 
 .inpage-nav .nav--tabs li a {
@@ -7529,6 +7539,7 @@ button.paragraphs-dropdown-action {
   -webkit-box-shadow: none;
   box-shadow: none;
   box-shadow: none;
+  text-shadow: none;
 }
 
 .inpage-nav .nav--tabs li a:after {
@@ -7551,12 +7562,12 @@ button.paragraphs-dropdown-action {
   transition: all 0.2s;
 }
 
-.inpage-nav .nav--tabs li a.active {
+.inpage-nav .nav--tabs li a.is-active {
   color: #515155;
   font-weight: 600;
 }
 
-.inpage-nav .nav--tabs li a.active::after {
+.inpage-nav .nav--tabs li a.is-active::after {
   margin-top: 2px;
   height: 5px;
   background-color: #662D91;
@@ -7564,8 +7575,16 @@ button.paragraphs-dropdown-action {
   transition: all 0.2s;
 }
 
-.inpage-nav .nav--tabs li a.active:hover {
+.inpage-nav .nav--tabs li a.is-active:hover {
   cursor: default;
+}
+
+.background--talk .inpage-nav {
+  border-bottom: none;
+}
+
+.background--talk .inpage-nav .nav--tabs {
+  padding-left: 0;
 }
 
 .tab-content .tab-pane {
@@ -7703,6 +7722,10 @@ a.logo__link span {
 
 .navigation-menu__list li a:hover {
   color: #FFFFFF;
+}
+
+.background--talk .navigation-menu {
+  background: none;
 }
 
 .not-signed .navigation-menu, .not-signed .new-item {
@@ -8078,7 +8101,8 @@ a.logo__link span {
   padding-left: 25px;
 }
 
-.newsfeed__item--teaser {
+.newsfeed__item--teaser,
+.paragraph--view-mode--teaser {
   background-image: url(../images/hr--wavy.svg);
   background-repeat: no-repeat;
   background-position: center top;
@@ -8087,7 +8111,8 @@ a.logo__link span {
   margin-top: -30px;
 }
 
-.newsfeed__item--teaser:first-child {
+.newsfeed__item--teaser:first-child,
+  .paragraph--view-mode--teaser:first-child {
   padding-top: 4rem;
   background-image: none !important;
   margin-top: 0px;

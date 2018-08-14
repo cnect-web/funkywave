@@ -11,7 +11,7 @@
     flex-direction: row;
     flex-wrap: nowrap;
     margin-bottom: 0;
-    padding:0 0 0 15px;
+    padding: 0 0 0 15px;
     width:100%;
     overflow-y: auto;
 
@@ -20,17 +20,14 @@
       display: block;
       flex-basis: 100px;
       flex: 0;
-      padding: 0 15px 2px;
-
-      &:first-child {
-        padding-left: 0;
-      }
+      padding: 2px 15px 2px 0;
 
       a{
         display: block;
         white-space: nowrap;
         box-shadow: none;
         box-shadow: none;
+        text-shadow: none;
       }
 
       a:after{
@@ -51,24 +48,30 @@
         transition: all 0.2s;
       }
 
-      a.active {
+      a.is-active {
         color: $text-color;
         font-weight: 600;
       }
 
-      a.active::after {
+      a.is-active::after {
         margin-top: 2px;
         height: 5px;
         background-color: $purple;
         transition: all 0.2s;
       }
 
-
-      a.active:hover {
+      a.is-active:hover {
         cursor: default;
       }
     }
 
+  }
+}
+
+.background--talk .inpage-nav {
+  border-bottom: none;
+  .nav--tabs {
+    padding-left: 0;
   }
 }
 

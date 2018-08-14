@@ -46,6 +46,10 @@
   }
 }
 
+.background--talk .navigation-menu {
+  background: none;
+}
+
 .not-signed .navigation-menu, .not-signed .new-item {
   display: none;
 }

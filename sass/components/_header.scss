@@ -49,17 +49,17 @@
   box-sizing: border-box;
 }
 
-.background--talk{
-    background-image: url(../images/homepage-illustration.jpg);
-    background-repeat: no-repeat;
-    background-size: 768px 400px;
-    background-size: contain;
-    background-position: center top;
-    min-height: calc(20vh + 82px);
-    background-color: #FFF;
-   padding-top: 120px;
+.background--talk {
+  background-image: url(../images/homepage-illustration.jpg);
+  background-repeat: no-repeat;
+  background-size: 768px 400px;
+  background-size: contain;
+  background-position: center top;
+  min-height: calc(20vh + 82px);
+  background-color: #FFF;
+  padding: 120px 15px 0 15px;
   text-align: center;
-  }
+}
 
 .logo {
     width: 100%;
