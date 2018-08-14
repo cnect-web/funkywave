@@ -4994,6 +4994,11 @@ a:not(.toolbar-item):hover {
   box-shadow: none;
 }
 
+.background--talk header a:hover {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
 main {
   display: block;
   margin-top: -36px;
@@ -8077,7 +8082,8 @@ a.logo__link span {
   padding-left: 25px;
 }
 
-.newsfeed__item--teaser {
+.newsfeed__item--teaser,
+.paragraph--view-mode--teaser {
   background-image: url(../images/hr--wavy.svg);
   background-repeat: no-repeat;
   background-position: center top;
@@ -8086,7 +8092,8 @@ a.logo__link span {
   margin-top: -30px;
 }
 
-.newsfeed__item--teaser:first-child {
+.newsfeed__item--teaser:first-child,
+  .paragraph--view-mode--teaser:first-child {
   padding-top: 4rem;
   background-image: none !important;
   margin-top: 0px;

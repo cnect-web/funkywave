@@ -139,7 +139,8 @@
     }
   }
 
-  .newsfeed__item--teaser {
+  .newsfeed__item--teaser,
+  .paragraph--view-mode--teaser {
     background-image: url(../images/hr--wavy.svg);
     background-repeat: no-repeat;
     background-position: center top;

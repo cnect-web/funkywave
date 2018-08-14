@@ -146,6 +146,9 @@ a:not(.toolbar-item) {
 
 .background--talk header a {
   box-shadow: none;
+  &:hover {
+    box-shadow: none;
+  }
 }
 
 main {
