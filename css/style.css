@@ -7790,6 +7790,7 @@ a.logo__link span {
   font-size: 2.2rem;
   font-weight: normal;
   text-align: left;
+  padding: 12px;
 }
 
 .navigation-menu__list li .create-new:before {
@@ -7803,6 +7804,19 @@ a.logo__link span {
   vertical-align: -.125em;
   padding-right: 10px;
   content: "\f303";
+}
+
+.navigation-menu__list li .create-new:hover {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.navigation-menu__list li.create-new {
+  position: absolute;
+  right: 0px;
+  bottom: 10px;
+  width: 21vw;
+  text-align: center;
 }
 
 .background--talk .navigation-menu {
@@ -7912,7 +7926,7 @@ a.logo__link span {
     color: #ff397f;
   }
 
-  .navigation-menu__list li .create-new {
+  .navigation-menu__list li a.create-new {
     display: block;
     background: white;
     background-size: auto;
@@ -7932,7 +7946,7 @@ a.logo__link span {
     transition: background-color 0.2s;
   }
 
-  .navigation-menu__list li .create-new:hover {
+  .navigation-menu__list li a.create-new:hover {
     -webkit-box-shadow: none;
     box-shadow: none;
     background: #00c9ff;
@@ -7941,9 +7955,14 @@ a.logo__link span {
     color: #05111E;
   }
 
-  .navigation-menu__list li .create-new.active {
+  .navigation-menu__list li a.create-new.active {
     background: rgba(255, 255, 255, 0.1);
     border-bottom: none;
+  }
+
+  .navigation-menu__list li.create-new {
+    position: inherit;
+    width: auto;
   }
 
   .navigation-menu__list--feeds svg {
