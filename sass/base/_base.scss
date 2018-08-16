@@ -1,3 +1,214 @@
+@import "variables"; // ( set default variables)
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size:62.5%;
+}
+
+body {
+  font-family: $font-family-base;
+  font-size: 1.5rem;
+  background-color: $body__background-color;
+  color: $text-color;
+  margin: 0;
+  padding: 0;
+  line-height: 1.8;
+  background-color: adjust-lightness($gray-800, -3%);
+  /*background: adjust-lightness($gray-800, -3%) url(../images/body-bckgrd--md.svg) no-repeat center top;
+  background-size: 100% 80px;*/
+  background-image: url(../images/body-bckgrd--md.svg);
+  background-repeat: no-repeat;
+  background-position: 50% top;
+  background-attachment: fixed;
+  background-size: 100% 80px;
+
+  &.not-signed {
+   margin-top: 3.5rem;
+   background-image: url(../images/body-bckgrd--md.svg), linear-gradient($white, $white);
+   background-position: 50% 3.5rem, center 0;
+   background-size: 100% 80px, 100% 3.5rem;
+  }
+}
+
+.wf-active body {
+  font-family: $body__font;
+  font-weight: $text__font-wight;
+}
+
+p, h2, h3, h4, h5, h6, li {
+    max-width: 32em;
+  }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $headings__font;
+  font-weight: bold;
+  line-height: 1.3;
+  margin-top: 2.5em;
+  margin-bottom: 1em;
+}
+
+h1 + h2,
+h1 + h3,
+h1 + p,
+h2 + h3,
+h2 + h4,
+h2 + p,
+h3 + h4,
+h3 + h5,
+h3 + p,
+h4 + p,
+h5 + p,
+h6 + p,
+{
+  margin-top: -0.3em;
+}
+
+h4, h5, h6 {
+  opacity: 0.9;
+}
+
+p:last-child {
+  //margin-bottom: 1.3em;
+}
+
+p + h2, p + h3, p + h4 {
+  margin-top: 1.8em;
+}
+
+a {
+  color: $purple;
+}
+
+a:not(.toolbar-item) {
+  color: $purple;
+  transition: all 0.2s;
+  font-weight: 500;
+  text-decoration: none;
+  text-shadow: 0 2px 0 $body__background-color, 0 3px 0 $body__background-color, 1px 2px 0 $body__background-color, -1px 2px 0 $body__background-color;
+  box-shadow: 0 1px 0 0 $purple;
+  transition: all .2s ease;
+
+  &:hover {
+    color: scale-lightness($blue, -40%);
+    box-shadow: 0 1px 0 0 $body__background-color;
+    transition: all .2s ease;
+  }
+}
+
+.general-container {
+  width:100%;
+  height: 100%;
+  max-width: 1200px;
+  margin: auto;
+  background-color: $white;
+  overflow: hidden;
+  position: relative;
 
 
 
+  &--card {
+    height: auto;
+    width: 100%;
+    max-width: 768px;
+    background-color: $white;
+    margin: auto;
+    text-align: center;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    box-shadow: 0px 0px 25px rgba($black, 0.8);
+
+    main {
+
+    }
+  }
+  &:after {
+    clear: both;
+    content: "";
+    display: table;
+  }
+}
+
+
+
+.background--talk > main {
+  min-height: auto;
+  float: none;
+  width: 100%;
+  max-width: 32em;
+  margin: auto !important;
+  padding: 15px 0px 0px 0px;
+  text-align: left;
+  background: transparent;
+}
+
+.background--talk header a {
+  box-shadow: none;
+  &:hover {
+    box-shadow: none;
+  }
+}
+
+main {
+  display: block;
+  margin-top: -36px;
+  padding: 0px 15px 75px 15px;
+  min-height: 100vh;
+  background-color: #fff;
+}
+
+main *:not(img):not(svg)::selection  {
+  color: $white;
+  background: #1a3773;
+  text-shadow: 2px 2px 0 rgba(0,0,0,0.8), 2px 3px 0 rgba(0,0,0,0.8), 3px 2px 0 rgba(0,0,0,0.8), 4px 2px 0 rgba(0,0,0,0.8);
+}
+
+@media (min-width: 768px) {
+
+  body {
+    font-size: 1.6rem;
+
+    &.not-signed {
+     margin-top: 0px;
+     background-image: url(../images/body-bckgrd--md.svg);
+    background-position: 50% 0px,;
+    background-size: 100% 80px;
+    }
+  }
+
+  main {
+    margin-top: 0;
+    margin-left: 33%;
+    width: 66%;
+    padding: 100px 15px 0px 15px;
+  }
+
+  .general-container--card {
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+  }
+
+}
+
+@media (min-width: 992px) {
+  .general-container {
+    box-shadow: 0px 0px 25px rgba($black, 0.4);
+  }
+
+  main {
+    /* margin-top: -20px; */
+    margin-left: 25%;
+    width: 50%;
+    left: auto;
+    position: relative;
+    float: left;
+  }
+}
+
+@media (min-width: 768px) {
+  .general-container {
+    background-color: $gray-800;
+  }
+}
