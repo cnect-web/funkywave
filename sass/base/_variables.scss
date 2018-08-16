@@ -1,0 +1,140 @@
+// settings all the default variables if not defined in theme
+
+$white:  #fff !default;
+$gray-100: #f7f8fa !default;
+$gray-200: #edeff5 !default;
+$gray-300: #dfe0e5 !default;
+$gray-400: #c6c7cc !default;
+$gray-500: #a6a7ab !default;
+$gray-600: #88898c !default;
+$gray-700: #515155 !default;
+$gray-800: #2e2e38 !default;
+$gray-900: #05111E !default;
+$black:  #000 !default;
+
+$blue:      #004494 !default;
+$darkblue:  #002a54 !default;
+$indigo:    #6610f2 !default;
+$purple:    #6f42c1 !default;
+$pink:      #e50053 !default;
+$red:       #e20021 !default;
+$orange:    #f9713d !default;
+$yellow:    #ffd617 !default;
+$green:     #46b200 !default;
+$teal:      #20c997 !default;
+$cyan:      #29abe2 !default;
+
+$colors: () ;
+$colors: map-merge((
+  blue: $blue,
+  darkblue: $darkblue,
+  indigo: $indigo,
+  purple: $purple,
+  pink: $pink,
+  red: $red,
+  orange: $orange,
+  yellow: $yellow,
+  green: $green,
+  teal: $teal,
+  cyan: $cyan,
+  white: $white,
+  gray: $gray-600,
+  gray-dark: $gray-800
+), $colors) !default;
+
+$theme-colors: ();
+$theme-colors: map-merge((
+  primary: $darkblue,
+  secondary: $gray-600,
+  success: $green,
+  info: $cyan,
+  warning: $orange,
+  error: $red,
+  light: $gray-200,
+  dark: $gray-600
+), $theme-colors) !default;
+
+$body__background-color: $white !default;
+
+// =================     VARIABLES    ========================== //
+// ===============     FONT   ========================== //
+
+$font-family-sans-serif: "Helvetica Neue", Helvetica, "Segoe UI", Arial, sans-serif !default;
+$font-family-monospace:  "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+$font-family-base:       $font-family-sans-serif !default;
+
+$body__font: $font-family-sans-serif !default;
+$headings__font: $font-family-sans-serif !default;
+
+$text-color: $gray-700 !default;
+
+// settings all the default variables if not defined in theme
+
+$white:  #fff !default;
+$gray-100: #f7f8fa !default;
+$gray-200: #edeff5 !default;
+$gray-300: #dfe0e5 !default;
+$gray-400: #c6c7cc !default;
+$gray-500: #a6a7ab !default;
+$gray-600: #88898c !default;
+$gray-700: #515155 !default;
+$gray-800: #2e2e38 !default;
+$gray-900: #05111E !default;
+$black:  #000 !default;
+
+$blue:      #004494 !default;
+$darkblue:  #002a54 !default;
+$indigo:    #6610f2 !default;
+$purple:    #6f42c1 !default;
+$pink:      #e50053 !default;
+$red:       #e20021 !default;
+$orange:    #f9713d !default;
+$yellow:    #ffd617 !default;
+$green:     #46b200 !default;
+$teal:      #20c997 !default;
+$cyan:      #29abe2 !default;
+
+$colors: () ;
+$colors: map-merge((
+  blue: $blue,
+  darkblue: $darkblue,
+  indigo: $indigo,
+  purple: $purple,
+  pink: $pink,
+  red: $red,
+  orange: $orange,
+  yellow: $yellow,
+  green: $green,
+  teal: $teal,
+  cyan: $cyan,
+  white: $white,
+  gray: $gray-600,
+  gray-dark: $gray-800
+), $colors) !default;
+
+$theme-colors: ();
+$theme-colors: map-merge((
+  primary: $darkblue,
+  secondary: $gray-600,
+  success: $green,
+  info: $cyan,
+  warning: $orange,
+  error: $red,
+  light: $gray-200,
+  dark: $gray-600
+), $theme-colors) !default;
+
+$body__background-color: $white !default;
+
+// =================     VARIABLES    ========================== //
+// ===============     FONT   ========================== //
+
+$font-family-sans-serif: "Helvetica Neue", Helvetica, "Segoe UI", Arial, sans-serif !default;
+$font-family-monospace:  "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+$font-family-base:       $font-family-sans-serif !default;
+
+$body__font: $font-family-sans-serif !default;
+$headings__font: $font-family-sans-serif !default;
+
+$text-color: $gray-700 !default;
+$line-height-base: 1.15 !default;

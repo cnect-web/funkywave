@@ -1,3 +1,29 @@
+.new-item {
+
+  position: fixed;
+  right: 0px;
+  bottom: 10px;
+  width: 21vw;
+  text-align: center;
+
+  .create-new {
+    background: url(../images/new-item__button__background--sm.svg) no-repeat center center;
+    background-size: 42px 42px;
+    border: none;
+    height: 45px;
+    width: 45px;
+    font-size: 2.2rem;
+    font-weight: normal;
+    text-align: left;
+    &:before {
+      @include fa-icon;
+      @extend .fas;
+      padding-right: 10px;
+      content: fa-content($fa-var-pencil-alt);
+    }
+  }
+}
+
 .pre-banner {
   width: 100%;
   max-width: 768px;
@@ -57,6 +83,51 @@
     padding: 90px 15px 130px;
     overflow: auto;
   }
+
+
+  .new-item {
+
+    position: relative;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    text-align: left;
+
+    .create-new {
+      display: block;
+      background: rgba($white, 1);
+      background-size: auto;
+      border: none;
+      height: auto;
+      width: 100%;
+      font-size: 1.6rem;
+      line-height: 1.8;
+      padding: 0.5rem 0.8rem;
+      border-radius: 0.5rem;
+      border: solid 3px rgba($cyan, 1);
+      color: $gray-900;
+      text-shadow: none;
+      box-shadow: none;
+      transition: background-color 0.2s;
+
+      svg {
+        margin-right: 1.5rem;
+      }
+
+      &:hover {
+        box-shadow: none;
+        background: rgba($cyan, 1);
+        transition: background-color 0.2s;
+        color: $gray-900;
+      }
+
+      &.active {
+        background: rgba($white, 0.1);
+        border-bottom: none;
+      }
+    }
+  }
+
 }
 
 @media (min-width: 992px) {

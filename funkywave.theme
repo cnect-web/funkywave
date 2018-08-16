@@ -127,9 +127,15 @@ function funkywave_preprocess_user(&$variables) {
 
   $variables['user_name'] = $user->getUsername();
   $variables['full_name'] = $user->full_name->value;
-  $variables['profile_uri'] = Url::fromRoute('ngf_user_profile.page.profile', [
-    'user' => $user_id,
-  ])->toString();
+
+  if ($user->id() == \Drupal::currentUser()->id()) {
+    $variables['profile_uri'] = Url::fromRoute('ngf_user_profile.page.profile')->toString();
+  }
+  else {
+    $variables['profile_uri'] = Url::fromRoute('ngf_user_profile.page.user_profile', [
+      'user' => $user_id,
+    ])->toString();
+  }
 
   if (\Drupal::routeMatch()->getRouteName() == 'ngf_user_profile.page.user_about') {
     $variables['profile_uri_back'] = $variables['profile_uri'];
@@ -214,8 +220,7 @@ function funkywave_preprocess_group(&$variables) {
  * Create theme suggestions for user profile templates
 **/
 function funkywave_theme_suggestions_user_alter(&$suggestions, array $variables) {
-  $viewmode = $variables['elements']['#view_mode'];
-  $suggestions[] = 'user__' . $viewmode;
+  $suggestions[] = 'user__' . $variables['elements']['#view_mode'];
 }
 
 /**
@@ -223,7 +228,12 @@ function funkywave_theme_suggestions_user_alter(&$suggestions, array $variables)
  * The form id becomes the data attribute on the input fields and submit button
 **/
 function funkywave_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-  $form['actions']['submit']['#attributes']['data-twig-suggestion'] = $form['#id'];
+  if (!empty($form['actions']['submit'])) {
+    $form['actions']['submit']['#attributes']['data-twig-suggestion'] = $form['#id'];
+  }
+  if (!empty($form['actions']['preview'])) {
+    $form['actions']['preview']['#attributes']['data-twig-suggestion'] = $form['#id'];
+  }
   $suggestion = str_replace(['-'], '_', $form['#id']);
   $form['keys']['#attributes']['data-twig-suggestion'] = $suggestion;
 }
@@ -236,6 +246,7 @@ function funkywave_theme_suggestions_input_alter(&$suggestions, array $variables
   if (isset($element['#attributes']['data-twig-suggestion'])) {
     $suggestion_suffix = str_replace(['-'], '_', $element['#attributes']['data-twig-suggestion']);
     $suggestions[] = 'input__' . $element['#type'] . '__' . $suggestion_suffix;
+    $suggestions[] = 'input__' . $element['#type'] . '__action';
   }
 }
 
@@ -243,19 +254,15 @@ function funkywave_theme_suggestions_input_alter(&$suggestions, array $variables
  * Implements hook_theme_suggestions_container_alter().
  */
 function funkywave_theme_suggestions_container_alter(&$suggestions, array $variables) {
-  $element = $variables['element'];
-  $suggestions[] = 'container__' . $element['#type'];
+  $suggestions[] = 'container__' . $variables['element']['#type'];
 }
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
  */
 function funkywave_theme_suggestions_page_alter(array &$suggestions, array $variables) {
-  // Get Request Object.
-  $request = \Drupal::request();
-
   // If there is HTTP Exception..
-  if ($exception = $request->attributes->get('exception')) {
+  if ($exception = \Drupal::request()->attributes->get('exception')) {
     // Get the status code.
     $status_code = $exception->getStatusCode();
     if (in_array($status_code, [401, 403, 404])) {
@@ -272,42 +279,12 @@ function funkywave_theme() {
       'url' => NULL,
     ],
   ];
+  $themes['short_list_item'] = [
+    'variables' => [
+      'url' => NULL,
+      'title' => NULL,
+      'context' => NULL,
+    ],
+  ];
   return $themes;
-}
-
-/**
- * Implements hook_theme_suggestions_HOOK_alter().
- */
-
-/* This is needed since ngf_user_registration injects a doubled label element */
-/* StepOne.php line 91 (ngf_user_registration) */
-/* Otherwise we could use the standard core form_element_label suggestion */
-function funkywave_theme_suggestions_form_element_label_alter(array &$suggestions, array $variables) {
-  $route_name = \Drupal::routeMatch()->getRouteName();
-
-  $contact_routes = array(
-    'ngf_user_registration',
-  );
-
-  if (!in_array($route_name, $contact_routes)) {
-    $suggestions[] = 'form_element_label__all';
-  }
-}
-
-/**
- * Implements hook_theme_suggestions_HOOK_alter().
- */
-/* This is needed since ngf_user_registration wrapped title wo we cannot generalise */
-/* StepFour.php line 57 (ngf_user_registration) */
-/* Otherwise we could use the standard core form_element suggestion */
-function funkywave_theme_suggestions_form_element_alter(array &$suggestions, array $variables) {
-  $route_name = \Drupal::routeMatch()->getRouteName();
-
-  $contact_routes = array(
-    'contact.ngf_user_registration',
-  );
-
-  if (!in_array($route_name, $contact_routes)) {
-    $suggestions[] = 'form_element__all';
-  }
 }
