@@ -4,14 +4,12 @@
 * post info pattern.
 */
 #}
-
 <div class="profile-shortinfo {{ container_class }} clearfix">
   {% if image_url %}
   <div class="profile-shortinfo__ilustration">
       {% if url %}
       <a href="{{ url }}" class="profile-shortinfo__link profile-shortinfo__link--account">
       {% endif %}
-
 
       <img src="{{ image_url }}" alt="{{ title }}" class="profile-shortinfo__picture profile-shortinfo__picture--account responsive" />
 

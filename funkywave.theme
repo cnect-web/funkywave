@@ -24,8 +24,8 @@ function funkywave_preprocess_form_element_label(&$variables) {
 }
 
 /**
-* Implement template_preprocess_node().
-*/
+ * Implement template_preprocess_node().
+ */
 function funkywave_preprocess_node(&$variables) {
   $node = $variables['elements']['#node'];
   $view_mode = $variables['view_mode'];
@@ -43,17 +43,17 @@ function funkywave_preprocess_node(&$variables) {
     $variables['ngf_sub_picture'] = NULL;
     $variables['ngf_context_text'] = t(
       'Posted @created_date ago', [
-        '@created_date' => \Drupal::service('date.formatter')->formatTimeDiffSince($node->created->value)
+      '@created_date' => \Drupal::service('date.formatter')
+        ->formatTimeDiffSince($node->created->value),
     ]);
 
     $variables['ngf_group_container_class'] = 'profile-shortinfo--no-group';
     if (isset($node->group) && $group = $node->group) {
       _funkywave_group_context($node, $node->group, $variables);
-    } elseif ($view_mode == 'ngf_teaser_user_commented') {
+    }
+    elseif ($view_mode == 'ngf_teaser_user_commented') {
       $variables['ngf_context_text'] = t('Commented');
     }
-
-
   }
 }
 
@@ -71,7 +71,7 @@ function _funkywave_group_context($entity, $group, &$variables) {
       '#attributes' => [
         'class' => ['profile-shortinfo__picture profile-shortinfo__picture--group responsive'],
         'alt' => $group->label(),
-      ]
+      ],
     ];
   }
   else {
@@ -81,7 +81,7 @@ function _funkywave_group_context($entity, $group, &$variables) {
       '#attributes' => [
         'class' => ['profile-shortinfo__picture profile-shortinfo__picture--group responsive'],
         'alt' => $group->label(),
-      ]
+      ],
     ];
   }
 
@@ -91,22 +91,26 @@ function _funkywave_group_context($entity, $group, &$variables) {
     '#url' => $group->toUrl(),
     '#attributes' => [
       'class' => [
-        'profile-shortinfo__link profile-shortinfo__link--group'
-      ]
-    ]
+        'profile-shortinfo__link profile-shortinfo__link--group',
+      ],
+    ],
   ];
   $variables['ngf_sub_picture'] = $link_render;
 
   $variables['ngf_context_text'] = t(
-      'Posted @created_date ago in <a href=":group_url" class="profile-shortinfo__link profile-shortinfo__group-link">@group_title</a>',
-      [
-        '@created_date' => \Drupal::service('date.formatter')->formatTimeDiffSince($entity->created->value),
-        ':group_url' => $group->url(),
-        '@group_title' => $group->label(),
-      ]
-    );
+    'Posted @created_date ago in <a href=":group_url" class="profile-shortinfo__link profile-shortinfo__group-link">@group_title</a>',
+    [
+      '@created_date' => \Drupal::service('date.formatter')
+        ->formatTimeDiffSince($entity->created->value),
+      ':group_url' => $group->url(),
+      '@group_title' => $group->label(),
+    ]
+  );
 }
 
+/**
+ * Implements template_preprocess_user().
+ */
 function funkywave_preprocess_user(&$variables) {
   $user = $variables['user'];
 
@@ -119,7 +123,8 @@ function funkywave_preprocess_user(&$variables) {
 
   if (!empty($user->user_picture->entity)) {
     $cover_image = $user->user_picture->entity->getFileUri();
-    $variables['user_pic'] = ImageStyle::load('thumbnail')->buildUrl($cover_image);
+    $variables['user_pic'] = ImageStyle::load('thumbnail')
+      ->buildUrl($cover_image);
   }
   else {
     $variables['user_pic'] = file_create_url($variables['directory'] . '/images/default_user.jpg');
@@ -129,7 +134,8 @@ function funkywave_preprocess_user(&$variables) {
   $variables['full_name'] = $user->full_name->value;
 
   if ($user->id() == \Drupal::currentUser()->id()) {
-    $variables['profile_uri'] = Url::fromRoute('ngf_user_profile.page.profile')->toString();
+    $variables['profile_uri'] = Url::fromRoute('ngf_user_profile.page.profile')
+      ->toString();
   }
   else {
     $variables['profile_uri'] = Url::fromRoute('ngf_user_profile.page.user_profile', [
@@ -137,7 +143,8 @@ function funkywave_preprocess_user(&$variables) {
     ])->toString();
   }
 
-  if (\Drupal::routeMatch()->getRouteName() == 'ngf_user_profile.page.user_about') {
+  if (\Drupal::routeMatch()
+      ->getRouteName() == 'ngf_user_profile.page.user_about') {
     $variables['profile_uri_back'] = $variables['profile_uri'];
     $variables['profile_uri_more'] = '';
   }
@@ -151,8 +158,8 @@ function funkywave_preprocess_user(&$variables) {
 }
 
 /**
-* Implements template_preprocess_group
-*/
+ * Implements template_preprocess_group.
+ */
 function funkywave_preprocess_group(&$variables) {
   $group = $variables['group'];
   $view_mode = $variables['view_mode'];
@@ -174,6 +181,15 @@ function funkywave_preprocess_group(&$variables) {
       $variables['content']['label']['#printed'] = FALSE;
       if (!empty($group->group)) {
         _funkywave_group_context($group, $group->group, $variables);
+      }
+      else {
+        $variables['ngf_context_text'] = t(
+          'Posted @created_date ago',
+          [
+            '@created_date' => \Drupal::service('date.formatter')
+              ->formatTimeDiffSince($group->created->value),
+          ]
+        );
       }
     }
 
@@ -217,7 +233,7 @@ function funkywave_preprocess_group(&$variables) {
 /**
  * Implements hook_theme_suggestions_HOOK_alter()
  * Create theme suggestions for user profile templates
-**/
+ **/
 function funkywave_theme_suggestions_user_alter(&$suggestions, array $variables) {
   $suggestions[] = 'user__' . $variables['elements']['#view_mode'];
 }
@@ -225,7 +241,7 @@ function funkywave_theme_suggestions_user_alter(&$suggestions, array $variables)
 /**
  * Implements hook_theme_form_alter()
  * The form id becomes the data attribute on the input fields and submit button
-**/
+ **/
 function funkywave_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   if (!empty($form['actions']['submit'])) {
     $form['actions']['submit']['#attributes']['data-twig-suggestion'] = $form['#id'];
@@ -238,8 +254,9 @@ function funkywave_form_alter(&$form, FormStateInterface $form_state, $form_id) 
 }
 
 /**
- * theme suggestions input alter to create the completely custom and flexible template suggestion
-**/
+ * theme suggestions input alter to create the completely custom and flexible
+ * template suggestion
+ **/
 function funkywave_theme_suggestions_input_alter(&$suggestions, array $variables) {
   $element = $variables['element'];
   if (isset($element['#attributes']['data-twig-suggestion'])) {
