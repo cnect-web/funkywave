@@ -27,6 +27,13 @@
  * @see template_process()
  */
 #}
-<div{{ attributes }}>
+
+{%
+ set classes = [
+   'newsfeed__item--teaser',
+ ]
+%}
+
+<div{{ attributes.addClass(classes) }}>
   {{ content }}
 </div>
