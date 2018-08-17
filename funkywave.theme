@@ -156,12 +156,13 @@ function funkywave_preprocess_user(&$variables) {
 function funkywave_preprocess_group(&$variables) {
   $group = $variables['group'];
   $view_mode = $variables['view_mode'];
+  $group_type_id = $group->getGroupType()->id();
 
   //* Create url for the default group image to be called in group templates.
   $variables['group_pic'] = file_create_url($variables['directory'] . '/images/default_group.jpg');
+  $variables['ngf_group_container_class'] = 'profile-shortinfo--no-group';
 
-  if ($group->getGroupType()->id() == 'ngf_event') {
-
+  if ($group_type_id == 'ngf_event') {
     $display_modes = [
       'full',
       'teaser',
@@ -177,7 +178,7 @@ function funkywave_preprocess_group(&$variables) {
     }
 
   }
-  else if ($group->getGroupType()->id() == 'ngf_discussion_group') {
+  elseif ($group_type_id == 'ngf_discussion_group') {
 
     $display_modes = [
       'teaser',
@@ -185,7 +186,6 @@ function funkywave_preprocess_group(&$variables) {
     ];
 
     if (in_array($view_mode, $display_modes)) {
-      $variables['ngf_group_container_class'] = 'profile-shortinfo--no-group';
       if ($group->field_ngf_group_visibility->value == NGF_GROUP_PUBLIC) {
         $variables['ngf_context_text'] = t('Public group');
       }
@@ -211,7 +211,6 @@ function funkywave_preprocess_group(&$variables) {
         ])->toString();
       }
     }
-
   }
 }
 
