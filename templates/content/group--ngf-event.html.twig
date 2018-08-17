@@ -50,16 +50,13 @@
 
 <article{{ attributes.addClass(classes) }}>
 <header>
-
+  <h2>
   {% if not page %}
-    <h2>
       <a href="{{ url }}" rel="bookmark">{{ label }}</a>
-    </h2>
   {% else %}
-     <h2>
       {{ label }}
-    </h2>
   {% endif %}
+  </h2>
 
   {# block postinfo #}
   {% block postinfo %}
@@ -75,6 +72,7 @@
       title: group.uid.entity.name.value,
       image_url: image_url,
       logged_in: logged_in,
+      url: path('entity.user.canonical', {'user': group.uid.entity.id }),
       context_text: ngf_context_text,
       subpic: ngf_sub_picture,
       container_class: ngf_group_container_class,
