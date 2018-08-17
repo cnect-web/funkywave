@@ -8160,7 +8160,7 @@ a.logo__link span {
   box-shadow: 0 1px 0 0 #662D91;
 }
 
-.newsfeed__item .field--name-field-ngf-cover-image, .newsfeed__item .field--name-field-media-image {
+.newsfeed__item .field--name-field-ngf-cover-image {
   border-radius: 10px;
   background: #1f1e23;
   max-height: 320px;
@@ -8176,7 +8176,7 @@ a.logo__link span {
   overflow: hidden;
 }
 
-.newsfeed__item .field--name-field-ngf-cover-image img.responsive, .newsfeed__item .field--name-field-media-image img.responsive {
+.newsfeed__item .field--name-field-ngf-cover-image img.responsive {
   max-height: 320px;
   width: auto;
   -ms-flex-negative: 0;
@@ -8239,8 +8239,7 @@ a.logo__link span {
   padding-left: 25px;
 }
 
-.newsfeed__item--teaser,
-.paragraph--view-mode--teaser {
+.newsfeed__item--teaser {
   background-image: url(../images/hr--wavy.svg);
   background-repeat: no-repeat;
   background-position: center top;
@@ -8249,8 +8248,7 @@ a.logo__link span {
   margin-top: -30px;
 }
 
-.newsfeed__item--teaser:first-child,
-  .paragraph--view-mode--teaser:first-child {
+.newsfeed__item--teaser:first-child {
   padding-top: 4rem;
   background-image: none !important;
   margin-top: 0px;
