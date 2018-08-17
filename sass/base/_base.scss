@@ -8,6 +8,7 @@ html {
   font-size:62.5%;
 }
 
+
 body {
   font-family: $font-family-base;
   font-size: 1.5rem;
@@ -40,7 +41,7 @@ body {
 
 p, h2, h3, h4, h5, h6, li {
     max-width: 32em;
-  }
+}
 
 h1, h2, h3, h4, h5, h6 {
   font-family: $headings__font;
@@ -48,6 +49,10 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.3;
   margin-top: 2.5em;
   margin-bottom: 1em;
+}
+
+h1 {
+  margin-top: 0;
 }
 
 h1 + h2,
@@ -131,8 +136,6 @@ a:not(.toolbar-item) {
   }
 }
 
-
-
 .background--talk > main {
   min-height: auto;
   float: none;
@@ -212,3 +215,4 @@ main *:not(img):not(svg)::selection  {
     background-color: $gray-800;
   }
 }
+
