@@ -55,7 +55,7 @@
       }
     }
 
-    .field--name-field-ngf-cover-image,
+    .field--name-field-ngf-cover-image, .field--name-field-media-image
 {
       border-radius: 10px;
       background: adjust-lightness($gray-800, -3%);
@@ -63,9 +63,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-       overflow:hidden;
-
-
+     overflow:hidden;
 
       img.responsive {
         max-height: 320px;
@@ -139,7 +137,7 @@
     }
   }
 
-  .newsfeed__item--teaser {
+  .newsfeed__item--teaser, .paragraph--view-mode--teaser {
     background-image: url(../images/hr--wavy.svg);
     background-repeat: no-repeat;
     background-position: center top;

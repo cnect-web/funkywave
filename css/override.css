@@ -287,12 +287,10 @@ fieldset {
   padding-bottom: 0;
 }
 
-/*
-.js-form-item.form-wrapper .form-wrapper {
-   padding: 0 10px 0 10px;
-}
-*/
-
 tr.draggable.even {
   background: #f5f5f2;
+}
+
+.ui-widget.ui-widget-content.ui-autocomplete {
+  border: 1px solid #cccccc;
 }
