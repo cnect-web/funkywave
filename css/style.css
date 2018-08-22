@@ -4993,6 +4993,10 @@ a:not(.toolbar-item):hover {
   display: table;
 }
 
+.general-container--card {
+  margin-top: -3.5rem;
+}
+
 .background--talk > main {
   min-height: auto;
   float: none;
@@ -5056,6 +5060,7 @@ main *:not(img):not(svg)::selection {
   .general-container--card {
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
+    margin-top: 0;
   }
 }
 
@@ -7097,11 +7102,13 @@ button.paragraphs-dropdown-action {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
   position: absolute;
   top: 0;
   height: 3.5rem;
-  width: 100%;
-  text-align: center;
+  line-height: 3.5rem;
   width: 100%;
   background: rgba(102, 45, 145, 0.3);
 }
@@ -7110,6 +7117,9 @@ button.paragraphs-dropdown-action {
   text-shadow: none;
   -webkit-box-shadow: none;
   box-shadow: none;
+  color: #000;
+  font-weight: 700;
+  margin: 0 15px 0 0;
 }
 
 .block-useraccountblock a:hover {
@@ -7121,20 +7131,18 @@ button.paragraphs-dropdown-action {
 @media (min-width: 768px) {
   .block-useraccountblock {
     position: relative;
-    height: auto;
-    border-radius: 15px;
-    background-color: rgba(255, 255, 255, 0.1);
-    margin: 0px;
     margin-bottom: 15px;
-    padding: 15px;
     text-align: left;
     -webkit-box-shadow: none;
     box-shadow: none;
+    display: initial;
+    background: initial;
   }
 
   .block-useraccountblock a {
     color: #FFFFFF;
     padding: 0.5rem 0.8rem;
+    font-weight: normal;
   }
 
   .block-useraccountblock a:hover {

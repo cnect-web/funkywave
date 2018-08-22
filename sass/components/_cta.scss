@@ -59,16 +59,19 @@
 
 .block-useraccountblock {
   display: flex;
+  justify-content: flex-end;
   position: absolute;
   top: 0;
   height: 3.5rem;
-  width: 100%;
-  text-align: center;
+  line-height: 3.5rem;
   width: 100%;
   background: rgba($purple, 0.3);
   a {
     text-shadow: none;
     box-shadow: none;
+    color: $black;
+    font-weight: 700;
+    margin: 0 15px 0 0;
     &:hover {
       text-shadow: none;
       box-shadow: none;
@@ -80,17 +83,16 @@
 
   .block-useraccountblock {
     position: relative;
-    height: auto;
-    border-radius: 15px;
-    background-color: rgba($white, 0.1);
-    margin: 0px;
     margin-bottom: 15px;
-    padding: 15px;
     text-align: left;
     box-shadow: none;
+    display: initial;
+    background: initial;
+
     a {
       color: $white;
       padding: 0.5rem 0.8rem;
+      font-weight: normal;
 
       &:hover {
         color: $pink;

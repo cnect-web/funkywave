@@ -135,6 +135,10 @@ a:not(.toolbar-item) {
   }
 }
 
+.general-container--card {
+  margin-top: -3.5rem;
+}
+
 .background--talk > main {
   min-height: auto;
   float: none;
@@ -190,6 +194,7 @@ main *:not(img):not(svg)::selection  {
   .general-container--card {
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
+    margin-top: 0;
   }
 
 }
