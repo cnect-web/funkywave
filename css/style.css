@@ -7141,22 +7141,15 @@ button.paragraphs-dropdown-action {
 
   .block-useraccountblock a {
     color: #FFFFFF;
-    padding: 0.5rem 0.8rem;
+    padding: 0.5rem 1rem;
     font-weight: normal;
+    border: 1px solid #FFFFFF;
+    border-radius: 0.5rem;
+    margin: 0 10px 0 0;
   }
 
   .block-useraccountblock a:hover {
     color: #ff397f;
-  }
-
-  .block-useraccountblock a:last-child {
-    border: 1px solid #FFFFFF;
-    padding: 8px 16px;
-    border-radius: 0.5rem;
-    background: #26252B;
-  }
-
-  .block-useraccountblock a:last-child:hover {
     border: 1px solid #ff397f;
   }
 
