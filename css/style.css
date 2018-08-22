@@ -4888,7 +4888,7 @@ body {
   background-size: 100% 80px;
 }
 
-body.not-signed {
+body.user-not-logged-in {
   margin-top: 3.5rem;
   background-image: url(../images/body-bckgrd--md.svg), -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#FFFFFF));
   background-image: url(../images/body-bckgrd--md.svg), linear-gradient(#FFFFFF, #FFFFFF);
@@ -4972,7 +4972,6 @@ a:not(.toolbar-item):hover {
   margin: auto;
   background-color: #FFFFFF;
   overflow: hidden;
-  position: relative;
 }
 
 .general-container--card {
@@ -4992,6 +4991,10 @@ a:not(.toolbar-item):hover {
   clear: both;
   content: "";
   display: table;
+}
+
+.general-container--card {
+  margin-top: -3.5rem;
 }
 
 .background--talk > main {
@@ -5040,7 +5043,7 @@ main *:not(img):not(svg)::selection {
     font-size: 1.6rem;
   }
 
-  body.not-signed {
+  body.user-not-logged-in {
     margin-top: 0px;
     background-image: url(../images/body-bckgrd--md.svg);
     background-position: 50% 0px;
@@ -5057,6 +5060,7 @@ main *:not(img):not(svg)::selection {
   .general-container--card {
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
+    margin-top: 0;
   }
 }
 
@@ -5064,6 +5068,7 @@ main *:not(img):not(svg)::selection {
   .general-container {
     -webkit-box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.4);
     box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.4);
+    position: relative;
   }
 
   main {
@@ -7093,7 +7098,61 @@ button.paragraphs-dropdown-action {
   color: #FFFFFF;
 }
 
+.block-useraccountblock {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  position: absolute;
+  top: 0;
+  height: 3.5rem;
+  line-height: 3.5rem;
+  width: 100%;
+  background: rgba(102, 45, 145, 0.3);
+}
+
+.block-useraccountblock a {
+  text-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  color: #000;
+  font-weight: 700;
+  margin: 0 15px 0 0;
+}
+
+.block-useraccountblock a:hover {
+  text-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
 @media (min-width: 768px) {
+  .block-useraccountblock {
+    position: relative;
+    margin-bottom: 15px;
+    text-align: left;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    display: initial;
+    background: initial;
+  }
+
+  .block-useraccountblock a {
+    color: #FFFFFF;
+    padding: 0.5rem 1rem;
+    font-weight: normal;
+    border: 1px solid #FFFFFF;
+    border-radius: 0.5rem;
+    margin: 0 10px 0 0;
+  }
+
+  .block-useraccountblock a:hover {
+    color: #ff397f;
+    border: 1px solid #ff397f;
+  }
+
   .cta--wrapper {
     display: block;
     position: relative;
