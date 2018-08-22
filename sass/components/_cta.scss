@@ -66,7 +66,7 @@
   line-height: 3.5rem;
   width: 100%;
   background: rgba($purple, 0.3);
-  a {
+  > a {
     text-shadow: none;
     box-shadow: none;
     color: $black;
@@ -89,7 +89,7 @@
     display: initial;
     background: initial;
 
-    a {
+    > a {
       color: $white;
       padding: 0.5rem 1rem;
       font-weight: normal;

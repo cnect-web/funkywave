@@ -7113,7 +7113,7 @@ button.paragraphs-dropdown-action {
   background: rgba(102, 45, 145, 0.3);
 }
 
-.block-useraccountblock a {
+.block-useraccountblock > a {
   text-shadow: none;
   -webkit-box-shadow: none;
   box-shadow: none;
@@ -7122,7 +7122,7 @@ button.paragraphs-dropdown-action {
   margin: 0 15px 0 0;
 }
 
-.block-useraccountblock a:hover {
+.block-useraccountblock > a:hover {
   text-shadow: none;
   -webkit-box-shadow: none;
   box-shadow: none;
@@ -7139,7 +7139,7 @@ button.paragraphs-dropdown-action {
     background: initial;
   }
 
-  .block-useraccountblock a {
+  .block-useraccountblock > a {
     color: #FFFFFF;
     padding: 0.5rem 1rem;
     font-weight: normal;
@@ -7148,7 +7148,7 @@ button.paragraphs-dropdown-action {
     margin: 0 10px 0 0;
   }
 
-  .block-useraccountblock a:hover {
+  .block-useraccountblock > a:hover {
     color: #ff397f;
     border: 1px solid #ff397f;
   }
