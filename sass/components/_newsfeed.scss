@@ -63,9 +63,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-       overflow:hidden;
-
-
+     overflow:hidden;
 
       img.responsive {
         max-height: 320px;
@@ -139,20 +137,16 @@
     }
   }
 
-  .newsfeed__item--teaser,
-  .paragraph--view-mode--teaser {
+  .newsfeed__item--teaser, .paragraph--view-mode--teaser {
     background-image: url(../images/hr--wavy.svg);
     background-repeat: no-repeat;
     background-position: center top;
     padding: 7.5rem 15px 4rem 15px;
     background-size: 100% 40px;
-
     margin-top: -30px;
-
     &:first-child {
       padding-top: 4rem;
       background-image: none !important;
-
       margin-top: 0px;
     }
   }
