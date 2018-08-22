@@ -202,6 +202,11 @@ function funkywave_preprocess_group(&$variables) {
     ];
 
     if (in_array($view_mode, $display_modes)) {
+      if (!empty($group->group)) {
+        _funkywave_group_context($group, $group->group, $variables);
+      }
+
+      /*
       if ($group->field_ngf_group_visibility->value == NGF_GROUP_PUBLIC) {
         $variables['ngf_context_text'] = t('Public group');
       }
@@ -213,6 +218,7 @@ function funkywave_preprocess_group(&$variables) {
         $visibility_icon = 'fa fa-eye-slash';
         $variables['ngf_context_text'] = '<i class="' . $visibility_icon . '"></i> ' . t('Secret group');
       }
+      */
     }
 
     if ($view_mode == 'ngf_header') {
