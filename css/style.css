@@ -5509,6 +5509,10 @@ ul.ui-menu .ui-menu-item-wrapper.ui-state-active {
   padding: 0;
 }
 
+.fiu-add-element .form-type-managed-file--advanced label {
+  height: 140px;
+}
+
 @media (min-width: 578px) {
   .form .form__block--twocol {
     display: -webkit-box;
@@ -6487,7 +6491,7 @@ button.paragraphs-dropdown-action {
   transition: border-color 0.2s;
 }
 
-.form-item label {
+.form-item label, label {
   display: block;
   font-weight: 600;
   margin-bottom: 0.3em;
