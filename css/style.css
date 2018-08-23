@@ -5020,7 +5020,7 @@ a:not(.toolbar-item):hover {
 
 main {
   display: block;
-  margin-top: -36px;
+  margin-top: -18px;
   padding: 0px 15px 75px 15px;
   min-height: 100vh;
   background-color: #fff;
@@ -7114,7 +7114,7 @@ button.paragraphs-dropdown-action {
   color: #FFFFFF;
 }
 
-.block-useraccountblock {
+.user-not-logged-in .block-useraccountblock {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -7129,7 +7129,7 @@ button.paragraphs-dropdown-action {
   background: rgba(102, 45, 145, 0.3);
 }
 
-.block-useraccountblock > a {
+.user-not-logged-in .block-useraccountblock > a {
   text-shadow: none;
   -webkit-box-shadow: none;
   box-shadow: none;
@@ -7138,7 +7138,7 @@ button.paragraphs-dropdown-action {
   margin: 0 15px 0 0;
 }
 
-.block-useraccountblock > a:hover {
+.user-not-logged-in .block-useraccountblock > a:hover {
   text-shadow: none;
   -webkit-box-shadow: none;
   box-shadow: none;
@@ -7603,7 +7603,7 @@ button.paragraphs-dropdown-action {
   flex-direction: row;
   -ms-flex-wrap: nowrap;
   flex-wrap: nowrap;
-  margin-bottom: 0;
+  margin: 0;
   padding: 0 0 0 15px;
   width: 100%;
   overflow-y: auto;
@@ -7896,6 +7896,10 @@ a.logo__link span {
   bottom: 10px;
   width: 21vw;
   text-align: center;
+}
+
+.navigation-menu__list--tools {
+  display: none;
 }
 
 .background--talk .navigation-menu {
@@ -8788,7 +8792,7 @@ header.profile .profile__meta li::after, header.profile .profile__meta li::befor
 
 header.profile .profile__networks, header.profile .profile__actions {
   margin: 0;
-  padding: 1rem 0;
+  padding: 2rem 0;
   border-bottom: solid 1px #dfe0e5;
 }
 

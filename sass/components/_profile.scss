@@ -2,25 +2,25 @@ header.profile {
     text-align: center;
     padding-left: 0px;
     padding-right: 0px;
-  
+
   ~ .inpage-nav {
     margin-left: -15px;
     margin-right: -15px;
   }
-  
-  
+
+
   ~ .newsfeed {
     margin-left: -15px;
     margin-right: -15px;
   }
-  
-  
+
+
   .profile__pic {
     width: 100%;
     height: 100%;
     border-radius: 300px;
   }
-  
+
   a.profile__pic__link {
     display: block;
     width: 100px;
@@ -34,119 +34,119 @@ header.profile {
     box-shadow: none;
     text-decoration: none;
   }
-  
+
   a.profile__pic__link:hover {
     text-shadow: none;
     box-shadow: none;
     background-color: $purple;
-    
+
     .profile__pic {
       opacity: 0.8;
     }
   }
-  
+
   h2 {
     margin-bottom: 0rem;
     color: $gray-800;
-    
+
     a {
       font-weight: 600;
       color: #26252B;
       text-shadow: none;
       box-shadow: none;
       transition: all .2s ease;
-      
+
     }
   }
-    
+
     h2 + h4 {
       margin-top: 0.4rem;
-      
+
       a {
         color: $gray-700;
         font-weight: 600;
       }
     }
-  
+
   .profile__link--about{
     display: inline-block;
     margin-bottom: 1.8rem;
     font-size: 1.4rem;
     line-height: 1.2;
     transition: margin .2s;
-    
+
     i, svg {
       margin-left: 0rem;
       transition: margin .2s;
     }
-    
+
     &:hover {
       margin-left: 0.5rem;
       transition: margin .2s;
     }
-    
+
     &:hover i, &:hover svg{
       margin-left: 0.5rem;
-      transition: margin .2s;  
+      transition: margin .2s;
     }
   }
-  
+
   .profile__link {
     box-shadow: none;
     &:hover{
       box-shadow: none;
     }
   }
-  
+
   .profile__qrcode {
     max-width: 100%;
     height: auto;
   }
-    
+
   .profile__link--back{
     display: inline-block;
     margin-bottom: 1.8rem;
     font-size: 1.4rem;
     line-height: 1.2;
     transition: margin .2s;
-    
+
     i, svg {
       margin-right: 0rem;
       transition: margin .2s;
     }
-    
+
     &:hover {
       margin-right: 0.5rem;
       transition: margin .2s;
     }
-    
+
     &:hover i, &:hover svg{
       margin-right: 0.5rem;
-      transition: margin .2s;  
+      transition: margin .2s;
     }
   }
-  
+
   .profile__meta, .profile__location {
     padding:0;
     margin:0;
   }
-    
-  .profile__location { 
+
+  .profile__location {
     margin-top: 1.8rem;
   }
-  
+
   .profile__location li::after {
     display: inline-block;
     content: "|";
     padding: 0 1rem;
   }
-  
+
   .profile__location li:last-child::after {
     display: inline-block;
     content: "";
     padding: 0 0rem;
   }
-  
+
   .profile__meta li, .profile__location li {
     //margin-top: 0.6rem;
     font-weight: bold;
@@ -156,33 +156,33 @@ header.profile {
     list-style: none;
     max-width: 100%;
   }
-  
+
   .profile__location li {
     font-weight: 500;
     display: inline-block;
   }
-  
+
   .profile__meta li::after, .profile__meta li::before {
     display: inline-block;
     content: "—";
     padding: 0 1.5rem;
   }
-  
+
   .profile__networks, .profile__actions{
     @extend .list--flex-space-evenly;
-    margin:0;
-    padding:1rem 0;
+    margin: 0;
+    padding: 2rem 0;
     border-bottom: solid 1px $gray-300;
   }
-    
+
   .profile__networks.active {
       border-bottom: none;
   }
-  
+
   .profile__networks li, .profile__actions li{
-    list-style: none; 
+    list-style: none;
     flex-grow: 1;
-    
+
     a.active {
       text-shadow: none;
       box-shadow: none;
@@ -190,10 +190,10 @@ header.profile {
       font-weight: 600;
       cursor: auto;
     }
-  } 
-    
+  }
 
-  
+
+
   .profile__actions a{
     text-align: center;
     display: block;
@@ -204,11 +204,11 @@ header.profile {
     padding: 5px;
     max-width: 90px;
     margin: auto;
-    
+
     &:hover {
       background-color: $gray-200;
     }
-    
+
     &:before{
       content: "";
       display: block;
@@ -218,7 +218,7 @@ header.profile {
       background: transparent no-repeat;
       background-size: 76px 35px;
     }
-    
+
     &.profile__actions--join:before{
       background-image: url(../images/profile--action__join-sprite.svg);
       background-position: 0 0;
@@ -243,8 +243,8 @@ header.profile {
       background-image: url(../images/profile--action__add2list-sprite.svg);
       background-position: 0 0;
     }
-    
-    
+
+
   }
-    
+
   }
