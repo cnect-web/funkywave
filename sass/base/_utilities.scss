@@ -1,10 +1,10 @@
 #skip-link, .skip-link {
-    position: fixed;
-    top: 1.5em;
-    left: 1.5em;
-    z-index: 1060;
+  position: fixed;
+  top: 1.5em;
+  left: 1.5em;
+  z-index: 1060;
   background: $white;
-  pading: 15px;
+  padding: 15px;
 }
 
 .visually-hidden {
@@ -16,15 +16,21 @@
 }
 
 
-  ul.links.inline {
-    margin: 0;
-    padding: 0;
-    padding-bottom: 15px;
+ul.links.inline {
+  margin: 0;
+  padding: 0;
+  padding-bottom: 15px;
 
-    li {
-      display: inline-block;
-    }
+  li {
+    display: inline-block;
   }
+}
+
+.item-list {
+  li {
+    margin: 0 15px 0 0;
+  }
+}
 
 .focusable:active, .focusable:focus {
     position: static !important;
