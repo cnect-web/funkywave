@@ -7606,17 +7606,12 @@ button.paragraphs-dropdown-action {
   margin: 0;
   padding: 0 0 0 15px;
   width: 100%;
-  overflow-y: auto;
+  overflow-x: auto;
 }
 
 .inpage-nav .nav--tabs li {
   list-style: none;
   display: block;
-  -ms-flex-preferred-size: 100px;
-  flex-basis: 100px;
-  -webkit-box-flex: 0;
-  -ms-flex: 0;
-  flex: 0;
   padding: 2px 15px 2px 0;
 }
 
