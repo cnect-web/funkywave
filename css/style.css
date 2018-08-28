@@ -8455,9 +8455,6 @@ a.logo__link span {
   width: 5.6rem;
   height: 5.6rem;
   margin-right: 1.7rem;
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 5.6rem;
-  flex: 0 0 5.6rem;
   border-radius: 100px;
   border: solid 5px rgba(255, 57, 127, 0.5);
 }
