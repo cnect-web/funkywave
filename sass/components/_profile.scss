@@ -46,7 +46,7 @@ header.profile {
   }
 
   h2 {
-    margin-bottom: 0rem;
+    /* margin-bottom: 0rem; */
     color: $gray-800;
 
     a {
@@ -70,7 +70,7 @@ header.profile {
 
   .profile__link--about{
     display: inline-block;
-    margin-bottom: 1.8rem;
+    margin: 0 0 3.6rem 0;
     font-size: 1.4rem;
     line-height: 1.2;
     transition: margin .2s;
@@ -131,8 +131,8 @@ header.profile {
     margin:0;
   }
 
-  .profile__location {
-    margin-top: 1.8rem;
+  .profile__intro {
+    margin-bottom: 1.8rem;
   }
 
   .profile__location li::after {
@@ -248,3 +248,12 @@ header.profile {
   }
 
   }
+
+@media (min-width: 992px) {
+  .profile__intro {
+    max-width: 80%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

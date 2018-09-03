@@ -8649,7 +8649,6 @@ header.profile a.profile__pic__link:hover .profile__pic {
 }
 
 header.profile h2 {
-  margin-bottom: 0rem;
   color: #26252B;
 }
 
@@ -8674,7 +8673,7 @@ header.profile h2 + h4 a {
 
 header.profile .profile__link--about {
   display: inline-block;
-  margin-bottom: 1.8rem;
+  margin: 0 0 3.6rem 0;
   font-size: 1.4rem;
   line-height: 1.2;
   -webkit-transition: margin .2s;
@@ -8746,8 +8745,8 @@ header.profile .profile__meta, header.profile .profile__location {
   margin: 0;
 }
 
-header.profile .profile__location {
-  margin-top: 1.8rem;
+header.profile .profile__intro {
+  margin-bottom: 1.8rem;
 }
 
 header.profile .profile__location li::after {
@@ -8864,6 +8863,15 @@ header.profile .profile__actions a.profile__actions--contact:before {
 header.profile .profile__actions a.profile__actions--add2list:before {
   background-image: url(../images/profile--action__add2list-sprite.svg);
   background-position: 0 0;
+}
+
+@media (min-width: 992px) {
+  .profile__intro {
+    max-width: 80%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 .sub-section--related__title {

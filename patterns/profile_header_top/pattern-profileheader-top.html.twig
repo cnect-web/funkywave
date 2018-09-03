@@ -18,6 +18,10 @@
   <h2 class="profile__title"><a href="{{ profile_uri }}">{{ profile_title }}</a></h2>
 {% endif %}
 
+{% if profile_intro %}
+  <div class="profile__intro">{{ profile_intro }}</div>
+{% endif %}
+
 {% if profile_uri_more %}
   <a href="{{ profile_uri_more }}" class="profile__link--about">
       {% trans %} Learn more {% endtrans %}<span class="sr-only">{% trans %} about {% endtrans %}{{ profile_title }}</span> <i class="fas fa-chevron-right"></i>
