@@ -49,9 +49,16 @@
   </section>
 
   <header class="general-header clearfix">
-    {{ page.header }} 
+    {{ page.header }}
+
+    <!-- todo - to remove -->
+    <nav class="navigation-menu" aria-label="Main Navigation">
+      <ul class="navigation-menu__list navigation-menu__list--tools"></ul>
+    </nav>
+    <!-- end todo - to remove -->
+
   </header>
-  
+
   <main role="main">
 
     <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
