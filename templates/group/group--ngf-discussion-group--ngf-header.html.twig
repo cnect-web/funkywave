@@ -47,11 +47,14 @@
 
 <header class="profile">
 
+  {% set introtext = content.field_ngf_introtext[0]['#context'].value %}
+
   {# profile header top #}
   {% include '@patterns/profile_header_top/pattern-profileheader-top.html.twig'
     with {
       profile_pic_uri: image_url,
       profile_title: label,
+      profile_intro: introtext,
       profile_uri: url,
       profile_uri_back: profile_uri_back,
       profile_uri_more: profile_uri_more
