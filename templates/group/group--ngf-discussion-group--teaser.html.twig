@@ -40,6 +40,16 @@
  */
 #}
 
+{%
+ set classes = [
+   'newsfeed__item',
+   'newsfeed__item--' ~ group.bundle|clean_class,
+   view_mode ? 'newsfeed__item--' ~ view_mode|clean_class,
+ ]
+%}
+
+<article{{ attributes.addClass(classes) }}>
+
 {% if content.field_ngf_cover_image|render is empty %}
     {% set image_url = file_url(directory ~ '/images/default_group.jpg') %}
 {% else %}
@@ -56,3 +66,5 @@
     subpic: ngf_sub_picture,
   }
 %}
+
+</article>

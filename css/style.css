@@ -8362,6 +8362,11 @@ a.logo__link span {
   background-color: #ffebeb;
 }
 
+.profile-listing .newsfeed__item--teaser {
+  background: none;
+  padding: 0rem 0 4rem 0;
+}
+
 .pager {
   display: -webkit-box;
   display: -ms-flexbox;
