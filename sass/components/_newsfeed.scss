@@ -186,3 +186,10 @@
       background-color: scale-lightness($red, 90%);
     }
   }
+
+/* remove background wave from group listings */
+
+.profile-listing .newsfeed__item--teaser {
+  background: none;
+  padding: 0rem 0 4rem 0;
+}
