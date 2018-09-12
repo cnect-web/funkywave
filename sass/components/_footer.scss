@@ -37,37 +37,37 @@
     }
   }
 
+.general-footer {
+  h2 {
+    margin: 0;
+  }
+
+  a {
+    color: $gray-500;
+    text-shadow: 0 2px 0 $gray-800, 0 3px 0 $gray-800, 1px 2px 0 $gray-800, -1px 2px 0 $gray-800;
+    box-shadow: 0 1px 0 0 $gray-400;
+    transition: all .2s ease;
+
+    &:hover {
+      color: $pink;
+      box-shadow: 0 1px 0 0 $pink;
+      transition: all .2s ease;
+    }
+  }
+}
+
 @media (min-width: 768px) {
   .general-footer {
-    position: fixed !important;
-    bottom:10px;
     z-index: 500;
-    width: 33%;
     background: $gray-800;
 
     ul.menu {
       padding: 0;
-      margin: 1.5rem;
-      margin-top: 3rem;
       li {
         display: inline-block;
 
         &::after {
           content: " | ";
-        }
-
-        a {
-          color: $gray-500;
-          text-shadow: 0 2px 0 $gray-800, 0 3px 0 $gray-800, 1px 2px 0 $gray-800, -1px 2px 0 $gray-800;
-          box-shadow: 0 1px 0 0 $gray-400;
-          transition: all .2s ease;
-
-          &:hover {
-            color: $darkblue;
-            box-shadow: 0 1px 0 0 $body__background-color;
-            transition: all .2s ease;
-          }
-
         }
       }
     }
@@ -80,8 +80,7 @@
 
       ul.menu {
       padding: 0;
-      margin: 1.5rem;
-      margin-top: 3rem;
+
 
       li {
         display: inline-block;
@@ -111,44 +110,7 @@
 
 @media (min-width: 992px) {
   .general-footer {
-    width: 25%;
-    max-width: 300px;
-    /* position: relative !important; */
-    top: auto !important;
-    left: auto !important;
-    /* right: auto !important; */
-    bottom: auto;
-    height: 100vh;
-    /* float: right; */
     background-color: $gray-800;
-    background-image: url(../images/body-bckgrd--md.svg);
-    background-repeat: no-repeat;
-    background-position: 50% top;
-    background-attachment: fixed;
-    background-size: 100% 80px;
-    z-index: 4;
-    padding: 60px 15px;
-    /*padding-bottom: 500em;
-    margin-bottom: -500em;
-    */
-
-    position: absolute !important;
-    right: 0;
-    height: 100%;
-
-
-    > * {
-      position: fixed;
-      width: calc(25% - 30px);
-      max-width: 270px;
-
-    }
-
-    ul.menu {
-      position: fixed;
-      width: 100%;
-      bottom: 0;
-    }
 
     &--card {
       background-color: transparent;
