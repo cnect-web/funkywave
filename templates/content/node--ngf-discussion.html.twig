@@ -189,9 +189,11 @@
 
   {# Comments #}
   {% if view_mode == "full" %}
-  {{ content.field_ngf_vote }}
-  {{ content.voters }}
-  {{ content.field_comments }}
+      {{ content.field_ngf_vote }}
+      {{ content.voters }}
+      {{ content.flag_ngf_follow_content }}
+      {{ content.flag_ngf_save_content }}
+      {{ content.field_comments }}
   {% endif %}
 
 </article>
