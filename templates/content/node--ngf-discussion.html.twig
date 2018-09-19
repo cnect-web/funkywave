@@ -189,6 +189,8 @@
 
   {# Comments #}
   {% if view_mode == "full" %}
+  {{ content.field_ngf_vote }}
+  {{ content.voters }}
   {{ content.field_comments }}
   {% endif %}
 
