@@ -108,7 +108,7 @@
         with {
           image_url: image_url,
           title: node.owner.full_name.value,
-          url: path('entity.user.canonical', {'user': user.id}),
+          url: path('entity.user.canonical', {'user': node.uid.entity.id}),
           logged_in: logged_in,
           context_text: ngf_context_text,
           subpic: ngf_sub_picture,
@@ -193,6 +193,7 @@
       {{ content.voters }}
       {{ content.flag_ngf_follow_content }}
       {{ content.flag_ngf_save_content }}
+      {{ content.flag_ngf_report_content }}
       {{ content.field_comments }}
   {% endif %}
 
