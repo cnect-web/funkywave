@@ -8932,6 +8932,11 @@ header.profile .profile__actions a.profile__actions--add2list:before {
   font-size: 1.6rem;
 }
 
+.social-auth.auth-link {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
 a.share {
   background: #515155 url(../images/share-icons.svg) no-repeat;
   display: inline-block;
