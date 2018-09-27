@@ -18,43 +18,27 @@
     li {
       list-style: none;
       display: block;
-      padding: 2px 15px 2px 0;
+      padding: 0 15px 0 0;
 
-      a{
+      a {
         display: block;
         white-space: nowrap;
         box-shadow: none;
         box-shadow: none;
         text-shadow: none;
+        padding: 10px 0 5px 0;
+        border-bottom: 5px solid $white;
       }
 
-      a:after{
-        content: "";
-        display: block;
-        height: 0px;
-        background-color: $white;
-        margin-top: 8px;
-        padding: 0 9px;
-        margin-bottom: -4px;
-        transition: all 0.2s;
-      }
-
-      a:hover::after {
-        margin-top: 2px;
-        height: 5px;
-        background-color: #a6a7ab;
+      a:hover {
+        border-bottom: 5px solid #a6a7ab;
         transition: all 0.2s;
       }
 
       a.is-active {
         color: $text-color;
         font-weight: 600;
-      }
-
-      a.is-active::after {
-        margin-top: 2px;
-        height: 5px;
-        background-color: $purple;
+        border-bottom: 5px solid $purple;
         transition: all 0.2s;
       }
 
