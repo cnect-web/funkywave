@@ -7656,7 +7656,7 @@ button.paragraphs-dropdown-action {
 .inpage-nav .nav--tabs li {
   list-style: none;
   display: block;
-  padding: 2px 15px 2px 0;
+  padding: 0 15px 0 0;
 }
 
 .inpage-nav .nav--tabs li a {
@@ -7666,24 +7666,12 @@ button.paragraphs-dropdown-action {
   box-shadow: none;
   box-shadow: none;
   text-shadow: none;
+  padding: 10px 0 5px 0;
+  border-bottom: 5px solid #FFFFFF;
 }
 
-.inpage-nav .nav--tabs li a:after {
-  content: "";
-  display: block;
-  height: 0px;
-  background-color: #FFFFFF;
-  margin-top: 8px;
-  padding: 0 9px;
-  margin-bottom: -4px;
-  -webkit-transition: all 0.2s;
-  transition: all 0.2s;
-}
-
-.inpage-nav .nav--tabs li a:hover::after {
-  margin-top: 2px;
-  height: 5px;
-  background-color: #a6a7ab;
+.inpage-nav .nav--tabs li a:hover {
+  border-bottom: 5px solid #a6a7ab;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
 }
@@ -7691,12 +7679,7 @@ button.paragraphs-dropdown-action {
 .inpage-nav .nav--tabs li a.is-active {
   color: #515155;
   font-weight: 600;
-}
-
-.inpage-nav .nav--tabs li a.is-active::after {
-  margin-top: 2px;
-  height: 5px;
-  background-color: #662D91;
+  border-bottom: 5px solid #662D91;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
 }
