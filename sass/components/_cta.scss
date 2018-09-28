@@ -81,7 +81,8 @@
 
 @media (min-width: 768px) {
 
-  .block-useraccountblock {
+  .block-useraccountblock,
+  .user-not-logged-in .block-useraccountblock {
     position: relative;
     margin-bottom: 15px;
     text-align: left;

@@ -7189,7 +7189,8 @@ button.paragraphs-dropdown-action {
 }
 
 @media (min-width: 768px) {
-  .block-useraccountblock {
+  .block-useraccountblock,
+  .user-not-logged-in .block-useraccountblock {
     position: relative;
     margin-bottom: 15px;
     text-align: left;
@@ -7199,7 +7200,8 @@ button.paragraphs-dropdown-action {
     background: initial;
   }
 
-  .block-useraccountblock > a {
+  .block-useraccountblock > a,
+    .user-not-logged-in .block-useraccountblock > a {
     color: #FFFFFF;
     padding: 0.5rem 1rem;
     font-weight: normal;
@@ -7208,7 +7210,8 @@ button.paragraphs-dropdown-action {
     margin: 0 10px 0 0;
   }
 
-  .block-useraccountblock > a:hover {
+  .block-useraccountblock > a:hover,
+      .user-not-logged-in .block-useraccountblock > a:hover {
     color: #ff397f;
     border: 1px solid #ff397f;
   }
