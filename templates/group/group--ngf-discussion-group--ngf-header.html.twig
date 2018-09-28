@@ -70,11 +70,11 @@
   only %}
 
   {# profile actions #}
-
+    {#action_contact: 'todo contact',#}
+    {#action_contact_uri: 'todo',#}
   {% include '@patterns/profile_actions/pattern-profile-actions.html.twig'
     with {
-      action_contact: 'todo contact',
-      action_contact_uri: 'todo',
+
       action_join: content.join_follow['#items']['group-join']['#title'],
       action_join_uri: content.join_follow['#items']['group-join']['#url'],
       action_leave: content.join_follow['#items']['group-leave']['#title'],
