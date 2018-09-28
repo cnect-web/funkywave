@@ -8645,6 +8645,7 @@ header.profile {
 header.profile ~ .inpage-nav {
   margin-left: -15px;
   margin-right: -15px;
+  margin-bottom: 0;
 }
 
 header.profile ~ .newsfeed {
@@ -8685,6 +8686,7 @@ header.profile a.profile__pic__link:hover .profile__pic {
 }
 
 header.profile h2 {
+  margin: 3rem 0 0 0;
   color: #26252B;
 }
 
@@ -8709,7 +8711,7 @@ header.profile h2 + h4 a {
 
 header.profile .profile__link--about {
   display: inline-block;
-  margin: 0 0 3.6rem 0;
+  margin: 0 0 0 0;
   font-size: 1.4rem;
   line-height: 1.2;
   -webkit-transition: margin .2s;
@@ -8778,7 +8780,7 @@ header.profile .profile__link--back:hover i, header.profile .profile__link--back
 
 header.profile .profile__meta, header.profile .profile__location {
   padding: 0;
-  margin: 0;
+  margin: 1.5rem 0 0 0;
 }
 
 header.profile .profile__intro {
@@ -8819,7 +8821,7 @@ header.profile .profile__meta li::after, header.profile .profile__meta li::befor
 
 header.profile .profile__networks, header.profile .profile__actions {
   margin: 0;
-  padding: 2rem 0;
+  padding: 1.5rem 0;
   border-bottom: solid 1px #dfe0e5;
 }
 
