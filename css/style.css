@@ -4,6 +4,9 @@
 .fas,
 .field-add-more-submit:before,
 .field--type-file .file:before,
+.actions .flag-ngf-save-content.action-unflag a:before,
+.actions .flag-ngf-report-content.action-unflag a:before,
+.actions .flag-ngf-report-content.action-flag a:before,
 .new-item .create-new:before,
 .ui-button .ui-icon:before,
 .navigation-menu__list li .create-new:before,
@@ -12,6 +15,7 @@
 .vud-widget-thumbs a.down.active:before,
 .vud-widget-thumbs a.down.inactive:before,
 .far,
+.actions .flag a:before,
 .fal,
 .fab {
   -moz-osx-font-smoothing: grayscale;
@@ -118,6 +122,9 @@
 .fas.fa-pull-left,
 .fa-pull-left.field-add-more-submit:before,
 .field--type-file .fa-pull-left.file:before,
+.actions .flag-ngf-save-content.action-unflag a.fa-pull-left:before,
+.actions .flag-ngf-report-content.action-unflag a.fa-pull-left:before,
+.actions .flag-ngf-report-content.action-flag a.fa-pull-left:before,
 .new-item .fa-pull-left.create-new:before,
 .ui-button .fa-pull-left.ui-icon:before,
 .navigation-menu__list li .fa-pull-left.create-new:before,
@@ -126,6 +133,7 @@
 .vud-widget-thumbs a.fa-pull-left.down.active:before,
 .vud-widget-thumbs a.fa-pull-left.down.inactive:before,
 .far.fa-pull-left,
+.actions .flag a.fa-pull-left:before,
 .fal.fa-pull-left,
 .fab.fa-pull-left {
   margin-right: .3em;
@@ -135,6 +143,9 @@
 .fas.fa-pull-right,
 .fa-pull-right.field-add-more-submit:before,
 .field--type-file .fa-pull-right.file:before,
+.actions .flag-ngf-save-content.action-unflag a.fa-pull-right:before,
+.actions .flag-ngf-report-content.action-unflag a.fa-pull-right:before,
+.actions .flag-ngf-report-content.action-flag a.fa-pull-right:before,
 .new-item .fa-pull-right.create-new:before,
 .ui-button .fa-pull-right.ui-icon:before,
 .navigation-menu__list li .fa-pull-right.create-new:before,
@@ -143,6 +154,7 @@
 .vud-widget-thumbs a.fa-pull-right.down.active:before,
 .vud-widget-thumbs a.fa-pull-right.down.inactive:before,
 .far.fa-pull-right,
+.actions .flag a.fa-pull-right:before,
 .fal.fa-pull-right,
 .fab.fa-pull-right {
   margin-left: .3em;
@@ -4868,6 +4880,9 @@
 .fas,
 .field-add-more-submit:before,
 .field--type-file .file:before,
+.actions .flag-ngf-save-content.action-unflag a:before,
+.actions .flag-ngf-report-content.action-unflag a:before,
+.actions .flag-ngf-report-content.action-flag a:before,
 .new-item .create-new:before,
 .ui-button .ui-icon:before,
 .navigation-menu__list li .create-new:before,
@@ -4877,6 +4892,20 @@
 .vud-widget-thumbs a.down.inactive:before {
   font-family: 'Font Awesome 5 Free';
   font-weight: 900;
+}
+
+@font-face {
+  font-family: 'Font Awesome 5 Free';
+  font-style: normal;
+  font-weight: 400;
+  src: url("../webfonts/fa-regular-400.eot");
+  src: url("../webfonts/fa-regular-400.eot?#iefix") format("embedded-opentype"), url("../webfonts/fa-regular-400.woff2") format("woff2"), url("../webfonts/fa-regular-400.woff") format("woff"), url("../webfonts/fa-regular-400.ttf") format("truetype"), url("../webfonts/fa-regular-400.svg#fontawesome") format("svg");
+}
+
+.far,
+.actions .flag a:before {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 400;
 }
 
 * {
@@ -7312,6 +7341,61 @@ button.paragraphs-dropdown-action {
   content: "\f15c";
 }
 
+.actions {
+  background: #f7f8fa;
+  border: 1px solid #dfe0e5;
+  margin: 0;
+  padding: 10px 10px 0 10px;
+  display: inline-block;
+  border-radius: 10px;
+  margin: 0 0 1.5rem 0;
+  width: 100%;
+}
+
+.actions > div {
+  display: inline-block;
+  margin: 0 1rem 1rem 0;
+}
+
+.actions .flag a {
+  border: 1px solid #662D91;
+  border-radius: 20px;
+  padding: 5px 10px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  background: #FFFFFF;
+}
+
+.actions .flag a:hover {
+  border: 1px solid #003ba7;
+}
+
+.actions .flag a:before {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+  vertical-align: -.125em;
+  line-height: inherit;
+  padding-right: 5px;
+}
+
+.actions .flag-ngf-save-content a:before {
+  content: "\f02e";
+}
+
+.actions .flag-ngf-follow-content a:before {
+  content: "\f1ea";
+}
+
+.actions .flag-ngf-report-content.action-unflag a:before,
+  .actions .flag-ngf-report-content.action-flag a:before {
+  content: "\f071";
+}
+
 .general-footer--card {
   position: relative !important;
   bottom: auto;
@@ -7813,7 +7897,7 @@ a.logo__link span {
 }
 
 .ui-dialog {
-  background: transparent;
+  background: #FFFFFF;
 }
 
 .ui-dialog ul {
@@ -7826,7 +7910,6 @@ a.logo__link span {
   font-weight: bold;
   background: transparent;
   border: none;
-  color: #FFFFFF;
 }
 
 .ui-dialog .ui-dialog-title {
@@ -7851,7 +7934,6 @@ a.logo__link span {
   line-height: 1;
   vertical-align: -.125em;
   content: "\f00d";
-  color: #FFFFFF;
   text-indent: initial;
   display: block;
 }
@@ -8054,7 +8136,8 @@ a.logo__link span {
     border-bottom: none;
   }
 
-  .navigation-menu__list li.active .fas, .navigation-menu__list li.active .field-add-more-submit:before, .navigation-menu__list li.active .field--type-file .file:before, .field--type-file .navigation-menu__list li.active .file:before, .navigation-menu__list li.active .ui-button .ui-icon:before, .ui-button .navigation-menu__list li.active .ui-icon:before, .navigation-menu__list li.active .create-new:before, .navigation-menu__list li.active .vud-widget-thumbs a.up.active:before, .vud-widget-thumbs .navigation-menu__list li.active a.up.active:before,
+  .navigation-menu__list li.active .fas, .navigation-menu__list li.active .field-add-more-submit:before, .navigation-menu__list li.active .field--type-file .file:before, .field--type-file .navigation-menu__list li.active .file:before, .navigation-menu__list li.active .actions .flag-ngf-save-content.action-unflag a:before, .actions .flag-ngf-save-content.action-unflag .navigation-menu__list li.active a:before, .navigation-menu__list li.active .actions .flag-ngf-report-content.action-unflag a:before, .actions .flag-ngf-report-content.action-unflag .navigation-menu__list li.active a:before,
+          .navigation-menu__list li.active .actions .flag-ngf-report-content.action-flag a:before, .actions .flag-ngf-report-content.action-flag .navigation-menu__list li.active a:before, .navigation-menu__list li.active .ui-button .ui-icon:before, .ui-button .navigation-menu__list li.active .ui-icon:before, .navigation-menu__list li.active .create-new:before, .navigation-menu__list li.active .vud-widget-thumbs a.up.active:before, .vud-widget-thumbs .navigation-menu__list li.active a.up.active:before,
           .navigation-menu__list li.active .vud-widget-thumbs a.up.inactive:before, .vud-widget-thumbs .navigation-menu__list li.active a.up.inactive:before, .navigation-menu__list li.active .vud-widget-thumbs a.down.active:before, .vud-widget-thumbs .navigation-menu__list li.active a.down.active:before,
           .navigation-menu__list li.active .vud-widget-thumbs a.down.inactive:before, .vud-widget-thumbs .navigation-menu__list li.active a.down.inactive:before {
     color: #ff397f;
@@ -8964,14 +9047,6 @@ a.share {
   box-shadow: none;
 }
 
-.vud-widget {
-  background: #f7f8fa;
-  border: 1px solid #dfe0e5;
-  margin: 0;
-  padding: 10px;
-  display: inline-block;
-}
-
 .vud-widget > div {
   display: inline-block;
 }
@@ -9031,7 +9106,7 @@ a.share {
 
 .vud-widget-thumbs a.up.inactive,
 .vud-widget-thumbs a.down.inactive {
-  color: #88898c;
+  color: #662D91;
 }
 
 .vud-widget-thumbs a.up.inactive:hover {
