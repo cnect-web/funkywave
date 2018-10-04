@@ -7028,6 +7028,9 @@ button.paragraphs-dropdown-action {
   }
 }
 
+.sub-section--comments {
+}
+
 .sub-section--comments__title {
   padding-left: 3.6rem;
   min-height: 3.7rem;
@@ -7048,6 +7051,10 @@ button.paragraphs-dropdown-action {
   margin-left: 0rem;
   border-left: none;
   padding-left: 0rem;
+}
+
+.sub-section--comments .comment {
+  margin-bottom: 3rem;
 }
 
 .sub-section--comments > ul {
@@ -8950,6 +8957,11 @@ header.profile .profile__actions a.profile__actions--add2list:before {
 .related-events h3 a {
   font-weight: 700;
   font-size: 1.6rem;
+}
+
+a.share {
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 .vud-widget {

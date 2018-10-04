@@ -162,6 +162,11 @@
   {# Show description (paragraphs) #}
   {{ content.field_ngf_description }}
 
+
+  <div class="sub-section sub-section--social-share">
+    {{ drupal_entity('block', 'socialsharingblock', check_access=false) }}
+  </div>
+
   {% block related_topics %}
 
   {# TODO
@@ -179,6 +184,7 @@
     }
   %}
   #}
+
   {{ content.field_ngf_interests }}
 
   {% endblock related_topics %}
@@ -197,7 +203,6 @@
     {% endif %}
   {% endblock related_content %}
 
-  {{ drupal_entity('block', 'socialsharingblock', check_access=false) }}
 
   {# Comments #}
   {% if view_mode == "full" %}

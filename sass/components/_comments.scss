@@ -1,5 +1,5 @@
 .sub-section--comments {
-  
+
   &__title {
     padding-left: 3.6rem;
     min-height: 3.7rem;
@@ -9,43 +9,53 @@
     background-repeat: no-repeat;
     background-size: 2.38rem 2.5rem;
   }
-  
-  
+
+
   .indented  {
     margin-left: 0rem !important;
     border-left: solid 2px #CCC;
     padding-left: 1.5rem;
   }
-  
+
   .indented > .indented > .indented > .indented {
     margin-left: 0rem;
     border-left: none;
     padding-left: 0rem;
 
   }
-  
-  
-  
+
+  .comment {
+    margin-bottom: 3rem;
+  }
+
+  /*
+  .content {
+    margin-left: 7.3rem;
+  }
+  */
+
+
+
   > ul {
     padding: 0;
     margin: 0;
-  } 
-  
+  }
+
   li {
     list-style: none;
-    
+
     .profile-shortinfo {
       margin-top: 15px;
     }
   }
-  
+
   .profile-shortinfo {
     margin-bottom: -2rem;
-  
+
     ~ p {
       border-left: solid 2px #CCC;
       padding-left: 1.5rem;
-      
+
       + p {
         border-left: solid 2px #CCC;
         padding-left: 1.5rem;
@@ -54,7 +64,7 @@
       }
     }
   }
-  
+
   .comment-reply a {
     padding-left: 2.6rem;
     min-height: 3.7rem;
@@ -64,7 +74,7 @@
     background-size: 1.7rem 1.7rem;
     text-decoration: none;
   }
-  
+
   .comment-edit a {
     padding-left: 2.6rem;
     min-height: 3.7rem;
@@ -74,7 +84,7 @@
     background-size: 1.7rem 1.7rem;
     text-decoration: none;
   }
-  
+
   .comment-delete a {
     padding-left: 2.6rem;
     min-height: 3.7rem;
