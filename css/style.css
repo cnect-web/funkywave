@@ -5,6 +5,7 @@
 .field-add-more-submit:before,
 .field--type-file .file:before,
 .actions .flag-ngf-save-content.action-unflag a:before,
+.actions .flag-ngf-follow-content.action-unflag a:before,
 .actions .flag-ngf-report-content.action-unflag a:before,
 .actions .flag-ngf-report-content.action-flag a:before,
 .new-item .create-new:before,
@@ -123,6 +124,7 @@
 .fa-pull-left.field-add-more-submit:before,
 .field--type-file .fa-pull-left.file:before,
 .actions .flag-ngf-save-content.action-unflag a.fa-pull-left:before,
+.actions .flag-ngf-follow-content.action-unflag a.fa-pull-left:before,
 .actions .flag-ngf-report-content.action-unflag a.fa-pull-left:before,
 .actions .flag-ngf-report-content.action-flag a.fa-pull-left:before,
 .new-item .fa-pull-left.create-new:before,
@@ -144,6 +146,7 @@
 .fa-pull-right.field-add-more-submit:before,
 .field--type-file .fa-pull-right.file:before,
 .actions .flag-ngf-save-content.action-unflag a.fa-pull-right:before,
+.actions .flag-ngf-follow-content.action-unflag a.fa-pull-right:before,
 .actions .flag-ngf-report-content.action-unflag a.fa-pull-right:before,
 .actions .flag-ngf-report-content.action-flag a.fa-pull-right:before,
 .new-item .fa-pull-right.create-new:before,
@@ -4881,6 +4884,7 @@
 .field-add-more-submit:before,
 .field--type-file .file:before,
 .actions .flag-ngf-save-content.action-unflag a:before,
+.actions .flag-ngf-follow-content.action-unflag a:before,
 .actions .flag-ngf-report-content.action-unflag a:before,
 .actions .flag-ngf-report-content.action-flag a:before,
 .new-item .create-new:before,
@@ -7344,7 +7348,6 @@ button.paragraphs-dropdown-action {
 .actions {
   background: #f7f8fa;
   border: 1px solid #dfe0e5;
-  margin: 0;
   padding: 10px 10px 0 10px;
   display: inline-block;
   border-radius: 10px;
@@ -7358,16 +7361,15 @@ button.paragraphs-dropdown-action {
 }
 
 .actions .flag a {
-  border: 1px solid #662D91;
-  border-radius: 20px;
-  padding: 5px 10px;
   -webkit-box-shadow: none;
   box-shadow: none;
-  background: #FFFFFF;
+}
+
+.actions .flag a span {
+  display: none;
 }
 
 .actions .flag a:hover {
-  border: 1px solid #003ba7;
 }
 
 .actions .flag a:before {
@@ -7379,7 +7381,7 @@ button.paragraphs-dropdown-action {
   font-weight: normal;
   line-height: 1;
   vertical-align: -.125em;
-  line-height: inherit;
+  line-height: 1;
   padding-right: 5px;
 }
 
@@ -7388,12 +7390,12 @@ button.paragraphs-dropdown-action {
 }
 
 .actions .flag-ngf-follow-content a:before {
-  content: "\f1ea";
+  content: "\f004";
 }
 
 .actions .flag-ngf-report-content.action-unflag a:before,
   .actions .flag-ngf-report-content.action-flag a:before {
-  content: "\f071";
+  content: "\f12a";
 }
 
 .general-footer--card {
@@ -8136,7 +8138,7 @@ a.logo__link span {
     border-bottom: none;
   }
 
-  .navigation-menu__list li.active .fas, .navigation-menu__list li.active .field-add-more-submit:before, .navigation-menu__list li.active .field--type-file .file:before, .field--type-file .navigation-menu__list li.active .file:before, .navigation-menu__list li.active .actions .flag-ngf-save-content.action-unflag a:before, .actions .flag-ngf-save-content.action-unflag .navigation-menu__list li.active a:before, .navigation-menu__list li.active .actions .flag-ngf-report-content.action-unflag a:before, .actions .flag-ngf-report-content.action-unflag .navigation-menu__list li.active a:before,
+  .navigation-menu__list li.active .fas, .navigation-menu__list li.active .field-add-more-submit:before, .navigation-menu__list li.active .field--type-file .file:before, .field--type-file .navigation-menu__list li.active .file:before, .navigation-menu__list li.active .actions .flag-ngf-save-content.action-unflag a:before, .actions .flag-ngf-save-content.action-unflag .navigation-menu__list li.active a:before, .navigation-menu__list li.active .actions .flag-ngf-follow-content.action-unflag a:before, .actions .flag-ngf-follow-content.action-unflag .navigation-menu__list li.active a:before, .navigation-menu__list li.active .actions .flag-ngf-report-content.action-unflag a:before, .actions .flag-ngf-report-content.action-unflag .navigation-menu__list li.active a:before,
           .navigation-menu__list li.active .actions .flag-ngf-report-content.action-flag a:before, .actions .flag-ngf-report-content.action-flag .navigation-menu__list li.active a:before, .navigation-menu__list li.active .ui-button .ui-icon:before, .ui-button .navigation-menu__list li.active .ui-icon:before, .navigation-menu__list li.active .create-new:before, .navigation-menu__list li.active .vud-widget-thumbs a.up.active:before, .vud-widget-thumbs .navigation-menu__list li.active a.up.active:before,
           .navigation-menu__list li.active .vud-widget-thumbs a.up.inactive:before, .vud-widget-thumbs .navigation-menu__list li.active a.up.inactive:before, .navigation-menu__list li.active .vud-widget-thumbs a.down.active:before, .vud-widget-thumbs .navigation-menu__list li.active a.down.active:before,
           .navigation-menu__list li.active .vud-widget-thumbs a.down.inactive:before, .vud-widget-thumbs .navigation-menu__list li.active a.down.inactive:before {
