@@ -1,3 +1,4 @@
+
 .actions {
   background: $gray-100;
   border: 1px solid $gray-300;
@@ -13,69 +14,61 @@
   }
 
   .flag a {
-    /*
-    border: 1px solid $purple;
-    border-radius: 20px;
-    padding: 5px 10px;
-    background: $white;
-     */
     box-shadow: none;
 
     span {
       display: none;
     }
 
-    &:hover {
-      /* border: 1px solid scale-lightness($blue, -40%); */
-    }
-
     &:before {
-      @include fa-icon;
-      @extend .far;
       line-height: 1;
       padding-right: 5px;
     }
   }
+}
 
-  /* save content flag */
+/* save content flag */
 
-  .flag-ngf-save-content a {
-    &:before {
-      content: fa-content($fa-var-bookmark);
-    }
-  }
-
-  .flag-ngf-save-content.action-unflag a {
-    &:before {
-      @extend .fas;
-    }
-  }
-
-  /* follow content flag */
-
-  .flag-ngf-follow-content a {
-    &:before {
-      content: fa-content($fa-var-heart);
-    }
-  }
-
-  .flag-ngf-follow-content.action-unflag a {
-    &:before {
-      @extend .fas;
-    }
-  }
-
-  /* report content flag */
-
-  .flag-ngf-report-content.action-unflag a,
-  .flag-ngf-report-content.action-flag a {
-    &:before {
-      @extend .fas;
-      content: fa-content($fa-var-exclamation);
-    }
+.flag-ngf-save-content a {
+  &:before {
+    @include fa-icon;
+    @extend .far;
+    content: fa-content($fa-var-bookmark);
   }
 }
 
+.flag-ngf-save-content.action-unflag a {
+  &:before {
+    @include fa-icon;
+    @extend .fas;
+  }
+}
 
+/* follow content flag */
 
+.flag-ngf-follow-content.action a {
+  &:before {
+    @include fa-icon;
+    @extend .far;
+    content: fa-content($fa-var-heart);
+  }
+}
 
+.flag-ngf-follow-content.action-unflag a {
+  &:before {
+    @include fa-icon;
+    @extend .fas;
+    content: fa-content($fa-var-heart);
+  }
+}
+
+/* report content flag */
+
+.flag-ngf-report-content.action-unflag a,
+.flag-ngf-report-content.action-flag a {
+  &:before {
+    @include fa-icon;
+    @extend .fas;
+    content: fa-content($fa-var-exclamation);
+  }
+}
