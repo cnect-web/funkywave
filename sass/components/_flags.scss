@@ -46,7 +46,7 @@
 
 /* follow content flag */
 
-.flag-ngf-follow-content.action a {
+.flag-ngf-follow-content a {
   &:before {
     @include fa-icon;
     @extend .far;

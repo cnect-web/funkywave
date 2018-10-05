@@ -17,7 +17,7 @@
 .vud-widget-thumbs a.down.inactive:before,
 .far,
 .flag-ngf-save-content a:before,
-.flag-ngf-follow-content.action a:before,
+.flag-ngf-follow-content a:before,
 .fal,
 .fab {
   -moz-osx-font-smoothing: grayscale;
@@ -137,7 +137,7 @@
 .vud-widget-thumbs a.fa-pull-left.down.inactive:before,
 .far.fa-pull-left,
 .flag-ngf-save-content a.fa-pull-left:before,
-.flag-ngf-follow-content.action a.fa-pull-left:before,
+.flag-ngf-follow-content a.fa-pull-left:before,
 .fal.fa-pull-left,
 .fab.fa-pull-left {
   margin-right: .3em;
@@ -160,7 +160,7 @@
 .vud-widget-thumbs a.fa-pull-right.down.inactive:before,
 .far.fa-pull-right,
 .flag-ngf-save-content a.fa-pull-right:before,
-.flag-ngf-follow-content.action a.fa-pull-right:before,
+.flag-ngf-follow-content a.fa-pull-right:before,
 .fal.fa-pull-right,
 .fab.fa-pull-right {
   margin-left: .3em;
@@ -4884,7 +4884,7 @@
 
 .far,
 .flag-ngf-save-content a:before,
-.flag-ngf-follow-content.action a:before {
+.flag-ngf-follow-content a:before {
   font-family: 'Font Awesome 5 Free';
   font-weight: 400;
 }
@@ -7397,7 +7397,7 @@ button.paragraphs-dropdown-action {
   vertical-align: -.125em;
 }
 
-.flag-ngf-follow-content.action a:before {
+.flag-ngf-follow-content a:before {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   display: inline-block;
