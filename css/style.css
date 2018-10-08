@@ -9074,7 +9074,8 @@ header.profile .profile__actions a.profile__actions--add2list:before {
   font-size: 1.6rem;
 }
 
-a.share {
+a.share,
+.social-auth.auth-link {
   -webkit-box-shadow: none;
   box-shadow: none;
 }
