@@ -5074,7 +5074,7 @@ a:not(.toolbar-item):hover {
 main {
   display: block;
   margin-top: -18px;
-  padding: 0px 15px 75px 15px;
+  padding: 0px 60px 75px 15px;
   min-height: 100vh;
   background-color: #fff;
 }
@@ -9034,7 +9034,7 @@ header.profile .profile__actions a.profile__actions--unfollow:before {
 }
 
 header.profile .profile__actions a.profile__actions--contact:before {
-  background-image: url(../images/profile--action__contact-sprite.svg);
+  background-image: url(../images/profile--action__add2list-sprite.svg);
   background-position: 0 0;
 }
 

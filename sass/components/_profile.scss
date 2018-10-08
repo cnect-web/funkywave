@@ -224,21 +224,28 @@ header.profile {
       background-image: url(../images/profile--action__join-sprite.svg);
       background-position: 0 0;
     }
+
     &.profile__actions--leave:before{
       background-image: url(../images/profile--action__join-sprite.svg);
       background-position: -38px 0;
     }
+
     &.profile__actions--follow:before{
       background-image: url(../images/profile--action__follow-sprite.svg);
       background-position: 0 0;
     }
+
     &.profile__actions--unfollow:before{
       background-image: url(../images/profile--action__follow-sprite.svg);
       background-position: -38px 0;
     }
+
     &.profile__actions--contact:before{
-      background-image: url(../images/profile--action__contact-sprite.svg);
+      /* background-image: url(../images/profile--action__contact-sprite.svg);
+      background-position: 0 0; */
+      background-image: url(../images/profile--action__add2list-sprite.svg);
       background-position: 0 0;
+
     }
     &.profile__actions--add2list:before{
       background-image: url(../images/profile--action__add2list-sprite.svg);
