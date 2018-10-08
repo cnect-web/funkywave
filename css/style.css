@@ -7918,6 +7918,12 @@ a.logo__link span {
   }
 }
 
+@media (max-width: 767.98px) and (orientation: landscape) {
+  .logo-area {
+    background-size: 100vw 25px, 100vw 19vh;
+  }
+}
+
 @media (min-width: 992px) {
   .logo-area {
     width: 25%;
