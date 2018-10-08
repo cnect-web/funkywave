@@ -4,7 +4,8 @@
 }
 
 .ui-dialog {
-  background: transparent;
+  /* background: transparent; */
+  background: $white;
   ul {
     list-style: none;
     margin: 0;
@@ -14,7 +15,7 @@
     font-weight: bold;
     background: transparent;
     border: none;
-    color: $white;
+    /* color: $white; */
   }
   .ui-dialog-title {
     font-size: 3rem;
@@ -31,7 +32,7 @@
     @include fa-icon;
     @extend .fas;
     content: fa-content($fa-var-times);
-    color: $white;
+    /* color: $white; */
     text-indent: initial;
     display: block;
   }

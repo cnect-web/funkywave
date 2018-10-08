@@ -95,6 +95,7 @@
   {% block header %}
   <header>
     {{ title_prefix }}
+
     <h2>
         {% if not page %}
             <a href="{{ url }}" rel="bookmark">{{ label }}</a>
@@ -103,7 +104,11 @@
         {% endif %}
     </h2>
     {#block postinfo #}
+
     {% block postinfo %}
+
+
+
       {% include "@patterns/profile-shortinfo/pattern-profile-shortinfo.html.twig"
         with {
           image_url: image_url,
@@ -117,6 +122,16 @@
       %}
     {% endblock postinfo %}
     {# end block postinfo #}
+
+    {% if view_mode == "full" %}
+      <div class="actions">
+        {{ content.field_ngf_vote }}
+        {# {{ content.voters }} #}
+        {{ content.flag_ngf_follow_content }}
+        {{ content.flag_ngf_save_content }}
+        {{ content.flag_ngf_report_content }}
+      </div>
+    {% endif %}
 
    {# block coverimage #}
     {% block coverimage %}
@@ -152,6 +167,12 @@
   {# Show description (paragraphs) #}
   {{ content.field_ngf_description }}
 
+  {% if view_mode == "full" %}
+  <div class="sub-section sub-section--social-share">
+    {{ drupal_entity('block', 'socialsharingblock', check_access=false) }}
+  </div>
+  {% endif %}
+
   {% block related_topics %}
 
   {# TODO
@@ -169,6 +190,7 @@
     }
   %}
   #}
+
   {{ content.field_ngf_interests }}
 
   {% endblock related_topics %}
@@ -187,15 +209,10 @@
     {% endif %}
   {% endblock related_content %}
 
+
   {# Comments #}
-  {% if view_mode == "full" %}
-      {{ content.field_ngf_vote }}
-      {{ content.voters }}
-      {{ content.flag_ngf_follow_content }}
-      {{ content.flag_ngf_save_content }}
-      {{ content.flag_ngf_report_content }}
-      {{ content.field_comments }}
-  {% endif %}
+  {{ content.field_comments }}
+
 
 </article>
 {% endblock article %}

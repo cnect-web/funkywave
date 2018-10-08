@@ -34,11 +34,14 @@
 
     {# Set nofollow to prevent search bots from crawling anonymous flag links #}
     {% set attributes = attributes.setAttribute('rel', 'nofollow') %}
+    {% set attributes = attributes.setAttribute('title', title) %}
 
     {% if action == 'unflag' %}
         {% set attributes = attributes.addClass('profile__actions--unfollow') %}
     {% else %}
         {% set attributes = attributes.addClass('profile__actions--follow') %}
     {% endif %}
-    <div class="{{classes|join(' ')}}"><a{{ attributes }}>{{ title }}</a></div>
+
+    <div class="{{classes|join(' ')}}"><a{{ attributes }}><span>{{ title }}</span></a></div>
+
 {% endspaceless %}

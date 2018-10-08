@@ -50,9 +50,9 @@
         height: 45px;
         width: 45px;
         font-size: 2.2rem;
-        font-weight: normal;
         text-align: left;
         padding: 12px;
+        font-weight: normal;
         &:before {
           @include fa-icon;
           @extend .fas;
