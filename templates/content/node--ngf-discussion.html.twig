@@ -123,15 +123,16 @@
     {% endblock postinfo %}
     {# end block postinfo #}
 
-    {% if view_mode == "full" %}
+    {# {% if view_mode == "full" %}
       <div class="actions">
         {{ content.field_ngf_vote }}
-        {# {{ content.voters }} #}
+        {{ content.voters }}
         {{ content.flag_ngf_follow_content }}
         {{ content.flag_ngf_save_content }}
         {{ content.flag_ngf_report_content }}
       </div>
     {% endif %}
+    #}
 
    {# block coverimage #}
     {% block coverimage %}
