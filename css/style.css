@@ -4970,6 +4970,10 @@ h1, h2.page-title {
   margin-top: 0;
 }
 
+.path-frontpage h3 {
+  margin: 0 0 0 0;
+}
+
 h1 + h2,
 h1 + h3,
 h1 + p,
