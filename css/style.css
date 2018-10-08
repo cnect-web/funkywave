@@ -8087,12 +8087,12 @@ a.logo__link span {
 }
 
 @media (max-width: 767.98px) and (orientation: landscape) {
-  .navigation-menu {
+  .menu--main.navigation-menu {
     background-position: center bottom;
     background-size: 100vw 23vh;
   }
 
-  .navigation-menu__list {
+  .menu--main.navigation-menu__list {
     padding: 0;
     margin: 0vw 1vw 0;
   }
