@@ -4,6 +4,9 @@
     margin: 0 0 3rem 0;
     padding: 0;
     li {
+      a {
+        /* box-shadow: none; */
+      }
       display: inline-block;
       &:not(:last-child):after {
         content: ">"
