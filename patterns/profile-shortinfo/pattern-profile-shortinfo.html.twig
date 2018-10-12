@@ -35,5 +35,21 @@
             {{ context_text | raw }}
         </p>
       {% endif %}
+    {% if (vote_content or follow_content or save_content or report_content) and logged_in %}
+    <div class="profile-shortinfo__actions">
+      {% if vote_content %}
+        {{ vote_content }}
+      {% endif %}
+      {% if follow_content %}
+        {{ follow_content }}
+      {% endif %}
+      {% if save_content %}
+        {{ save_content }}
+      {% endif %}
+      {% if report_content %}
+        {{ report_content }}
+      {% endif %}
+    </div>
+    {% endif %}
   </div>
 </div>

@@ -107,8 +107,6 @@
 
     {% block postinfo %}
 
-
-
       {% include "@patterns/profile-shortinfo/pattern-profile-shortinfo.html.twig"
         with {
           image_url: image_url,
@@ -118,21 +116,14 @@
           context_text: ngf_context_text,
           subpic: ngf_sub_picture,
           container_class: ngf_group_container_class,
-         }
+          vote_content: content.field_ngf_vote,
+          follow_content: content.flag_ngf_follow_content,
+          save_content: content.flag_ngf_save_content,
+          report_content: content.report_content,
+        }
       %}
     {% endblock postinfo %}
     {# end block postinfo #}
-
-    {# {% if view_mode == "full" %}
-      <div class="actions">
-        {{ content.field_ngf_vote }}
-        {{ content.voters }}
-        {{ content.flag_ngf_follow_content }}
-        {{ content.flag_ngf_save_content }}
-        {{ content.flag_ngf_report_content }}
-      </div>
-    {% endif %}
-    #}
 
    {# block coverimage #}
     {% block coverimage %}
