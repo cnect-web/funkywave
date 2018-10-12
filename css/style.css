@@ -4970,8 +4970,14 @@ h1, h2.page-title {
   margin-top: 0;
 }
 
-.path-frontpage h3 {
-  margin: 0 0 0 0;
+.path-frontpage .block > h3 {
+  margin: 1.5rem 0 0 0;
+}
+
+@media (min-width: 992px) {
+  .path-frontpage .block > h3 {
+    margin: 0 0 0 0;
+  }
 }
 
 h1 + h2,
@@ -7351,31 +7357,27 @@ button.paragraphs-dropdown-action {
   content: "\f15c";
 }
 
-.actions {
-  background: #f7f8fa;
-  border: 1px solid #dfe0e5;
-  padding: 10px 10px 0 10px;
+.profile-shortinfo__actions {
   display: inline-block;
-  border-radius: 10px;
   margin: 0 0 1.5rem 0;
   width: 100%;
 }
 
-.actions > div {
+.profile-shortinfo__actions > div {
   display: inline-block;
   margin: 0 1rem 1rem 0;
 }
 
-.actions .flag a {
+.profile-shortinfo__actions .flag a {
   -webkit-box-shadow: none;
   box-shadow: none;
 }
 
-.actions .flag a span {
+.profile-shortinfo__actions .flag a span {
   display: none;
 }
 
-.actions .flag a:before {
+.profile-shortinfo__actions .flag a:before {
   line-height: 1;
   padding-right: 5px;
 }
@@ -8058,7 +8060,7 @@ a.logo__link span {
   content: "\f303";
 }
 
-.navigation-menu__list li .create-new:hover {
+.navigation-menu__list li .create-new:hover, .navigation-menu__list li .create-new:focus {
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -8777,7 +8779,7 @@ a.logo__link span {
 }
 
 .profile-shortinfo__details .profile-shortinfo__metadata {
-  margin-top: 0.2rem;
+  margin: 0.2rem 0 1rem 0;
   line-height: 1.4;
 }
 

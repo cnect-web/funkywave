@@ -59,7 +59,8 @@
           padding-right: 10px;
           content: fa-content($fa-var-pencil-alt);
         }
-        &:hover {
+        &:hover,
+        &:focus {
           box-shadow: none;
         }
       }
