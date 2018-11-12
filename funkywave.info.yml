@@ -21,3 +21,5 @@ component-libraries:
       - patterns
 libraries-override:
   classy/base: false
+stylesheets-remove:
+  - modules/contrib/vote_up_down/widgets/thumbs/thumbs.css

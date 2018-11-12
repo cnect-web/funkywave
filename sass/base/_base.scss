@@ -57,6 +57,18 @@ h1, h2.page-title {
 }
 
 
+.path-frontpage .block > h3 {
+  margin: 1.5rem 0 0 0;
+}
+
+@media (min-width: 992px) {
+  .path-frontpage .block > h3 {
+    margin: 0 0 0 0;
+  }
+}
+
+
+
 
 h1 + h2,
 h1 + h3,
@@ -119,9 +131,6 @@ a:not(.toolbar-item) {
     border-bottom-right-radius: 0px;
     box-shadow: 0px 0px 25px rgba($black, 0.8);
 
-    main {
-
-    }
   }
   &:after {
     clear: both;
@@ -152,8 +161,6 @@ a:not(.toolbar-item) {
     box-shadow: none;
   }
 }
-
-
 
 main *:not(img):not(svg)::selection  {
   color: $white;

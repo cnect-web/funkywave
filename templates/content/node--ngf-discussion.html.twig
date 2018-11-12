@@ -95,6 +95,7 @@
   {% block header %}
   <header>
     {{ title_prefix }}
+
     <h2>
         {% if not page %}
             <a href="{{ url }}" rel="bookmark">{{ label }}</a>
@@ -103,17 +104,23 @@
         {% endif %}
     </h2>
     {#block postinfo #}
+
     {% block postinfo %}
+
       {% include "@patterns/profile-shortinfo/pattern-profile-shortinfo.html.twig"
         with {
           image_url: image_url,
           title: node.owner.full_name.value,
-          url: path('entity.user.canonical', {'user': user.id}),
+          url: path('entity.user.canonical', {'user': node.uid.entity.id}),
           logged_in: logged_in,
           context_text: ngf_context_text,
           subpic: ngf_sub_picture,
           container_class: ngf_group_container_class,
-         }
+          vote_content: content.field_ngf_vote,
+          follow_content: content.flag_ngf_follow_content,
+          save_content: content.flag_ngf_save_content,
+          report_content: content.report_content,
+        }
       %}
     {% endblock postinfo %}
     {# end block postinfo #}
@@ -152,6 +159,12 @@
   {# Show description (paragraphs) #}
   {{ content.field_ngf_description }}
 
+  {% if view_mode == "full" %}
+  <div class="sub-section sub-section--social-share">
+    {{ drupal_entity('block', 'socialsharingblock', check_access=false) }}
+  </div>
+  {% endif %}
+
   {% block related_topics %}
 
   {# TODO
@@ -169,6 +182,7 @@
     }
   %}
   #}
+
   {{ content.field_ngf_interests }}
 
   {% endblock related_topics %}
@@ -187,10 +201,10 @@
     {% endif %}
   {% endblock related_content %}
 
+
   {# Comments #}
-  {% if view_mode == "full" %}
   {{ content.field_comments }}
-  {% endif %}
+
 
 </article>
 {% endblock article %}

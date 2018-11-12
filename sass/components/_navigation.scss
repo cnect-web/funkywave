@@ -50,16 +50,17 @@
         height: 45px;
         width: 45px;
         font-size: 2.2rem;
-        font-weight: normal;
         text-align: left;
         padding: 12px;
+        font-weight: normal;
         &:before {
           @include fa-icon;
           @extend .fas;
           padding-right: 10px;
           content: fa-content($fa-var-pencil-alt);
         }
-        &:hover {
+        &:hover,
+        &:focus {
           box-shadow: none;
         }
       }
@@ -100,7 +101,7 @@
 }
 
 @media (max-width: 767.98px) and (orientation: landscape) {
-  .navigation-menu {
+  .menu--main.navigation-menu {
     background-position: center bottom;
     background-size: 100vw 23vh;
 

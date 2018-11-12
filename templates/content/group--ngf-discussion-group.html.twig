@@ -58,7 +58,7 @@
       with {
         title: group.label(),
         image_url: file_url(group.field_media_image.entity.uri.value|image_style('thumbnail')),
-        url: path('entity.user.canonical', {'user': user.id}),
+        url: path('entity.user.canonical', {'user': group.uid.entity.id}),
         logged_in: logged_in,
         context_text: ngf_context_text,
         subpic: ngf_sub_picture,

@@ -2,7 +2,7 @@ header.profile {
     text-align: center;
     padding-left: 0px;
     padding-right: 0px;
-
+  
   ~ .newsfeed {
     margin-left: -15px;
     margin-right: -15px;
@@ -40,7 +40,7 @@ header.profile {
   }
 
   h2 {
-    /* margin-bottom: 0rem; */
+    margin: 3rem 0 0 0;
     color: $gray-800;
 
     a {
@@ -64,7 +64,7 @@ header.profile {
 
   .profile__link--about{
     display: inline-block;
-    margin: 0 0 3.6rem 0;
+    margin: 0 0 0 0;
     font-size: 1.4rem;
     line-height: 1.2;
     transition: margin .2s;
@@ -121,8 +121,8 @@ header.profile {
   }
 
   .profile__meta, .profile__location {
-    padding:0;
-    margin:0;
+    padding: 0;
+    margin: 1.5rem 0 0 0;
   }
 
   .profile__intro {
@@ -165,7 +165,7 @@ header.profile {
   .profile__networks, .profile__actions{
     @extend .list--flex-space-evenly;
     margin: 0;
-    padding: 2rem 0;
+    padding: 1.5rem 0;
     border-bottom: solid 1px $gray-300;
   }
 
@@ -217,22 +217,27 @@ header.profile {
       background-image: url(../images/profile--action__join-sprite.svg);
       background-position: 0 0;
     }
+
     &.profile__actions--leave:before{
       background-image: url(../images/profile--action__join-sprite.svg);
       background-position: -38px 0;
     }
+
     &.profile__actions--follow:before{
       background-image: url(../images/profile--action__follow-sprite.svg);
       background-position: 0 0;
     }
+
     &.profile__actions--unfollow:before{
       background-image: url(../images/profile--action__follow-sprite.svg);
       background-position: -38px 0;
     }
+
     &.profile__actions--contact:before{
       background-image: url(../images/profile--action__contact-sprite.svg);
       background-position: 0 0;
     }
+
     &.profile__actions--add2list:before{
       background-image: url(../images/profile--action__add2list-sprite.svg);
       background-position: 0 0;
