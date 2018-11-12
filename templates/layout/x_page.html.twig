@@ -44,37 +44,34 @@
 #}
 <div class="general-container">
 
+  <section class="logo-area">
+    {{ page.logo_area }}
+  </section>
+
   <header class="general-header clearfix">
     {{ page.header }}
+
+  <!-- todo - to remove -->
+  <nav class="navigation-menu" aria-label="Main Navigation">
+    <ul class="navigation-menu__list navigation-menu__list--tools"></ul>
+  </nav>
+  <!-- end todo - to remove -->
+
   </header>
 
-  <div class="wrapper">
+  <main role="main">
 
-      <div class="layout-content">
-        <main role="main">
-        <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
-        {{ page.content }}
-        </main>
-      </div>{# /.layout-content #}
+    <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
+    <div class="layout-content">
+      {{ page.content }}
+    </div>{# /.layout-content #}
 
-      {% if page.sidebar_first %}
-        <aside class="layout-sidebar-first" role="complementary">
-          {{ page.sidebar_first }}
-        </aside>
-      {% endif %}
+  </main>
 
-      {% if page.sidebar_second %}
-        <aside class="layout-sidebar-second" role="complementary">
-          {{ page.sidebar_second }}
-        </aside>
-      {% endif %}
-
-      {% if page.footer %}
-        <footer class="no-display--sm general-footer">
-          {{ page.footer }}
-        </footer>
-      {% endif %}
-
-  </div>
+  {% if page.footer %}
+    <footer class="no-display--sm general-footer">
+      {{ page.footer }}
+    </footer>
+  {% endif %}
 
 </div>{# /.layout-container #}
