@@ -30,7 +30,7 @@
       height: 5.6rem;
       margin-right: 1.7rem;
       border-radius: 100px;
-      border: solid 5px rgba($pink, 0.5);
+      /* border: solid 5px rgba($color-primary, 0.5); */
     }
 
     .profile-shortinfo__action {
@@ -48,7 +48,6 @@
     }
 
   }
-
 
 
     img.responsive.profile-shortinfo__picture--account {
@@ -87,22 +86,22 @@
 
     &--group {
       border-radius: 100px;
-      border: solid 1px $pink;
+      border: solid 1px $color-secondary;
       transition: border 0.2s;
       display:block;
       width: 2rem;
       height: 2rem;
       margin-left: 3rem;
       margin-top: 5px;
-      border: solid 1px $pink;
+      border: solid 1px $color-secondary;
       transition: border 0.2s;
 
       &:hover, &:focus {
       text-shadow: none;
       box-shadow: none;
-      background-color: $purple;
+      background-color: $color-primary;
       outline: none;
-      border: solid 1px $purple;
+      border: solid 1px $color-primary;
       transition: border 0.2s;
 
         img {
@@ -113,7 +112,7 @@
 
     &--account {
       border-radius: 100px;
-      border: solid 2px $pink;
+      border: solid 2px $color-secondary;
       transition: border 0.2s;
       display:block;
       width: 4.6rem;
@@ -124,9 +123,9 @@
       &:hover, &:focus {
       text-shadow: none;
       box-shadow: none;
-      background-color: $purple;
+      background-color: $color-primary;
       outline: none;
-      border: solid 2px $purple;
+      border: solid 2px $color-primary;
       transition: border 0.2s;
 
         img {
@@ -155,9 +154,7 @@
         color: $gray-700;
 
         &:hover {
-          color: $purple;
-          text-shadow: 0 2px 0 $body__background-color, 0 3px 0 $body__background-color, 1px 2px 0 $body__background-color, -1px 2px 0 $body__background-color;
-  box-shadow: 0 1px 0 0 $purple;
+          color: $color-primary;
         }
       }
     }
