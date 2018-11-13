@@ -4,10 +4,9 @@ description: 'Funkywave theme'
 core: 8.x
 base theme: classy
 regions:
+  logo_area: 'Logo area'
   header: 'Header'
   content: 'Content'
-  sidebar_first: 'Sidebar first'
-  sidebar_second: 'Sidebar second'
   footer: 'Footer'
 libraries:
   - funkywave/global-css
