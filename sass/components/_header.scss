@@ -62,32 +62,11 @@
 }
 
 .logo {
-  width: 100%;
-  max-width: 515px;
-  height: auto;
-  margin: auto;
-}
-
-.general-header {
-  width: 100%;
-  /*background-image: url(../images/body-bckgrd--md.svg);
-  background-repeat: repeat-x;
-  background-position: 50% top;
-  background-attachment: fixed;
-  background-size: 100% 80px;
-  */
-  background-color: $purple;
-  background-image: linear-gradient(to bottom, #1a3773 50%,  #492c87);
-  position: fixed; /* Set the navbar to fixed position */
-  top: 0; /* Position the navbar at the top of the page */
-  z-index: 100;
-  height: 70px;
-  padding: 20px;
-}
-
-
-
-/*
+    width: 100%;
+    max-width: 515px;
+    height: auto;
+    margin: auto;
+  }
 
 @media (min-width: 768px) {
   .general-header {
@@ -165,10 +144,4 @@
     height: 100vh;
     padding: 90px 15px 15px;
   }
-}
-
-*/
-
-.block-system-branding-block {
-  float: left;
 }
